@@ -1,0 +1,455 @@
+/**** ....................Template.............*******/
+article,aside,rside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
+	{
+	display: block;
+}
+
+div.loading {
+	width: 100%;
+	height: 100%;
+	background-color: #d8ecfd;
+}
+
+.loading img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+	padding: 10px 0;
+	background-color:#888888;
+/* 	background-color: #4c2626; */
+/* 	background-color: #253D52; */
+	-moz-box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+	-webkit-box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+	box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+	height: 40px
+}
+
+header hgroup {
+	margin: 0 auto;
+	width: 800px;
+	display: block;
+}
+
+header h1 {
+	margin: 0;
+	float: left;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .9);
+}
+
+#logo {
+	cursor: pointer;
+}
+
+header b {
+	color: #eee;
+	text-decoration: none;
+}
+
+header b span {
+	color: #d2a4a4;
+	font-size: 10px;
+}
+
+footer {
+	text-align: right;
+	width: 800px;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+#top {
+	margin: 0px;
+	float: right
+}
+
+#main {
+	margin: 20px auto 0 auto;
+	width: 800px;
+	display: block;
+}
+
+aside {
+	float: left;
+	width: 100px;
+}
+
+#content {
+	margin: -8px auto 0 auto;
+	float: right;
+	width: 600px;
+	padding-right: 40px;
+	display: block;
+}
+
+.login-title {
+	font-size: 40px;
+	font-weight: boder;
+	color: #FFFFFF;
+}
+.login-submit {
+	color: rgba(0, 0, 0, 0.63);
+	font-size: 17px;
+	font-weight: bold;
+	font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;
+	text-shadow: 0 1px 1px rgba(255, 255,255,0.37);
+	background: #8BAD68;
+	border: 1px solid #2A3F56;
+	border-radius: 6px;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	float: left;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	height: 42px;
+	opacity: .9;
+	white-space: nowrap;
+}
+.login-field {
+	font-size: 15px;
+	font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;
+	border: 1px solid #2A3F56;
+	height: 40px;
+}
+.label-error {
+	color: #FF0000;
+	font-weight: bolder;
+}
+.login-forgot {
+	display: block;
+	float: left;
+	font-size: 18px;
+	color: #8BAD68;
+	text-decoration: none;
+	cursor: pointer;
+}
+.login-panel {
+	background: #888888
+}
+.label-confirmation {
+	color: #00FF00;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.error-field {
+	border: solid 2px #ff0000;
+}
+.label-toppanel {
+	color: #188188;
+	display: inline-block;
+	float: left;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-family: 'Lobster Two', cursive;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.label-toppanel:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+.button-fichier-menu {
+	color: rgba(0, 0, 0, 0.63);
+	font-size: 17px;
+	font-weight: bold;
+	font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;
+	text-shadow: 0 1px 1px rgba(255, 255,255,0.37);
+	background-color: darkgray;
+	border: 1px solid #2A3F56;
+	border-radius: 2px;
+	cursor: pointer;
+	display: block;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	opacity: .9;
+	white-space: nowrap;
+}
+.search-fichier {
+}
+.label-title-fichier {
+	color: white;
+	font-size: 25px;
+	font-weight: bolder;
+	text-decoration: underline;
+	background-color: darkgray;
+	text-align: center;
+}
+
+.label-title-acceuil {
+	color: white;
+	font-size: 25px;
+	font-weight: bolder;
+	text-decoration: underline;
+	background-color: darkgray;
+	text-align: center;
+	cursor: pointer;
+}
+
+.left-menu-fichier {
+	display: block;
+	position: relative;
+	color: blue;
+	font-size: 16px;
+	font-weight: bolder;
+	border :  1px solid #2A3F56;
+	cursor: pointer;
+}
+
+.left-menu-fichier:hover {
+	text-decoration: underline;
+}
+
+.date {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 12px;
+	color: #ACACAC;
+	text-align: right;
+	float:  right;
+}
+
+.panel-list-fichier{
+	border :  1px solid #2A3F56;
+}
+
+.navbar-anchor {
+	margin: 0 8px;
+	cursor: pointer;
+}
+
+.welcome-message {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #00FF00;
+	text-align: center;
+}
+
+.style-name {
+	color: #888888;
+	font-size: 15px;
+	font-weight: bolder;
+}
+
+.home-panel{
+	border :  1px solid #2A3F56;
+	width: 295px;
+	height: 245px;
+	border-radius: 5px;
+}
+
+.left-menu-list{
+	margin: 32px 0;
+}
+.style-left {
+	float: right;
+}
+
+.glass {
+	background-color: #6699FF;
+	opacity: .2;
+}
+
+.photo{
+	cursor: pointer;
+}
+
+.contact-popup-photo {
+	float: left;
+	cursor: pointer;
+}
+
+.contacts-panel {
+	padding: 0.5em;
+	line-height: 150%;
+}
+
+.contact-item {
+	display: block;
+}
+
+.shortcuts-strackHeader {
+	gwt-image: 'gradient';
+	background-color: #b4b6bc;
+	cursor: pointer;
+	text-shadow: rgba(255, 255, 255, 1) 0 1px 1px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #000;
+	padding: .7em .5em 0 .6em;
+	border-top: 1px solid #888;
+}
+
+.maildetail-detail {
+	border: 1px solid #666;
+	background-color: white;
+}
+
+.maildetail-body {
+	line-height: 150%;
+	padding: 5px 5px 5px 5px;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.maildetail-header {
+	background: #eee;
+	border-bottom: 1px solid #666;
+	width: 100%;
+}
+
+.maildetail-label {
+	font-weight: bolder;
+}
+
+.maildetail-date {
+	font-family: "Times New Roman", Times, Arial, sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 12px;
+	color: #0024D5;
+}
+
+.maillist-selectedRow {
+	background: #adcce7;
+}
+
+.maillist-unRead {
+	font-weight: bolder;
+}
+
+.maillist-selectedRow td {
+	border-top: 1px solid #88a4d6;
+	border-bottom: 1px solid #7b97d0;
+}
+
+.maillist-date {
+	font-family: "Times New Roman", Times, Arial, sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 12px;
+	color: #7FC6BC;
+}
+
+.maillist-panel {
+	border: 1px solid #999;
+}
+
+.maillist-row {
+	cursor: pointer;
+}
+
+.maillist-header {
+	background-color: #d3d6dd;
+	table-layout: fixed;
+	text: center;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.header-selection{
+	background-color: #888888;
+}
+
+.maillist-header td {
+	font-weight: bold;
+	text-shadow: #fff 0 2px 2px;
+	padding: 2px 0 1px 10px;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+
+.maillist-table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.maillist-table td {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	padding: 2px 0 2px 10px;
+}
+
+.navbar-anchor {
+	margin: 0 8px;
+	cursor: pointer;
+}
+
+.splitPanel {
+	height: 520px;
+	width: 100%;
+}
+
+.contact-popup-email {
+	display: block;
+	float: left;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.contact-popup-email:hover {
+	text-decoration: underline;
+}
+
+.show-comments {
+	display: block;
+	float: left;
+	color: rgb(51, 102, 204);
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.show-comments:hover {
+	text-decoration: underline;
+}
+
+.hide-comments {
+	display: block;
+	float: left;
+	color: rgb(153, 153, 153);
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.hide-comments:hover {
+	text-decoration: underline;
+}
+
+.contact-popup-supp {
+	background-color: #FF0000;
+	font-size: 15px;
+	font-color: #888888;
+	cursor: pointer;
+}
+
+.editor {
+	border: 1px solid #d0def2;
+}

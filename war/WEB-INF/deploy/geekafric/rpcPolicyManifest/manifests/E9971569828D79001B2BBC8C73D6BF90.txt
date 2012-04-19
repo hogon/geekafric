@@ -1,0 +1,2 @@
+serviceClass: com.geek.afric.client.GeekService
+path: C928B18072BF9DC782AC44FBB5F4E345.gwt.rpc

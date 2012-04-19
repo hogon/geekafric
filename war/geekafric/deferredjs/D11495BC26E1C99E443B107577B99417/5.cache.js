@@ -1,0 +1,4387 @@
+var $intern_296 = '192px', $intern_299 = 'Aucun object', $intern_295 = 'Envoi du message', $intern_294 = 'Envoyer', $intern_283 = 'Il y a eu un probl\xE8me lors de la r\xE9cup\xE9ration des emails envoy\xE9s \xE0 cause des erreurs suivante:\n', $intern_282 = 'Il y a eu un probl\xE8me lors de la r\xE9cup\xE9ration des emails r\xE9\xE7us \xE0 cause des erreurs suivante:\n', $intern_280 = 'Il y a eu un probl\xE8me lors de la r\xE9cup\xE9ration des emails \xE0 cause des erreurs suivante:\n', $intern_284 = "La mise \xE0 jour du mail n'a pas r\xE9ussi \xE0 cause des erreurs suivante:\n", $intern_298 = "Veuillez selectionnez un message s'il vous plait", $intern_287 = "Votre message n'a pas pu \xEAtre envoy\xE9 \xE0 cause des erreurs suivante:\n", $intern_285 = 'all', $intern_322 = 'aria-expanded', $intern_333 = 'com.google.gwt.layout.client.', $intern_315 = 'gwt-StackLayoutPanelContent', $intern_314 = 'gwt-StackLayoutPanelHeader', $intern_316 = 'gwt-StackLayoutPanelHeader-hovering', $intern_291 = 'header-selection', $intern_297 = 'maildetail-label', $intern_292 = 'maillist-selectedRow', $intern_293 = 'maillist-unRead', $intern_286 = 'outbox', $intern_311 = 'padding', $intern_321 = 'treeitem', $intern_304 = 'zIndex';
+function com_geek_afric_client_AppManager_runTimer__IIIIILcom_geek_afric_shared_Mail_2Lcom_geek_afric_client_GeekServiceAsync_2V(j, m, a, h, mn, mail, rpcService){
+  var expires;
+  expires = new java_util_Date_Date__IIIIIV(a - 1900, m - 1, j, h, mn);
+  mail.com_geek_afric_shared_ObjetStandard_dateCreation = expires;
+  mail.com_geek_afric_shared_ObjetStandard_dateDerniereModif = expires;
+  com_geek_afric_client_AppManager_timer = new com_geek_afric_client_AppManager$14_AppManager$14__V(expires, rpcService, mail);
+  com_google_gwt_user_client_Timer_$scheduleRepeating__Lcom_google_gwt_user_client_Timer_2IV(com_geek_afric_client_AppManager_timer);
+  com_geek_afric_client_AppManager$14_$run__Lcom_geek_afric_client_AppManager$14_2V(com_geek_afric_client_AppManager_timer);
+}
+
+var com_geek_afric_client_AppManager_timer = null;
+_ = com_geek_afric_client_AppManager$11.prototype;
+_.onSuccess__V = function com_geek_afric_client_AppManager$11_onSuccess__V(){
+  var $e0, box, first, list, mailInfo, presenter, second, startIndex;
+  box = $intern_197;
+  list = java_lang_String_$split__Ljava_lang_String_2Ljava_lang_String_2I_3Ljava_lang_String_2(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_part2, $intern_214, 0);
+  first = list[0];
+  second = list[1];
+  box = java_lang_String_$substring__Ljava_lang_String_2ILjava_lang_String_2(first, first.indexOf($intern_215) + 1);
+  second = java_lang_String_$substring__Ljava_lang_String_2ILjava_lang_String_2(second, second.indexOf($intern_215) + 1);
+  try {
+    startIndex = java_lang_Number__1_1parseAndValidateInt__Ljava_lang_String_2IIII(second);
+  }
+   catch ($e0) {
+    $e0 = com_google_gwt_lang_Exceptions_caught__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$java_lang_IllegalArgumentException)) {
+      startIndex = -1;
+    }
+     else 
+      throw $e0;
+  }
+  mailInfo = new com_geek_afric_client_view_MailView_MailView__Lcom_geek_afric_shared_User_2V(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_user);
+  presenter = new com_geek_afric_client_presenter_MailPresenter_MailPresenter__Lcom_geek_afric_client_GeekServiceAsync_2Lcom_google_gwt_event_shared_HandlerManager_2Lcom_geek_afric_client_presenter_MailPresenter$Display_2Lcom_geek_afric_shared_User_2Ljava_lang_String_2IV(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_rpcService, this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_eventBus, mailInfo, this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_user, box, startIndex);
+  com_google_gwt_user_client_ui_Panel_$clear__Lcom_google_gwt_user_client_ui_Panel_2V(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_topContainer);
+  com_google_gwt_user_client_ui_AbsolutePanel_$add__Lcom_google_gwt_user_client_ui_AbsolutePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_topContainer, mailInfo.com_geek_afric_client_view_MailView_topPanel);
+  com_google_gwt_user_client_ui_Panel_$clear__Lcom_google_gwt_user_client_ui_Panel_2V(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_leftContainer);
+  com_google_gwt_user_client_ui_AbsolutePanel_$add__Lcom_google_gwt_user_client_ui_AbsolutePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_leftContainer, mailInfo.com_geek_afric_client_view_MailView_leftPanel);
+  com_geek_afric_client_presenter_MailPresenter_$go__Lcom_geek_afric_client_presenter_MailPresenter_2Lcom_google_gwt_user_client_ui_HasWidgets_2V(presenter, this.com_geek_afric_client_AppManager$11_this$0.com_geek_afric_client_AppManager_container);
+}
+;
+function com_google_gwt_user_client_Timer_$scheduleRepeating__Lcom_google_gwt_user_client_Timer_2IV(this$static){
+  this$static.com_google_gwt_user_client_Timer_isRepeating?com_google_gwt_user_client_Timer_clearInterval__IV(this$static.com_google_gwt_user_client_Timer_timerId):com_google_gwt_user_client_Timer_clearTimeout__IV(this$static.com_google_gwt_user_client_Timer_timerId);
+  java_util_ArrayList_$remove__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(com_google_gwt_user_client_Timer_timers, this$static);
+  this$static.com_google_gwt_user_client_Timer_isRepeating = true;
+  this$static.com_google_gwt_user_client_Timer_timerId = com_google_gwt_user_client_Timer_createInterval__Lcom_google_gwt_user_client_Timer_2II(this$static, 1000);
+  java_util_ArrayList_$add__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(com_google_gwt_user_client_Timer_timers, this$static);
+}
+
+function com_google_gwt_user_client_Timer_createInterval__Lcom_google_gwt_user_client_Timer_2II(timer, period){
+  return $wnd.setInterval($entry(function(){
+    timer.fire__V();
+  }
+  ), period);
+}
+
+function com_geek_afric_client_AppManager$14_$run__Lcom_geek_afric_client_AppManager$14_2V(this$static){
+  var current;
+  current = new java_util_Date_Date__V;
+  if (java_util_Date_$after__Ljava_util_Date_2Ljava_util_Date_2Z(current, this$static.com_geek_afric_client_AppManager$14_val$expires)) {
+    com_geek_afric_client_GeekService_1Proxy_$sendMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_Mail_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_AppManager$14_val$rpcService, this$static.com_geek_afric_client_AppManager$14_val$mail, new com_geek_afric_client_AppManager$14$1_AppManager$14$1__Lcom_geek_afric_client_AppManager$14_2V);
+    com_google_gwt_user_client_Timer_$cancel__Lcom_google_gwt_user_client_Timer_2V(com_geek_afric_client_AppManager_timer);
+  }
+}
+
+function com_geek_afric_client_AppManager$14_AppManager$14__V(val$expires, val$rpcService, val$mail){
+  com_google_gwt_user_client_Timer_$clinit__V();
+  this.com_geek_afric_client_AppManager$14_val$expires = val$expires;
+  this.com_geek_afric_client_AppManager$14_val$rpcService = val$rpcService;
+  this.com_geek_afric_client_AppManager$14_val$mail = val$mail;
+}
+
+function com_geek_afric_client_AppManager$14(){
+}
+
+_ = com_geek_afric_client_AppManager$14_AppManager$14__V.prototype = com_geek_afric_client_AppManager$14.prototype = new com_google_gwt_user_client_Timer;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_AppManager$14_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1AppManager$14_12_1classLit;
+}
+;
+_.run__V = function com_geek_afric_client_AppManager$14_run__V(){
+  com_geek_afric_client_AppManager$14_$run__Lcom_geek_afric_client_AppManager$14_2V(this);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_Timer]);
+_.com_geek_afric_client_AppManager$14_val$expires = null;
+_.com_geek_afric_client_AppManager$14_val$mail = null;
+_.com_geek_afric_client_AppManager$14_val$rpcService = null;
+function com_geek_afric_client_AppManager$14$1_AppManager$14$1__Lcom_geek_afric_client_AppManager$14_2V(){
+}
+
+function com_geek_afric_client_AppManager$14$1(){
+}
+
+_ = com_geek_afric_client_AppManager$14$1_AppManager$14$1__Lcom_geek_afric_client_AppManager$14_2V.prototype = com_geek_afric_client_AppManager$14$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_AppManager$14$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1AppManager$14$1_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_AppManager$14$1_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V("Votre message n'a pas pu \xEAtre envoy\xE9!");
+  com_google_gwt_user_client_Timer_$cancel__Lcom_google_gwt_user_client_Timer_2V(com_geek_afric_client_AppManager_timer);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_AppManager$14$1_onSuccess__Ljava_lang_Object_2V(result){
+  com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_lang_String);
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V('Votre message a \xE9t\xE9 envoy\xE9!');
+  com_google_gwt_user_client_Timer_$cancel__Lcom_google_gwt_user_client_Timer_2V(com_geek_afric_client_AppManager_timer);
+}
+;
+function com_geek_afric_client_GeekService_1Proxy_$deleteMails__Lcom_geek_afric_client_GeekService_1Proxy_2Ljava_util_ArrayList_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static, mails, callback){
+  var $e0, helper, streamWriter;
+  helper = new com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_RemoteServiceProxy$ServiceHelper__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, 'deleteMails');
+  try {
+    streamWriter = com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$start__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Ljava_lang_String_2ILcom_google_gwt_user_client_rpc_SerializationStreamWriter_2(helper, 1);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_37));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeObject__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_Object_2V(streamWriter, mails);
+    com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$finish__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2Lcom_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_2Lcom_google_gwt_http_client_Request_2(helper, callback, (com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_$clinit__V() , com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_OBJECT));
+  }
+   catch ($e0) {
+    $e0 = com_google_gwt_lang_Exceptions_caught__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$com_google_gwt_user_client_rpc_SerializationException)) {
+      com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(callback.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+    }
+     else 
+      throw $e0;
+  }
+}
+
+function com_geek_afric_client_GeekService_1Proxy_$getMyMessages__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2Ljava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static, user, order, callback){
+  var $e0, ex, helper, streamWriter;
+  helper = new com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_RemoteServiceProxy$ServiceHelper__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, 'getMyMessages');
+  try {
+    streamWriter = com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$start__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Ljava_lang_String_2ILcom_google_gwt_user_client_rpc_SerializationStreamWriter_2(helper, 2);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_23));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_15));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeObject__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_Object_2V(streamWriter, user);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, order));
+    com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$finish__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2Lcom_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_2Lcom_google_gwt_http_client_Request_2(helper, callback, (com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_$clinit__V() , com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_OBJECT));
+  }
+   catch ($e0) {
+    $e0 = com_google_gwt_lang_Exceptions_caught__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$com_google_gwt_user_client_rpc_SerializationException)) {
+      ex = $e0;
+      com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_280 + ex.java_lang_Throwable_detailMessage);
+      com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(callback.com_geek_afric_client_presenter_MailPresenter$2_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+    }
+     else 
+      throw $e0;
+  }
+}
+
+function com_geek_afric_client_GeekService_1Proxy_$getMyReceivedMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2ILjava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static, user, startIndex, order, callback){
+  var $e0, ex, helper, streamWriter;
+  helper = new com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_RemoteServiceProxy$ServiceHelper__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, 'getMyReceivedMail');
+  try {
+    streamWriter = com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$start__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Ljava_lang_String_2ILcom_google_gwt_user_client_rpc_SerializationStreamWriter_2(helper, 3);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_23));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_281));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_15));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeObject__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_Object_2V(streamWriter, user);
+    com_google_gwt_user_client_rpc_impl_ClientSerializationStreamWriter_append__Ljava_lang_StringBuffer_2Ljava_lang_String_2V(streamWriter.com_google_gwt_user_client_rpc_impl_ClientSerializationStreamWriter_encodeBuffer, $intern_0 + startIndex);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, order));
+    com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$finish__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2Lcom_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_2Lcom_google_gwt_http_client_Request_2(helper, callback, (com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_$clinit__V() , com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_OBJECT));
+  }
+   catch ($e0) {
+    $e0 = com_google_gwt_lang_Exceptions_caught__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$com_google_gwt_user_client_rpc_SerializationException)) {
+      ex = $e0;
+      com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_282 + ex.java_lang_Throwable_detailMessage);
+      com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(callback.com_geek_afric_client_presenter_MailPresenter$3_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+    }
+     else 
+      throw $e0;
+  }
+}
+
+function com_geek_afric_client_GeekService_1Proxy_$getMySentMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2ILjava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static, user, startIndex, order, callback){
+  var $e0, ex, helper, streamWriter;
+  helper = new com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_RemoteServiceProxy$ServiceHelper__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, 'getMySentMail');
+  try {
+    streamWriter = com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$start__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Ljava_lang_String_2ILcom_google_gwt_user_client_rpc_SerializationStreamWriter_2(helper, 3);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_23));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_281));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_15));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeObject__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_Object_2V(streamWriter, user);
+    com_google_gwt_user_client_rpc_impl_ClientSerializationStreamWriter_append__Ljava_lang_StringBuffer_2Ljava_lang_String_2V(streamWriter.com_google_gwt_user_client_rpc_impl_ClientSerializationStreamWriter_encodeBuffer, $intern_0 + startIndex);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, order));
+    com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$finish__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2Lcom_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_2Lcom_google_gwt_http_client_Request_2(helper, callback, (com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_$clinit__V() , com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_OBJECT));
+  }
+   catch ($e0) {
+    $e0 = com_google_gwt_lang_Exceptions_caught__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$com_google_gwt_user_client_rpc_SerializationException)) {
+      ex = $e0;
+      com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_283 + ex.java_lang_Throwable_detailMessage);
+      com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(callback.com_geek_afric_client_presenter_MailPresenter$4_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+    }
+     else 
+      throw $e0;
+  }
+}
+
+function com_geek_afric_client_GeekService_1Proxy_$updateMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_Mail_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static, mail, callback){
+  var $e0, ex, helper, streamWriter;
+  helper = new com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_RemoteServiceProxy$ServiceHelper__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, 'updateMail');
+  try {
+    streamWriter = com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$start__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Ljava_lang_String_2ILcom_google_gwt_user_client_rpc_SerializationStreamWriter_2(helper, 1);
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeInt__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2IV(streamWriter, com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$addString__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_String_2I(streamWriter, $intern_22));
+    com_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_$writeObject__Lcom_google_gwt_user_client_rpc_impl_AbstractSerializationStreamWriter_2Ljava_lang_Object_2V(streamWriter, mail);
+    com_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_$finish__Lcom_google_gwt_user_client_rpc_impl_RemoteServiceProxy$ServiceHelper_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2Lcom_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_2Lcom_google_gwt_http_client_Request_2(helper, callback, (com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_$clinit__V() , com_google_gwt_user_client_rpc_impl_RequestCallbackAdapter$ResponseReader_OBJECT));
+  }
+   catch ($e0) {
+    $e0 = com_google_gwt_lang_Exceptions_caught__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$com_google_gwt_user_client_rpc_SerializationException)) {
+      ex = $e0;
+      com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_284 + ex.java_lang_Throwable_detailMessage);
+    }
+     else 
+      throw $e0;
+  }
+}
+
+function com_geek_afric_client_presenter_MailPresenter_$go__Lcom_geek_afric_client_presenter_MailPresenter_2Lcom_google_gwt_user_client_ui_HasWidgets_2V(this$static, container){
+  com_google_gwt_user_client_ui_Panel_$clear__Lcom_google_gwt_user_client_ui_Panel_2V(container);
+  com_google_gwt_user_client_ui_AbsolutePanel_$add__Lcom_google_gwt_user_client_ui_AbsolutePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(container, this$static.com_geek_afric_client_presenter_MailPresenter_display);
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, this$static.com_geek_afric_client_presenter_MailPresenter_box, this$static.com_geek_afric_client_presenter_MailPresenter_order);
+  com_geek_afric_client_GeekService_1Proxy_$getFilesByUserId__Lcom_geek_afric_client_GeekService_1Proxy_2Ljava_lang_String_2ILjava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter_user.com_geek_afric_shared_ObjetStandard_id, $intern_226, new com_geek_afric_client_presenter_MailPresenter$5_MailPresenter$5__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static));
+}
+
+function com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static, box, order){
+  var fromMap;
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter_display, true);
+  fromMap = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter_mapped.get__Ljava_lang_Object_2Ljava_lang_Object_2(box + order), Q$java_util_ArrayList);
+  if (fromMap) {
+    com_geek_afric_client_view_MailView_$setMails__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_presenter_MailPresenter_display, fromMap);
+    com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter_display, false);
+    return;
+  }
+  java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(box, $intern_285)?com_geek_afric_client_GeekService_1Proxy_$getMyMessages__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2Ljava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter_user, order, new com_geek_afric_client_presenter_MailPresenter$2_MailPresenter$2__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static, box, order)):java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(box, $intern_197)?com_geek_afric_client_GeekService_1Proxy_$getMyReceivedMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2ILjava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter_user, this$static.com_geek_afric_client_presenter_MailPresenter_startIndex, order, new com_geek_afric_client_presenter_MailPresenter$3_MailPresenter$3__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static, box, order)):java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(box, $intern_286) && com_geek_afric_client_GeekService_1Proxy_$getMySentMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2ILjava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter_user, this$static.com_geek_afric_client_presenter_MailPresenter_startIndex, order, new com_geek_afric_client_presenter_MailPresenter$4_MailPresenter$4__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static, box, order));
+}
+
+function com_geek_afric_client_presenter_MailPresenter_$setSearch__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2V(this$static, token){
+  var fromMap, i, m, search;
+  fromMap = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter_mapped.get__Ljava_lang_Object_2Ljava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter_box + this$static.com_geek_afric_client_presenter_MailPresenter_order), Q$java_util_ArrayList);
+  search = new java_util_ArrayList_ArrayList__V;
+  if (fromMap) {
+    for (i = 0; i < fromMap.java_util_ArrayList_size; ++i) {
+      m = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2((java_util_AbstractList_checkIndex__IIV(i, fromMap.java_util_ArrayList_size) , fromMap.java_util_ArrayList_array[i]), Q$com_geek_afric_shared_Mail);
+      (java_lang_String_$indexOf__Ljava_lang_String_2Ljava_lang_String_2I(m.com_geek_afric_shared_Mail_object, token) != -1 || java_lang_String_$indexOf__Ljava_lang_String_2Ljava_lang_String_2I(m.com_geek_afric_shared_Mail_senderName, token) != -1 || java_lang_String_$indexOf__Ljava_lang_String_2Ljava_lang_String_2I(m.com_geek_afric_shared_Mail_receiverName, token) != -1) && (com_google_gwt_lang_Array_setCheck__Lcom_google_gwt_lang_Array_2ILjava_lang_Object_2Ljava_lang_Object_2(search.java_util_ArrayList_array, search.java_util_ArrayList_size++, m) , true);
+    }
+    com_geek_afric_client_view_MailView_$setMails__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_presenter_MailPresenter_display, search);
+  }
+}
+
+function com_geek_afric_client_presenter_MailPresenter_$setToken__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static){
+  var fromMap, i, m, tokens;
+  tokens = new java_util_HashSet_HashSet__V;
+  fromMap = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter_mapped.get__Ljava_lang_Object_2Ljava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter_box + this$static.com_geek_afric_client_presenter_MailPresenter_order), Q$java_util_ArrayList);
+  if (fromMap) {
+    for (i = 0; i < fromMap.java_util_ArrayList_size; ++i) {
+      m = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2((java_util_AbstractList_checkIndex__IIV(i, fromMap.java_util_ArrayList_size) , fromMap.java_util_ArrayList_array[i]), Q$com_geek_afric_shared_Mail);
+      java_util_HashSet_$add__Ljava_util_HashSet_2Ljava_lang_Object_2Z(tokens, m.com_geek_afric_shared_Mail_object);
+      java_util_HashSet_$add__Ljava_util_HashSet_2Ljava_lang_Object_2Z(tokens, m.com_geek_afric_shared_Mail_senderName);
+      java_util_HashSet_$add__Ljava_util_HashSet_2Ljava_lang_Object_2Z(tokens, m.com_geek_afric_shared_Mail_receiverName);
+    }
+    com_geek_afric_client_view_MailView_$setTokens__Lcom_geek_afric_client_view_MailView_2Ljava_util_Set_2V(this$static.com_geek_afric_client_presenter_MailPresenter_display, tokens);
+  }
+}
+
+function com_geek_afric_client_presenter_MailPresenter_MailPresenter__Lcom_geek_afric_client_GeekServiceAsync_2Lcom_google_gwt_event_shared_HandlerManager_2Lcom_geek_afric_client_presenter_MailPresenter$Display_2Lcom_geek_afric_shared_User_2Ljava_lang_String_2IV(rpcService, eventBus, display, user, box, startIndex){
+  this.com_geek_afric_client_presenter_MailPresenter_mapped = new java_util_HashMap_HashMap__V;
+  this.com_geek_afric_client_presenter_MailPresenter_rpcService = rpcService;
+  this.com_geek_afric_client_presenter_MailPresenter_eventBus = eventBus;
+  this.com_geek_afric_client_presenter_MailPresenter_display = display;
+  this.com_geek_afric_client_presenter_MailPresenter_user = user;
+  this.com_geek_afric_client_presenter_MailPresenter_order = $intern_226;
+  com_geek_afric_client_view_MailView_$setListener__Lcom_geek_afric_client_view_MailView_2Lcom_geek_afric_client_view_MailView$Listener_2V(this.com_geek_afric_client_presenter_MailPresenter_display, new com_geek_afric_client_presenter_MailPresenter$1_MailPresenter$1__Lcom_geek_afric_client_presenter_MailPresenter_2V(this));
+  this.com_geek_afric_client_presenter_MailPresenter_box = box == null || !box.length?$intern_285:box;
+  this.com_geek_afric_client_presenter_MailPresenter_startIndex = startIndex;
+}
+
+function com_geek_afric_client_presenter_MailPresenter(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter_MailPresenter__Lcom_geek_afric_client_GeekServiceAsync_2Lcom_google_gwt_event_shared_HandlerManager_2Lcom_geek_afric_client_presenter_MailPresenter$Display_2Lcom_geek_afric_shared_User_2Ljava_lang_String_2IV.prototype = com_geek_afric_client_presenter_MailPresenter.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter_12_1classLit;
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter_box = $intern_285;
+_.com_geek_afric_client_presenter_MailPresenter_display = null;
+_.com_geek_afric_client_presenter_MailPresenter_eventBus = null;
+_.com_geek_afric_client_presenter_MailPresenter_order = null;
+_.com_geek_afric_client_presenter_MailPresenter_rpcService = null;
+_.com_geek_afric_client_presenter_MailPresenter_startIndex = 0;
+_.com_geek_afric_client_presenter_MailPresenter_user = null;
+function com_geek_afric_client_presenter_MailPresenter$1_$getRechercheSelectHandler__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_google_gwt_event_logical_shared_SelectionHandler_2(this$static){
+  var selection;
+  selection = new com_geek_afric_client_presenter_MailPresenter$1$2_MailPresenter$1$2__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static);
+  return selection;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickDeconnexion__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  com_geek_afric_client_GeekService_1Proxy_$logout__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_User_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_user, new com_geek_afric_client_presenter_MailPresenter$1$1_MailPresenter$1$1__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickEnvoiDiff__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_Integer_2Ljava_lang_Integer_2Ljava_lang_Integer_2Ljava_lang_Integer_2Ljava_lang_Integer_2Lcom_geek_afric_shared_Mail_2V(this$static, jour, mois, annee, heure, min, mail){
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, true);
+  com_geek_afric_client_GeekService_1Proxy_$getUserByEmail__Lcom_geek_afric_client_GeekService_1Proxy_2Ljava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, mail.com_geek_afric_shared_Mail_receiver, new com_geek_afric_client_presenter_MailPresenter$1$6_MailPresenter$1$6__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static, mail, jour, mois, annee, heure, min));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickEnvoyer__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_geek_afric_shared_Mail_2V(this$static, mail){
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, true);
+  com_geek_afric_client_GeekService_1Proxy_$getUserByEmail__Lcom_geek_afric_client_GeekService_1Proxy_2Ljava_lang_String_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, mail.com_geek_afric_shared_Mail_receiver, new com_geek_afric_client_presenter_MailPresenter$1$4_MailPresenter$1$4__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static, mail));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickFichiers__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_FichierListEvent_FichierListEvent__Ljava_lang_String_2IV(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_user.com_geek_afric_shared_ObjetStandard_id, 0));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickHeader__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this$static, order1){
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order = order1);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickInbox__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box = $intern_197, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order = $intern_226);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickRoot__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box = $intern_285, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order = $intern_226);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickSearch__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this$static, token){
+  token != null && !!token.length && com_geek_afric_client_presenter_MailPresenter_$setSearch__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0, token);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickSent__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box = $intern_286, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order = $intern_226);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickSupprimer__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_util_ArrayList_2V(this$static, mailsToDelete){
+  var i, mail;
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, true);
+  for (i = 0; i < mailsToDelete.java_util_ArrayList_size; ++i) {
+    mail = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2((java_util_AbstractList_checkIndex__IIV(i, mailsToDelete.java_util_ArrayList_size) , mailsToDelete.java_util_ArrayList_array[i]), Q$com_geek_afric_shared_Mail);
+    com_geek_afric_shared_User_$isReceiver__Lcom_geek_afric_shared_User_2Lcom_geek_afric_shared_Mail_2Z(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_user, mail) && (mail.com_geek_afric_shared_Mail_receiverDelete = true);
+    com_geek_afric_shared_User_$isSender__Lcom_geek_afric_shared_User_2Lcom_geek_afric_shared_Mail_2Z(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_user, mail) && (mail.com_geek_afric_shared_Mail_senderDelete = true);
+  }
+  com_geek_afric_client_GeekService_1Proxy_$deleteMails__Lcom_geek_afric_client_GeekService_1Proxy_2Ljava_util_ArrayList_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, mailsToDelete, new com_geek_afric_client_presenter_MailPresenter$1$3_MailPresenter$1$3__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onClickTitle__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_geek_afric_shared_Fichier_2V(this$static, file){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_FichierEvent_FichierEvent__Ljava_lang_String_2V(file.com_geek_afric_shared_ObjetStandard_id));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$onItemSelected__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_geek_afric_shared_Mail_2V(this$static, item){
+  if (item.com_geek_afric_shared_Mail_read)
+    return;
+  else if (com_geek_afric_shared_User_$isReceiver__Lcom_geek_afric_shared_User_2Lcom_geek_afric_shared_Mail_2Z(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_user, item)) {
+    item.com_geek_afric_shared_Mail_read = true;
+    com_geek_afric_client_GeekService_1Proxy_$updateMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_Mail_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, item, new com_geek_afric_client_presenter_MailPresenter$1$5_MailPresenter$1$5__Lcom_geek_afric_client_presenter_MailPresenter$1_2V);
+  }
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$setEmails__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  com_geek_afric_client_GeekService_1Proxy_$getEmails__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, new com_geek_afric_client_presenter_MailPresenter$1$7_MailPresenter$1$7__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_$update__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static){
+  this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.clear__V();
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box, this$static.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1_MailPresenter$1__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$0){
+  this.com_geek_afric_client_presenter_MailPresenter$1_this$0 = this$0;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1_MailPresenter$1__Lcom_geek_afric_client_presenter_MailPresenter_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1_12_1classLit;
+}
+;
+_.getRechercheSelectHandler__Lcom_google_gwt_event_logical_shared_SelectionHandler_2 = function com_geek_afric_client_presenter_MailPresenter$1_getRechercheSelectHandler__Lcom_google_gwt_event_logical_shared_SelectionHandler_2(){
+  return new com_geek_afric_client_presenter_MailPresenter$1$2_MailPresenter$1$2__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this);
+}
+;
+_.onClickAcceuil__V = function com_geek_afric_client_presenter_MailPresenter$1_onClickAcceuil__V(){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_AcceuilEvent_AcceuilEvent__V);
+}
+;
+_.onClickDeconnexion__V = function com_geek_afric_client_presenter_MailPresenter$1_onClickDeconnexion__V(){
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickDeconnexion__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this);
+}
+;
+_.onClickFichiers__V = function com_geek_afric_client_presenter_MailPresenter$1_onClickFichiers__V(){
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickFichiers__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this);
+}
+;
+_.onClickPartages__V = function com_geek_afric_client_presenter_MailPresenter$1_onClickPartages__V(){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_FichierListEvent_FichierListEvent__Ljava_lang_String_2IV($intern_199, 0));
+}
+;
+_.onClickSearch__Ljava_lang_String_2V = function com_geek_afric_client_presenter_MailPresenter$1_onClickSearch__Ljava_lang_String_2V(token){
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickSearch__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this, token);
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1_this$0 = null;
+function com_geek_afric_client_presenter_MailPresenter$1$1_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$1_2Ljava_lang_Void_2V(this$static){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$1_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_UserLogoutEvent_UserLogoutEvent__Lcom_geek_afric_shared_User_2V);
+  com_google_gwt_user_client_Window_setTitle__Ljava_lang_String_2V($intern_200);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$1_MailPresenter$1$1__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$1){
+  this.com_geek_afric_client_presenter_MailPresenter$1$1_this$1 = this$1;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$1(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$1_MailPresenter$1$1__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$1_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$1_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V("Vous n'avez pas \xE9t\xE9 d\xE9connect\xE9 \xE0 cause des erreurs suivante:\n" + caught.getMessage__Ljava_lang_String_2());
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$1_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$1$1_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$1_2Ljava_lang_Void_2V(this, com_google_gwt_lang_Cast_throwClassCastExceptionUnlessNull__Ljava_lang_Object_2Ljava_lang_Object_2(result));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$1_this$1 = null;
+function com_geek_afric_client_presenter_MailPresenter$1$2_MailPresenter$1$2__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$1){
+  this.com_geek_afric_client_presenter_MailPresenter$1$2_this$1 = this$1;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$2(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$2_MailPresenter$1$2__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$2.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$2_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$2_12_1classLit;
+}
+;
+_.onSelection__Lcom_google_gwt_event_logical_shared_SelectionEvent_2V = function com_geek_afric_client_presenter_MailPresenter$1$2_onSelection__Lcom_google_gwt_event_logical_shared_SelectionEvent_2V(event){
+  var token;
+  token = com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_presenter_MailPresenter$1$2_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display.com_geek_afric_client_view_MailView_topPanel.com_geek_afric_client_view_TopPanel_recherche.com_google_gwt_user_client_ui_SuggestBox_box.com_google_gwt_user_client_ui_UIObject_element, $intern_90);
+  token != null && !!token.length && com_geek_afric_client_presenter_MailPresenter_$setSearch__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2V(this.com_geek_afric_client_presenter_MailPresenter$1$2_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0, token);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_SelectionHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_presenter_MailPresenter$1$2_this$1 = null;
+function com_geek_afric_client_presenter_MailPresenter$1$3_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$3_2Ljava_util_ArrayList_2V(this$static){
+  this$static.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.clear__V();
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box, this$static.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order);
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$3_MailPresenter$1$3__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$1){
+  this.com_geek_afric_client_presenter_MailPresenter$1$3_this$1 = this$1;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$3(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$3_MailPresenter$1$3__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$3.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$3_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$3_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$3_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$1$3_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$3_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$1$3_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$3_2Ljava_util_ArrayList_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_util_ArrayList));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$3_this$1 = null;
+function com_geek_afric_client_presenter_MailPresenter$1$4_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2Lcom_geek_afric_shared_User_2V(this$static, u){
+  if (!u) {
+    com_geek_afric_client_GeekService_1Proxy_$sendMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_Mail_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter$1$4_val$mail, new com_geek_afric_client_presenter_MailPresenter$1$4$1_MailPresenter$1$4$1__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2V(this$static));
+    return;
+  }
+  com_geek_afric_shared_Mail_$setReceiverName__Lcom_geek_afric_shared_Mail_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4_val$mail, u.com_geek_afric_shared_User_prenom + $intern_68 + u.com_geek_afric_shared_User_nom);
+  com_geek_afric_client_GeekService_1Proxy_$sendMail__Lcom_geek_afric_client_GeekService_1Proxy_2Lcom_geek_afric_shared_Mail_2Lcom_google_gwt_user_client_rpc_AsyncCallback_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService, this$static.com_geek_afric_client_presenter_MailPresenter$1$4_val$mail, new com_geek_afric_client_presenter_MailPresenter$1$4$2_MailPresenter$1$4$2__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2V(this$static));
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$4_MailPresenter$1$4__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$1, val$mail){
+  this.com_geek_afric_client_presenter_MailPresenter$1$4_this$1 = this$1;
+  this.com_geek_afric_client_presenter_MailPresenter$1$4_val$mail = val$mail;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$4(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$4_MailPresenter$1$4__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$4.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$4_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$4_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$4_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_287 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$4_onSuccess__Ljava_lang_Object_2V(u){
+  com_geek_afric_client_presenter_MailPresenter$1$4_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2Lcom_geek_afric_shared_User_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(u, Q$com_geek_afric_shared_User));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$4_this$1 = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$4_val$mail = null;
+function com_geek_afric_client_presenter_MailPresenter$1$4$1_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$4$1_2Ljava_lang_String_2V(this$static){
+  com_geek_afric_client_view_MailView_$setError__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display);
+  this$static.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.clear__V();
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box, this$static.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order);
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$4$1_MailPresenter$1$4$1__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2V(this$2){
+  this.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2 = this$2;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$4$1(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$4$1_MailPresenter$1$4$1__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$4$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$4$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$4$1_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$4$1_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_287 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$4$1_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$1$4$1_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$4$1_2Ljava_lang_String_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_lang_String));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$4$1_this$2 = null;
+function com_geek_afric_client_presenter_MailPresenter$1$4$2_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$4$2_2Ljava_lang_String_2V(this$static){
+  com_geek_afric_client_view_MailView_$setError__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display);
+  this$static.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.clear__V();
+  com_geek_afric_client_presenter_MailPresenter_$setMails__Lcom_geek_afric_client_presenter_MailPresenter_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0, this$static.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_box, this$static.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_order);
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$4$2_MailPresenter$1$4$2__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2V(this$2){
+  this.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2 = this$2;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$4$2(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$4$2_MailPresenter$1$4$2__Lcom_geek_afric_client_presenter_MailPresenter$1$4_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$4$2.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$4$2_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$4$2_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$4$2_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_287 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2.com_geek_afric_client_presenter_MailPresenter$1$4_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$4$2_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$1$4$2_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$4$2_2Ljava_lang_String_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_lang_String));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$4$2_this$2 = null;
+function com_geek_afric_client_presenter_MailPresenter$1$5_MailPresenter$1$5__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(){
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$5(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$5_MailPresenter$1$5__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$5.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$5_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$5_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$5_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_284 + caught.getMessage__Ljava_lang_String_2());
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$5_onSuccess__Ljava_lang_Object_2V(result){
+  com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$com_geek_afric_shared_Mail);
+}
+;
+function com_geek_afric_client_presenter_MailPresenter$1$6_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$6_2Lcom_geek_afric_shared_User_2V(this$static, result){
+  if (result) {
+    com_geek_afric_shared_Mail_$setReceiverName__Lcom_geek_afric_shared_Mail_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$mail, result.com_geek_afric_shared_User_prenom + $intern_68 + result.com_geek_afric_shared_User_nom);
+    com_geek_afric_client_AppManager_runTimer__IIIIILcom_geek_afric_shared_Mail_2Lcom_geek_afric_client_GeekServiceAsync_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$jour.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$mois.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$annee.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$heure.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$min.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$mail, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService);
+    com_geek_afric_client_view_MailView_$setError__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display);
+    com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+  }
+   else {
+    com_geek_afric_client_AppManager_runTimer__IIIIILcom_geek_afric_shared_Mail_2Lcom_geek_afric_client_GeekServiceAsync_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$jour.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$mois.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$annee.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$heure.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$min.java_lang_Integer_value, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_val$mail, this$static.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_rpcService);
+    com_geek_afric_client_view_MailView_$setError__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display);
+    com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+  }
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$6_MailPresenter$1$6__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$1, val$mail, val$jour, val$mois, val$annee, val$heure, val$min){
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_this$1 = this$1;
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_val$mail = val$mail;
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_val$jour = val$jour;
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_val$mois = val$mois;
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_val$annee = val$annee;
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_val$heure = val$heure;
+  this.com_geek_afric_client_presenter_MailPresenter$1$6_val$min = val$min;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$6(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$6_MailPresenter$1$6__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$6.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$6_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$6_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$6_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_287 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$1$6_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$6_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$1$6_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$6_2Lcom_geek_afric_shared_User_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$com_geek_afric_shared_User));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_this$1 = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_val$annee = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_val$heure = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_val$jour = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_val$mail = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_val$min = null;
+_.com_geek_afric_client_presenter_MailPresenter$1$6_val$mois = null;
+function com_geek_afric_client_presenter_MailPresenter$1$7_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$7_2Ljava_util_Set_2V(this$static, result){
+  com_geek_afric_client_view_MailView_$setEmails__Lcom_geek_afric_client_view_MailView_2Ljava_util_Set_2V(this$static.com_geek_afric_client_presenter_MailPresenter$1$7_this$1.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display, result);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$7_MailPresenter$1$7__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$1){
+  this.com_geek_afric_client_presenter_MailPresenter$1$7_this$1 = this$1;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$1$7(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$1$7_MailPresenter$1$7__Lcom_geek_afric_client_presenter_MailPresenter$1_2V.prototype = com_geek_afric_client_presenter_MailPresenter$1$7.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$1$7_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$7_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$1$7_onFailure__Ljava_lang_Throwable_2V(caught){
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$1$7_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$1$7_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$1$7_2Ljava_util_Set_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_util_Set));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$1$7_this$1 = null;
+function com_geek_afric_client_presenter_MailPresenter$2_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$2_2Ljava_util_ArrayList_2V(this$static, result){
+  com_geek_afric_client_view_MailView_$setMails__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_presenter_MailPresenter$2_this$0.com_geek_afric_client_presenter_MailPresenter_display, result);
+  this$static.com_geek_afric_client_presenter_MailPresenter$2_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.put__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter$2_val$box + this$static.com_geek_afric_client_presenter_MailPresenter$2_val$order, result);
+  com_geek_afric_client_presenter_MailPresenter_$setToken__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static.com_geek_afric_client_presenter_MailPresenter$2_this$0);
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$2_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$2_MailPresenter$2__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$0, val$box, val$order){
+  this.com_geek_afric_client_presenter_MailPresenter$2_this$0 = this$0;
+  this.com_geek_afric_client_presenter_MailPresenter$2_val$box = val$box;
+  this.com_geek_afric_client_presenter_MailPresenter$2_val$order = val$order;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$2(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$2_MailPresenter$2__Lcom_geek_afric_client_presenter_MailPresenter_2V.prototype = com_geek_afric_client_presenter_MailPresenter$2.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$2_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$2_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$2_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_280 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$2_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$2_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$2_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$2_2Ljava_util_ArrayList_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_util_ArrayList));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$2_this$0 = null;
+_.com_geek_afric_client_presenter_MailPresenter$2_val$box = null;
+_.com_geek_afric_client_presenter_MailPresenter$2_val$order = null;
+function com_geek_afric_client_presenter_MailPresenter$3_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$3_2Ljava_util_ArrayList_2V(this$static, result){
+  com_geek_afric_client_view_MailView_$setMails__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_presenter_MailPresenter$3_this$0.com_geek_afric_client_presenter_MailPresenter_display, result);
+  this$static.com_geek_afric_client_presenter_MailPresenter$3_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.put__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter$3_val$box + this$static.com_geek_afric_client_presenter_MailPresenter$3_val$order, result);
+  com_geek_afric_client_presenter_MailPresenter_$setToken__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static.com_geek_afric_client_presenter_MailPresenter$3_this$0);
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$3_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$3_MailPresenter$3__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$0, val$box, val$order){
+  this.com_geek_afric_client_presenter_MailPresenter$3_this$0 = this$0;
+  this.com_geek_afric_client_presenter_MailPresenter$3_val$box = val$box;
+  this.com_geek_afric_client_presenter_MailPresenter$3_val$order = val$order;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$3(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$3_MailPresenter$3__Lcom_geek_afric_client_presenter_MailPresenter_2V.prototype = com_geek_afric_client_presenter_MailPresenter$3.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$3_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$3_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$3_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_282 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$3_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$3_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$3_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$3_2Ljava_util_ArrayList_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_util_ArrayList));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$3_this$0 = null;
+_.com_geek_afric_client_presenter_MailPresenter$3_val$box = null;
+_.com_geek_afric_client_presenter_MailPresenter$3_val$order = null;
+function com_geek_afric_client_presenter_MailPresenter$4_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$4_2Ljava_util_ArrayList_2V(this$static, result){
+  com_geek_afric_client_view_MailView_$setMails__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_presenter_MailPresenter$4_this$0.com_geek_afric_client_presenter_MailPresenter_display, result);
+  this$static.com_geek_afric_client_presenter_MailPresenter$4_this$0.com_geek_afric_client_presenter_MailPresenter_mapped.put__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(this$static.com_geek_afric_client_presenter_MailPresenter$4_val$box + this$static.com_geek_afric_client_presenter_MailPresenter$4_val$order, result);
+  com_geek_afric_client_presenter_MailPresenter_$setToken__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$static.com_geek_afric_client_presenter_MailPresenter$4_this$0);
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static.com_geek_afric_client_presenter_MailPresenter$4_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$4_MailPresenter$4__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$0, val$box, val$order){
+  this.com_geek_afric_client_presenter_MailPresenter$4_this$0 = this$0;
+  this.com_geek_afric_client_presenter_MailPresenter$4_val$box = val$box;
+  this.com_geek_afric_client_presenter_MailPresenter$4_val$order = val$order;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$4(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$4_MailPresenter$4__Lcom_geek_afric_client_presenter_MailPresenter_2V.prototype = com_geek_afric_client_presenter_MailPresenter$4.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$4_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$4_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$4_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_283 + caught.getMessage__Ljava_lang_String_2());
+  com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this.com_geek_afric_client_presenter_MailPresenter$4_this$0.com_geek_afric_client_presenter_MailPresenter_display, false);
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$4_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$4_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$4_2Ljava_util_ArrayList_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_util_ArrayList));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$4_this$0 = null;
+_.com_geek_afric_client_presenter_MailPresenter$4_val$box = null;
+_.com_geek_afric_client_presenter_MailPresenter$4_val$order = null;
+function com_geek_afric_client_presenter_MailPresenter$5_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$5_2Ljava_util_ArrayList_2V(this$static, result){
+  com_geek_afric_client_view_MailView_$setLeftFichiers__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_presenter_MailPresenter$5_this$0.com_geek_afric_client_presenter_MailPresenter_display, result);
+}
+
+function com_geek_afric_client_presenter_MailPresenter$5_MailPresenter$5__Lcom_geek_afric_client_presenter_MailPresenter_2V(this$0){
+  this.com_geek_afric_client_presenter_MailPresenter$5_this$0 = this$0;
+}
+
+function com_geek_afric_client_presenter_MailPresenter$5(){
+}
+
+_ = com_geek_afric_client_presenter_MailPresenter$5_MailPresenter$5__Lcom_geek_afric_client_presenter_MailPresenter_2V.prototype = com_geek_afric_client_presenter_MailPresenter$5.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_presenter_MailPresenter$5_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$5_12_1classLit;
+}
+;
+_.onFailure__Ljava_lang_Throwable_2V = function com_geek_afric_client_presenter_MailPresenter$5_onFailure__Ljava_lang_Throwable_2V(caught){
+  com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_203 + caught.getMessage__Ljava_lang_String_2());
+}
+;
+_.onSuccess__Ljava_lang_Object_2V = function com_geek_afric_client_presenter_MailPresenter$5_onSuccess__Ljava_lang_Object_2V(result){
+  com_geek_afric_client_presenter_MailPresenter$5_$onSuccess__Lcom_geek_afric_client_presenter_MailPresenter$5_2Ljava_util_ArrayList_2V(this, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(result, Q$java_util_ArrayList));
+}
+;
+_.com_geek_afric_client_presenter_MailPresenter$5_this$0 = null;
+_ = com_google_gwt_user_client_ui_UIObject.prototype;
+_.getOffsetHeight__I = function com_google_gwt_user_client_ui_UIObject_getOffsetHeight__I(){
+  return com_google_gwt_dom_client_Element_$getPropertyInt__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2I(this.com_google_gwt_user_client_ui_UIObject_element, $intern_288);
+}
+;
+_.getOffsetWidth__I = function com_google_gwt_user_client_ui_UIObject_getOffsetWidth__I(){
+  return com_google_gwt_dom_client_Element_$getPropertyInt__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2I(this.com_google_gwt_user_client_ui_UIObject_element, $intern_289);
+}
+;
+function com_google_gwt_user_client_ui_SimplePanel_SimplePanel__Lcom_google_gwt_user_client_ui_Widget_2V(child){
+  com_google_gwt_user_client_ui_SimplePanel_SimplePanel__V.call(this);
+  this.setWidget__Lcom_google_gwt_user_client_ui_Widget_2V(child);
+}
+
+_ = com_google_gwt_user_client_ui_SimplePanel_SimplePanel__Lcom_google_gwt_user_client_ui_Widget_2V.prototype = com_google_gwt_user_client_ui_SimplePanel.prototype;
+_.setWidget__Lcom_google_gwt_user_client_ui_Widget_2V = function com_google_gwt_user_client_ui_SimplePanel_setWidget__Lcom_google_gwt_user_client_ui_Widget_2V(w){
+  com_google_gwt_user_client_ui_SimplePanel_$setWidget__Lcom_google_gwt_user_client_ui_SimplePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this, w);
+}
+;
+_ = com_google_gwt_user_client_ui_PopupPanel.prototype;
+_.getOffsetHeight__I = function com_google_gwt_user_client_ui_PopupPanel_getOffsetHeight__I(){
+  return com_google_gwt_dom_client_Element_$getPropertyInt__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2I(this.com_google_gwt_user_client_ui_UIObject_element, $intern_288);
+}
+;
+_.getOffsetWidth__I = function com_google_gwt_user_client_ui_PopupPanel_getOffsetWidth__I(){
+  return com_google_gwt_dom_client_Element_$getPropertyInt__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2I(this.com_google_gwt_user_client_ui_UIObject_element, $intern_289);
+}
+;
+_.setWidget__Lcom_google_gwt_user_client_ui_Widget_2V = function com_google_gwt_user_client_ui_PopupPanel_setWidget__Lcom_google_gwt_user_client_ui_Widget_2V(w){
+  com_google_gwt_user_client_ui_PopupPanel_$setWidget__Lcom_google_gwt_user_client_ui_PopupPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this, w);
+}
+;
+_ = com_google_gwt_user_client_ui_DecoratedPopupPanel.prototype;
+_.setWidget__Lcom_google_gwt_user_client_ui_Widget_2V = function com_google_gwt_user_client_ui_DecoratedPopupPanel_setWidget__Lcom_google_gwt_user_client_ui_Widget_2V(w){
+  com_google_gwt_user_client_ui_DecoratedPopupPanel_$setWidget__Lcom_google_gwt_user_client_ui_DecoratedPopupPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this, w);
+}
+;
+function com_geek_afric_client_view_FieldVerifier_$isValidListBox__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_ListBox_2Z(this$static, listBox){
+  com_google_gwt_user_client_ui_ListBox_$checkIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(listBox, 0);
+  if (listBox.com_google_gwt_user_client_ui_UIObject_element.options[0].selected) {
+    com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_FieldVerifier_labelError, listBox.com_google_gwt_user_client_ui_UIObject_element.name + $intern_290);
+    com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV(listBox.com_google_gwt_user_client_ui_UIObject_element, $intern_275, true);
+    listBox.com_google_gwt_user_client_ui_UIObject_element[$intern_279] = false;
+    com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(listBox, new com_geek_afric_client_view_FieldVerifier$6_FieldVerifier$6__Lcom_geek_afric_client_view_FieldVerifier_2V(this$static), (com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_TYPE));
+    return false;
+  }
+  return true;
+}
+
+function com_geek_afric_client_view_FieldVerifier$6_FieldVerifier$6__Lcom_geek_afric_client_view_FieldVerifier_2V(this$0){
+  this.com_geek_afric_client_view_FieldVerifier$6_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_FieldVerifier$6(){
+}
+
+_ = com_geek_afric_client_view_FieldVerifier$6_FieldVerifier$6__Lcom_geek_afric_client_view_FieldVerifier_2V.prototype = com_geek_afric_client_view_FieldVerifier$6.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_FieldVerifier$6_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1FieldVerifier$6_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_FieldVerifier$6_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var textBoxc;
+  textBoxc = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(event.com_google_web_bindery_event_shared_Event_source, Q$com_google_gwt_user_client_ui_ListBox);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2ZV(textBoxc, $intern_275, false);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this.com_geek_afric_client_view_FieldVerifier$6_this$0.com_geek_afric_client_view_FieldVerifier_labelError, $intern_0);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_FieldVerifier$6_this$0 = null;
+var com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_home = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_inbox = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_loaderData = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_mailgroup = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_sent = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeClosed = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeLeaf = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeOpen = null, com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_write = null;
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$homeInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$homeInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_home = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR42qWRUUtaYRjHD9va6GofYHfW7CjIqOPYCJYUQQhBMAjznDQ7KpvQXW3fQMsaG7E1subgGBaZ5MpSGbkUZy7M6qIYXXbZB9jVLv75vOVhB6sN9sIP3vP8n98fXg7H3XCaWwRfE28e4f7l7HEcatD3Q14Qm3kBBN3/WpCvijWaWtq6+m3S70jkEwi60+zGgrWqSMzea4S19/mv9fU4yuUCg+400/GC6dqCz1V5+k4Dup5asLSk4OCghNPTE8bh4Q8sxxbQ/qz7TK9/9ODKAv+t27CYzAjNfUCptI10+gucThEezzC2tjbYjLLWxx0/dTrhvkY2Go13O3QGTAT9yOUyOD7eQ19fLzo7LbBaeyDLQ2xGWXAyAIPpyTY5aoHeYF4cHRvD5uYqKpXvODoqM+FPaFapFJFKrYJ2ybn417wwLru9iMejKBaz2N8vVt+/cyWU0Q7tkkMuK1GUuct3fsPubo7hfj8Mz0cZ3pAbL+a96px2aJcc9QkrKwvI5zMoFL6quN45kS6kGN5ZWZPRLjlqQSwWQTa7ocHxRoLv1Uv4Xvsgz7jqcnLUgmg0jEwmoUEK2uGYEuF8OwjXtKMuJ0ctUJQQksmYBjEwAGliAIOsRKrLyVELwuEZJBKLGux+G+wBG8RxG6RJe11OTs1P/g/n6unbjnlbJo8AAAAASUVORK5CYII=')), 16, 16);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$inboxInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$inboxInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_inbox = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABVUlEQVR42p2Q30rCUBjADwQ9QNB79CRBL9FNddMDdFXdBT1BJUbKojALGWdzuoXDLb1xEwz/xJx/MgJnGDZzfu3ryrGxbB/8bs75/Q4fh5CFoZQ/4DgewkCHBA2ldENRVPhrVPUJ0PU9wPP8aa/Xh7wowuHRMezs7nnAs1wuD+i4W5x4YoZhViVJenccBy5icTg7jwWCd+hI0uPAbVYW1s9uNZtNqFQ0iF9ehYIOupQKmwvrCynbtiGVvockcx0KOuhms8LNb5zJZNY1TXfaZgdu79JLYZgm6HrVZll2DT9v37IskBUFHlh2KQrFImDDcdw2EUWpOp1OgQq5f4GN25ZJp9OF+Rw8dPuvkC/IHvqDN5+HLWm3TZjNHB9yqewhyMGWGIbhrvPto6RpHoIcbEmr9QKTyVcksCX1egPG489IYEtqtWcYjT4igS0ZDi1IJJKRwPYHLLEg8Bujbf4AAAAASUVORK5CYII=')), 16, 16);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$loaderDataInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$loaderDataInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_loaderData = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/gif;base64,R0lGODlhEAALAPQAAP///0wmJuTf393W1u/s7FArK0wmJmxNTaeUlI93d87ExGNCQn9kZKybm5J7e9HHx2ZGRk4pKYJoaO3p6ePd3fb19XNVVebh4fXz88vAwLyurtnR0fLw8AAAAAAAAAAAACH+GkNyZWF0ZWQgd2l0aCBhamF4bG9hZC5pbmZvACH5BAALAAAAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAALAAAFLSAgjmRpnqSgCuLKAq5AEIM4zDVw03ve27ifDgfkEYe04kDIDC5zrtYKRa2WQgAh+QQACwABACwAAAAAEAALAAAFJGBhGAVgnqhpHIeRvsDawqns0qeN5+y967tYLyicBYE7EYkYAgAh+QQACwACACwAAAAAEAALAAAFNiAgjothLOOIJAkiGgxjpGKiKMkbz7SN6zIawJcDwIK9W/HISxGBzdHTuBNOmcJVCyoUlk7CEAAh+QQACwADACwAAAAAEAALAAAFNSAgjqQIRRFUAo3jNGIkSdHqPI8Tz3V55zuaDacDyIQ+YrBH+hWPzJFzOQQaeavWi7oqnVIhACH5BAALAAQALAAAAAAQAAsAAAUyICCOZGme1rJY5kRRk7hI0mJSVUXJtF3iOl7tltsBZsNfUegjAY3I5sgFY55KqdX1GgIAIfkEAAsABQAsAAAAABAACwAABTcgII5kaZ4kcV2EqLJipmnZhWGXaOOitm2aXQ4g7P2Ct2ER4AMul00kj5g0Al8tADY2y6C+4FIIACH5BAALAAYALAAAAAAQAAsAAAUvICCOZGme5ERRk6iy7qpyHCVStA3gNa/7txxwlwv2isSacYUc+l4tADQGQ1mvpBAAIfkEAAsABwAsAAAAABAACwAABS8gII5kaZ7kRFGTqLLuqnIcJVK0DeA1r/u3HHCXC/aKxJpxhRz6Xi0ANAZDWa+kEAA7AAAAAAAAAAAA')), 16, 11);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$mailgroupInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$mailgroupInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_mailgroup = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAD6UlEQVR42u1Wz1MTWRCefzOoq1YMPxRkQSJy0Nq/wIPoYfe6W2t58eCFgECVWFtiSGaSSfYQ4BKqNgkJJAY0CfPeS2/3e/1mJqTWqr3oQV7Vl37d/fX3NTNUKo5zda7OD39WV1/A06fPgOK3hPV0FhZWIDX5GMp/H4JSw28C8iLP+/cfgbO4uAIlvwKpFC5RPgQpmciR8jiUjbZnuZf6UqnRWeaTB3n5/j4sPljBBfAJUKOIhTu8hBAKgQMIikLyXYsp3Tc5R+Lru5kbgZ41vHLpUHuQF/Xo6Ts/44cIcDDAJYpmiZJ/CAHWIgwNSJDvNkZQXGO+UFwzue8fGHP0sDMLC/gK5udX4OJCMYZQKFR4ywOd63qgYhybD8MZiwDz4GK8V2Rz0o7X5+dxgTn8RxgMFAz6Qx37gyF4Li9RODA9rPV1TzGH+Bj7US0O0rC8YtGYe14l1Bnw/NzcMi4w+wh6PQk9EuPY6ynI8xKedxDW+j0Tid/vS74r02f0Y7VCwbxS0opmI87sLC5w794yfPmiGJJh8nzeLOHiEhHnMpj/mSDD6HrGPIca43yDu+jtzMwsw/m5NMDhz+cEyjGiUC5nlsjn900NQbxzHZnHfNKgPnG1+V4l1LOIeBJm7uICU9PLcHYmNbocz7oyrNH9/XtfC+7l9rGmIo7ldVV4z+XMO3+3U4zpqEgvNjs9hQtMTj6ELiafPgmEZAiuSfxeqOK31hPIZD6aJfb2R3gUuxxpQeKsre3qmXL5CHvM7UY8C/J2UqmH0OkI6LQltDsIjJ220LVS6UgLbW95Os9m0eDOY8h+rOi83RFhzGbNq9rdNb3tbVfPlvwjrUv6Ha0vtD7VUqk0OMlkGk5PhQGSTk8NikXzl29tuWGNsIvmSVziz5cb8ObNXxq//7Gmax8+VDSnzdxNXJw0fL+q9dvaR4Z+ySQ+gdu303ByIuCkJcJYYPPNTXek12qZe7n0D/z622t4/vyVxiqi4FWhdSJ1vxXT2nxrngRpRlpS38nbuXUrDa1mAE2Gh0JT07/ABg42m2IUrUuxacxG+8FIn/INXsIrVA2f++Tt3PwpDY3jAI6PBbgumk+h+Yar8wjBV/JgNG8EYb3RiDikSUvk0cPyydu5cWMJ6jiUy1VhEs3X112o13EYUUeBRl1oIeIQGgRdCwzP5iGMccNyeY60Muu8RL6q6+TtXL+2FJpnMsa8XhNQQ7F6LTCgO9ZrHKlP9VrNLBGBZ+pBNHtJwy5BnuTtXMMPa16ptP8Dna/0/j9/Z4d+AD0B8nYmJh6ARSJ2H68twURinJdIjM+ESET9BOdRb0nHq1/lV+e7n38Ban4auYszNQsAAAAASUVORK5CYII=')), 32, 32);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$sentInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$sentInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_sent = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1UlEQVR42sWTLQuFQBBF55+bLP4Dk8FmsSiCYLBY7DYxCIJiERFExPveXXii8j7lgQsHZmfuGdiwIpefKIq0OziJJmEYIk1TLMvyE3Toiu/7aNsWSZJgnuevYJYOXXFdF9M0oa5rxHGs6ncwwyxruuI4DsZxVFRVpd72uB/hjJnHna7Yto1hGFbKskQQBLseYY+zbY+uWJaFvu93FEUBz/PQdZ2CNXvHHF0xTXMNbsnzXImE9bMMXTEMA03TPCXLMsWrOd23Cz7xnwW6rmt3cBLt+s94A8xzoifj/MfyAAAAAElFTkSuQmCC')), 16, 16);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeClosedInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeClosedInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeClosed = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/gif;base64,R0lGODlhEAAQAIQaAFhorldnrquz1mFxsvz9/vr6/M3Q2ZGbw5mixvb3+Gp5t2Nys77F4GRzs9ze4mt6uGV1s8/R2VZnrl5usFdortPV2/P09+3u8eXm6lZnrf///wAAzP///////////////yH5BAEAAB8ALAAAAAAQABAAAAVE4CeOZGmeaKquo5K974MuTKHdhDCcgOVvvoTkRLkYN8bL0ETBbJ5PTIaIqW6q0lPAYcVOTRNEpEI2HCYoCOzVYLnf7hAAOw==')), 16, 16);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeLeafInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeLeafInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeLeaf = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/gif;base64,R0lGODlhEAAQAJEAAP///wAAAP///wAAACH5BAEAAAIALAAAAAAQABAAAAIOlI+py+0Po5y02ouzPgUAOw==')), 16, 16);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeOpenInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeOpenInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeOpen = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/gif;base64,R0lGODlhEAAQAIQaAFhorldnrquz1mFxsvz9/vr6/M3Q2ZGbw5mixvb3+Gp5t2Nys77F4GRzs9ze4mt6uGV1s8/R2VZnrl5usFdortPV2/P09+3u8eXm6lZnrf///wAAzP///////////////yH5BAEAAB8ALAAAAAAQABAAAAVD4CeOZGmeaKquo5K974MuTKHdhDCcgOVfvoTkRLkYj5ehiYLZOJ2YDBFDvVCjp4CjepWaJohIZWw4TFAQ2KvBarvbIQA7')), 16, 16);
+}
+
+function com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$writeInitializer_$clinit__V(){
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$writeInitializer_$clinit__V = nullMethod;
+  com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_write = new com_google_gwt_resources_client_impl_ImageResourcePrototype_ImageResourcePrototype__Ljava_lang_String_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIZZV((com_google_gwt_safehtml_shared_UriUtils_$clinit__V() , new com_google_gwt_safehtml_shared_SafeUriString_SafeUriString__Ljava_lang_String_2V('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABW0lEQVR42mNgIBHsDQzMOJSdfWOxh0ekDAMDJ0maO3x9ta92dj78tHXr/wMhIVcn2tmlEa05MTpaq3Pi5LsXd+/+/3/y5P+vExL+b3JxeUuU5jXuEtr1rZ0Prz5+8H/BggX/10RE/F9lYfFyo7OzB1Gaz7dm3rl7qfn/lAkV/6fPXvTfyd395WpzczeCmtc5iOuANP95VvX//w6G/4eLWP+72tu/cHJ1JU7zycb0+yDN/87b/n84lfn/TAeG1652duRrnuXI4E6W5oX+Iv+J0rzJXU6bIs0XJgID63wA6ZpX1OhobpsQfOT/87n//29n/v+8joF4zSCwvt+8/+zy0J8/zrT/f7DI7n+/DcMLojWDgIe9wMu5jXb/t012/1mXrHa1z44BPaoY8RrAxc1w39KE+3thlNwGA1Xe1VDhbCgdCKVtoLQulFaCG8DDwyBmZ8mtmx8ta0pq9gYAez/LlWKmUkUAAAAASUVORK5CYII=')), 16, 16);
+}
+
+function com_geek_afric_client_view_MailView_$addStyle__Lcom_geek_afric_client_view_MailView_2IV(this$static, column){
+  var i;
+  for (i = 0; i < 3; ++i) {
+    i != column?com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$removeStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_header.com_google_gwt_user_client_ui_HTMLTable_cellFormatter, i):com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_header.com_google_gwt_user_client_ui_HTMLTable_cellFormatter, 0, i, $intern_291);
+  }
+}
+
+function com_geek_afric_client_view_MailView_$click__Lcom_geek_afric_client_view_MailView_2Lcom_google_gwt_event_dom_client_ClickEvent_2V(this$static, event){
+  var cell, row;
+  cell = com_google_gwt_user_client_ui_HTMLTable_$getCellForEvent__Lcom_google_gwt_user_client_ui_HTMLTable_2Lcom_google_gwt_event_dom_client_ClickEvent_2Lcom_google_gwt_user_client_ui_HTMLTable$Cell_2(this$static.com_geek_afric_client_view_MailView_table, event);
+  if (cell) {
+    row = cell.com_google_gwt_user_client_ui_HTMLTable$Cell_rowIndex;
+    if (!!event.com_google_gwt_event_dom_client_DomEvent_nativeEvent.ctrlKey || !!event.com_google_gwt_event_dom_client_DomEvent_nativeEvent.metaKey) {
+      com_geek_afric_client_view_MailView_$selectRows__Lcom_geek_afric_client_view_MailView_2IV(this$static, row);
+    }
+     else {
+      com_geek_afric_client_view_MailView_$selectRow__Lcom_geek_afric_client_view_MailView_2IV(this$static, row);
+      java_util_ArrayList_$clear__Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_view_MailView_selectedMails);
+      java_util_ArrayList_$add__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(this$static.com_geek_afric_client_view_MailView_selectedMails, com_geek_afric_client_view_MailView_$getMail__Lcom_geek_afric_client_view_MailView_2ILcom_geek_afric_shared_Mail_2(this$static, this$static.com_geek_afric_client_view_MailView_selectedRow));
+    }
+  }
+   else {
+    com_geek_afric_client_view_MailView_$selectRows__Lcom_geek_afric_client_view_MailView_2IV(this$static, -1);
+    java_util_ArrayList_$clear__Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_view_MailView_selectedMails);
+  }
+}
+
+function com_geek_afric_client_view_MailView_$createHeaderWidget__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_Widget_2(image){
+  var hPanel, headerText, img;
+  hPanel = new com_google_gwt_user_client_ui_HorizontalPanel_HorizontalPanel__V;
+  hPanel.com_google_gwt_user_client_ui_UIObject_element.style[$intern_179] = $intern_184;
+  hPanel.com_google_gwt_user_client_ui_CellPanel_table[$intern_231] = 0;
+  com_google_gwt_user_client_ui_HorizontalPanel_$setVerticalAlignment__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_HasVerticalAlignment$VerticalAlignmentConstant_2V(hPanel, (com_google_gwt_user_client_ui_HasVerticalAlignment_$clinit__V() , com_google_gwt_user_client_ui_HasVerticalAlignment_ALIGN_1MIDDLE));
+  img = new com_google_gwt_user_client_ui_Image_Image__Lcom_google_gwt_resources_client_ImageResource_2V(image);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(hPanel, img);
+  headerText = new com_google_gwt_user_client_ui_HTML_HTML__Ljava_lang_String_2V('Boites Mails');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(hPanel, headerText);
+  return new com_google_gwt_user_client_ui_SimplePanel_SimplePanel__Lcom_google_gwt_user_client_ui_Widget_2V(hPanel);
+}
+
+function com_geek_afric_client_view_MailView_$createLeftFile__Lcom_geek_afric_client_view_MailView_2Lcom_geek_afric_shared_Fichier_2Lcom_google_gwt_user_client_ui_Widget_2(this$static, file){
+  var date, panel, title;
+  panel = new com_google_gwt_user_client_ui_VerticalPanel_VerticalPanel__V;
+  title = new com_google_gwt_user_client_ui_Label_Label__V;
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(title, file.com_geek_afric_shared_AbstractFichier_title);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(title, $intern_50 + file.com_geek_afric_shared_AbstractFichier_title + $intern_51 + file.com_geek_afric_shared_AbstractFichier_author + $intern_52 + file.com_geek_afric_shared_ObjetStandard_dateCreation.java_util_Date_jsdate.toLocaleString() + $intern_53 + file.com_geek_afric_shared_ObjetStandard_dateDerniereModif.java_util_Date_jsdate.toLocaleString() + $intern_54 + (file.com_geek_afric_shared_AbstractFichier_publique.java_lang_Boolean_value?$intern_55:$intern_56) + $intern_57 + (file.com_geek_afric_shared_AbstractFichier_directory.java_lang_Boolean_value?$intern_58:$intern_59) + $intern_60 + (file.com_geek_afric_shared_AbstractFichier_path == null?$intern_0:file.com_geek_afric_shared_AbstractFichier_path) + $intern_61);
+  title.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = $intern_184;
+  panel.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = $intern_232;
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(title, new com_geek_afric_client_view_MailView$8_MailView$8__Lcom_geek_afric_client_view_MailView_2V(this$static, file), (com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_TYPE));
+  date = new com_google_gwt_user_client_ui_Label_Label__V;
+  date.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = $intern_207;
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(date, file.com_geek_afric_shared_ObjetStandard_dateCreation.java_util_Date_jsdate.toLocaleString());
+  date.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = $intern_184;
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(panel, title);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(panel, date);
+  com_google_gwt_user_client_ui_CellPanel_$setCellHorizontalAlignment__Lcom_google_gwt_user_client_ui_CellPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$HorizontalAlignmentConstant_2V(panel, date, (com_google_gwt_user_client_ui_HasHorizontalAlignment_$clinit__V() , com_google_gwt_user_client_ui_HasHorizontalAlignment_ALIGN_1RIGHT));
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(panel, new com_google_gwt_user_client_ui_HTML_HTML__Ljava_lang_String_2V($intern_233));
+  panel.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = $intern_184;
+  return panel;
+}
+
+function com_geek_afric_client_view_MailView_$getMail__Lcom_geek_afric_client_view_MailView_2ILcom_geek_afric_shared_Mail_2(this$static, index){
+  if (index >= this$static.com_geek_afric_client_view_MailView_items.java_util_ArrayList_size || index < 0) {
+    return null;
+  }
+  return com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_geek_afric_client_view_MailView_items, index), Q$com_geek_afric_shared_Mail);
+}
+
+function com_geek_afric_client_view_MailView_$newMessage__Lcom_geek_afric_client_view_MailView_2V(this$static){
+  this$static.com_geek_afric_client_view_MailView_mail = new com_geek_afric_client_view_MailView$Message_MailView$Message__Lcom_geek_afric_client_view_MailView_2V(this$static);
+  com_google_gwt_user_client_ui_PopupPanel_$center__Lcom_google_gwt_user_client_ui_PopupPanel_2V(this$static.com_geek_afric_client_view_MailView_mail);
+  com_geek_afric_client_presenter_MailPresenter$1_$setEmails__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static.com_geek_afric_client_view_MailView_listener);
+}
+
+function com_geek_afric_client_view_MailView_$selectRow__Lcom_geek_afric_client_view_MailView_2IV(this$static, row){
+  var i, item;
+  item = com_geek_afric_client_view_MailView_$getMail__Lcom_geek_afric_client_view_MailView_2ILcom_geek_afric_shared_Mail_2(this$static, row);
+  for (i = 0; i < this$static.com_geek_afric_client_view_MailView_items.java_util_ArrayList_size; ++i) {
+    com_geek_afric_client_view_MailView_$styleRow__Lcom_geek_afric_client_view_MailView_2IZV(this$static, i, false);
+  }
+  if (!item) {
+    return;
+  }
+  com_geek_afric_client_view_MailView_$styleRow__Lcom_geek_afric_client_view_MailView_2IZV(this$static, row, true);
+  this$static.com_geek_afric_client_view_MailView_selectedRow = row;
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_subject, item.com_geek_afric_shared_Mail_object);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_from, java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(item.com_geek_afric_shared_Mail_senderName, $intern_70)?item.com_geek_afric_shared_Mail_sender:item.com_geek_afric_shared_Mail_senderName);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_to, java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(item.com_geek_afric_shared_Mail_receiverName, $intern_69)?item.com_geek_afric_shared_Mail_receiver:item.com_geek_afric_shared_Mail_receiverName);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_date, item.com_geek_afric_shared_ObjetStandard_dateCreation.java_util_Date_jsdate.toLocaleString());
+  com_google_gwt_user_client_ui_HTML_$setHTML__Lcom_google_gwt_user_client_ui_HTML_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_bodyHtml, item.com_geek_afric_shared_Mail_message);
+  !!this$static.com_geek_afric_client_view_MailView_listener && com_geek_afric_client_presenter_MailPresenter$1_$onItemSelected__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_geek_afric_shared_Mail_2V(this$static.com_geek_afric_client_view_MailView_listener, item);
+}
+
+function com_geek_afric_client_view_MailView_$selectRows__Lcom_geek_afric_client_view_MailView_2IV(this$static, row){
+  var i, item;
+  if (row == -1) {
+    for (i = 0; i < this$static.com_geek_afric_client_view_MailView_items.java_util_ArrayList_size; ++i) {
+      com_geek_afric_client_view_MailView_$styleRow__Lcom_geek_afric_client_view_MailView_2IZV(this$static, i, false);
+    }
+    return;
+  }
+  item = com_geek_afric_client_view_MailView_$getMail__Lcom_geek_afric_client_view_MailView_2ILcom_geek_afric_shared_Mail_2(this$static, row);
+  if (!item) {
+    return;
+  }
+  if (java_util_ArrayList_$indexOf__Ljava_util_ArrayList_2Ljava_lang_Object_2II(this$static.com_geek_afric_client_view_MailView_selectedMails, item, 0) != -1) {
+    com_geek_afric_client_view_MailView_$styleRow__Lcom_geek_afric_client_view_MailView_2IZV(this$static, row, false);
+    java_util_ArrayList_$remove__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(this$static.com_geek_afric_client_view_MailView_selectedMails, item);
+  }
+   else {
+    com_geek_afric_client_view_MailView_$styleRow__Lcom_geek_afric_client_view_MailView_2IZV(this$static, row, true);
+    java_util_ArrayList_$add__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(this$static.com_geek_afric_client_view_MailView_selectedMails, item);
+  }
+}
+
+function com_geek_afric_client_view_MailView_$setEmails__Lcom_geek_afric_client_view_MailView_2Ljava_util_Set_2V(this$static, mails){
+  !!this$static.com_geek_afric_client_view_MailView_mail && com_geek_afric_client_view_MailView$Message_$setEmails__Lcom_geek_afric_client_view_MailView$Message_2Ljava_util_Set_2V(this$static.com_geek_afric_client_view_MailView_mail, mails);
+}
+
+function com_geek_afric_client_view_MailView_$setError__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2V(this$static){
+  !!this$static.com_geek_afric_client_view_MailView_mail && com_geek_afric_client_view_MailView$Message_$setMessage__Lcom_geek_afric_client_view_MailView$Message_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_mail);
+}
+
+function com_geek_afric_client_view_MailView_$setLeftFichiers__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static, files){
+  var i;
+  if (!files || files.java_util_ArrayList_size == 0) {
+    com_google_gwt_user_client_ui_Panel_$clear__Lcom_google_gwt_user_client_ui_Panel_2V(this$static.com_geek_afric_client_view_MailView_leftContent);
+    return;
+  }
+  com_google_gwt_user_client_ui_Panel_$clear__Lcom_google_gwt_user_client_ui_Panel_2V(this$static.com_geek_afric_client_view_MailView_leftContent);
+  for (i = 0; i < files.java_util_ArrayList_size; ++i) {
+    com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this$static.com_geek_afric_client_view_MailView_leftContent, com_geek_afric_client_view_MailView_$createLeftFile__Lcom_geek_afric_client_view_MailView_2Lcom_geek_afric_shared_Fichier_2Lcom_google_gwt_user_client_ui_Widget_2(this$static, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2((java_util_AbstractList_checkIndex__IIV(i, files.java_util_ArrayList_size) , files.java_util_ArrayList_array[i]), Q$com_geek_afric_shared_Fichier)));
+  }
+}
+
+function com_geek_afric_client_view_MailView_$setListener__Lcom_geek_afric_client_view_MailView_2Lcom_geek_afric_client_view_MailView$Listener_2V(this$static, listener){
+  this$static.com_geek_afric_client_view_MailView_listener = listener;
+  com_geek_afric_client_view_TopPanel_$setListener__Lcom_geek_afric_client_view_TopPanel_2Lcom_geek_afric_client_view_TopPanel$Listener_2V(this$static.com_geek_afric_client_view_MailView_topPanel, new com_geek_afric_client_view_MailView$9_MailView$9__Lcom_geek_afric_client_view_MailView_2V(listener));
+}
+
+function com_geek_afric_client_view_MailView_$setLoader__Lcom_geek_afric_client_view_MailView_2ZV(this$static, load){
+  if (this$static.com_geek_afric_client_view_MailView_mail) {
+    com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this$static.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_sendLoader, load);
+    com_google_gwt_user_client_ui_FocusWidget_$setEnabled__Lcom_google_gwt_user_client_ui_FocusWidget_2ZV(this$static.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_btnEnvoyer, !load);
+  }
+   else {
+    com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this$static.com_geek_afric_client_view_MailView_loader, load);
+    com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this$static.com_geek_afric_client_view_MailView_splitLayoutPanel, !load);
+    com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this$static.com_geek_afric_client_view_MailView_northPanel, !load);
+  }
+}
+
+function com_geek_afric_client_view_MailView_$setMails__Lcom_geek_afric_client_view_MailView_2Ljava_util_ArrayList_2V(this$static, mails){
+  this$static.com_geek_afric_client_view_MailView_items = mails;
+  java_util_ArrayList_$clear__Ljava_util_ArrayList_2V(this$static.com_geek_afric_client_view_MailView_selectedMails);
+  this$static.com_geek_afric_client_view_MailView_selectedRow = -1;
+  com_geek_afric_client_view_MailView_$selectRow__Lcom_geek_afric_client_view_MailView_2IV(this$static, this$static.com_geek_afric_client_view_MailView_selectedRow);
+  com_geek_afric_client_view_MailView_$update__Lcom_geek_afric_client_view_MailView_2IV(this$static, mails.java_util_ArrayList_size);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_subject, $intern_0);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_from, $intern_0);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_to, $intern_0);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_date, $intern_0);
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_bodyHtml, $intern_0);
+}
+
+function com_geek_afric_client_view_MailView_$setTokens__Lcom_geek_afric_client_view_MailView_2Ljava_util_Set_2V(this$static, tokens){
+  com_geek_afric_client_view_TopPanel_$setTokens__Lcom_geek_afric_client_view_TopPanel_2Ljava_util_Set_2V(this$static.com_geek_afric_client_view_MailView_topPanel, tokens);
+}
+
+function com_geek_afric_client_view_MailView_$styleRow__Lcom_geek_afric_client_view_MailView_2IZV(this$static, row, selected){
+  if (row != -1) {
+    if (selected) {
+      com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_rowFormatter, row, $intern_292);
+      com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$removeStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_rowFormatter, row, $intern_293);
+    }
+     else {
+      com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$removeStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_rowFormatter, row, $intern_292);
+    }
+  }
+}
+
+function com_geek_afric_client_view_MailView_$update__Lcom_geek_afric_client_view_MailView_2IV(this$static, count){
+  var i, item;
+  i = 0;
+  for (; i < count; ++i) {
+    item = com_geek_afric_client_view_MailView_$getMail__Lcom_geek_afric_client_view_MailView_2ILcom_geek_afric_shared_Mail_2(this$static, i);
+    com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table, i, 0, item.com_geek_afric_shared_Mail_senderName);
+    com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table, i, 1, item.com_geek_afric_shared_Mail_object);
+    com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table, i, 2, item.com_geek_afric_shared_ObjetStandard_dateCreation.toString__Ljava_lang_String_2$());
+    com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_cellFormatter, i, 2, 'maillist-date');
+    !item.com_geek_afric_shared_Mail_read && com_geek_afric_shared_User_$isReceiver__Lcom_geek_afric_shared_User_2Lcom_geek_afric_shared_Mail_2Z(this$static.com_geek_afric_client_view_MailView_user, item)?com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_rowFormatter, i, $intern_293):com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$removeStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_rowFormatter, i, $intern_293);
+    com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_rowFormatter, i, 'maillist-row');
+  }
+  for (; this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_bodyElem.rows.length > count;) {
+    com_google_gwt_user_client_ui_HTMLTable_$removeRow__Lcom_google_gwt_user_client_ui_HTMLTable_2IV(this$static.com_geek_afric_client_view_MailView_table, this$static.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_bodyElem.rows.length - 1);
+  }
+}
+
+function com_geek_afric_client_view_MailView_MailView__Lcom_geek_afric_shared_User_2V(user){
+  var bodyPanel, bodyScrollPanel, tableScrollPanel;
+  this.com_geek_afric_client_view_MailView_topPanel = new com_geek_afric_client_view_TopPanel_TopPanel__V;
+  this.com_geek_afric_client_view_MailView_leftPanel = new com_google_gwt_user_client_ui_ScrollPanel_ScrollPanel__V;
+  this.com_geek_afric_client_view_MailView_leftContent = new com_google_gwt_user_client_ui_VerticalPanel_VerticalPanel__V;
+  this.com_geek_afric_client_view_MailView_panel = new com_google_gwt_user_client_ui_VerticalPanel_VerticalPanel__V;
+  this.com_geek_afric_client_view_MailView_northPanel = new com_google_gwt_user_client_ui_HorizontalPanel_HorizontalPanel__V;
+  this.com_geek_afric_client_view_MailView_splitLayoutPanel = new com_google_gwt_user_client_ui_SplitLayoutPanel_SplitLayoutPanel__V;
+  this.com_geek_afric_client_view_MailView_stackPanel = new com_google_gwt_user_client_ui_StackLayoutPanel_StackLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V((com_google_gwt_dom_client_Style$Unit_$clinit__V() , com_google_gwt_dom_client_Style$Unit_EM));
+  this.com_geek_afric_client_view_MailView_dockPanel = new com_google_gwt_user_client_ui_DockLayoutPanel_DockLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V(com_google_gwt_dom_client_Style$Unit_EM);
+  this.com_geek_afric_client_view_MailView_table = new com_google_gwt_user_client_ui_FlexTable_FlexTable__V;
+  this.com_geek_afric_client_view_MailView_bodyInfoTable = new com_google_gwt_user_client_ui_FlexTable_FlexTable__V;
+  new com_google_gwt_user_client_ui_ScrollPanel_ScrollPanel__V;
+  this.com_geek_afric_client_view_MailView_bodyHtml = new com_google_gwt_user_client_ui_HTML_HTML__Ljava_lang_String_2ZV;
+  this.com_geek_afric_client_view_MailView_btnSupprimer = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V($intern_242);
+  this.com_geek_afric_client_view_MailView_btnRpondre = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V('R\xE9pondre');
+  this.com_geek_afric_client_view_MailView_btnTransferer = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V('Transf\xE9rer');
+  this.com_geek_afric_client_view_MailView_btnEnvoyer = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V($intern_294);
+  this.com_geek_afric_client_view_MailView_btnNouveauMessage = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V('Nouveau Message');
+  this.com_geek_afric_client_view_MailView_btnUpdate = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V('Actualiser');
+  this.com_geek_afric_client_view_MailView_selectedMails = new java_util_ArrayList_ArrayList__V;
+  this.com_geek_afric_client_view_MailView_items = new java_util_ArrayList_ArrayList__V;
+  this.com_geek_afric_client_view_MailView_loader = new com_google_gwt_user_client_ui_Image_Image__Lcom_google_gwt_resources_client_ImageResource_2V((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$loaderDataInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_loaderData));
+  this.com_geek_afric_client_view_MailView_header = new com_google_gwt_user_client_ui_FlexTable_FlexTable__V;
+  this.com_geek_afric_client_view_MailView_mailboxes = new com_geek_afric_client_view_MailView$Mailboxes_MailView$Mailboxes__Lcom_geek_afric_client_view_MailView_2V(this);
+  this.com_geek_afric_client_view_MailView_user = user;
+  com_google_gwt_user_client_ui_Composite_$initWidget__Lcom_google_gwt_user_client_ui_Composite_2Lcom_google_gwt_user_client_ui_Widget_2V(this, this.com_geek_afric_client_view_MailView_panel);
+  com_google_gwt_user_client_ui_UIObject_$setSize__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_panel, '720px', $intern_237);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_leftPanel, $intern_238);
+  com_google_gwt_user_client_ui_UIObject_$setHeight__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_leftPanel, $intern_239);
+  com_google_gwt_user_client_ui_SimplePanel_$setWidget__Lcom_google_gwt_user_client_ui_SimplePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_leftPanel, this.com_geek_afric_client_view_MailView_leftContent);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_leftContent, $intern_240);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_panel, this.com_geek_afric_client_view_MailView_loader);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_panel, 'maillist-panel');
+  com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this.com_geek_afric_client_view_MailView_loader, false);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_panel, this.com_geek_afric_client_view_MailView_northPanel);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_northPanel, $intern_184);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnSupprimer, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnSupprimer, 'Supprimer les messages s\xE9lectionn\xE9s.');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_northPanel, this.com_geek_afric_client_view_MailView_btnSupprimer);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnRpondre, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnRpondre, 'R\xE9pondre au premier message s\xE9lectionn\xE9');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_northPanel, this.com_geek_afric_client_view_MailView_btnRpondre);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnTransferer, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnTransferer, 'Transf\xE9rer le premier message s\xE9lectionn\xE9');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_northPanel, this.com_geek_afric_client_view_MailView_btnTransferer);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnEnvoyer, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnEnvoyer, $intern_295);
+  com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this.com_geek_afric_client_view_MailView_btnEnvoyer, false);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_northPanel, this.com_geek_afric_client_view_MailView_btnEnvoyer);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnNouveauMessage, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnNouveauMessage, '\xC9crire un nouveau message');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_northPanel, this.com_geek_afric_client_view_MailView_btnNouveauMessage);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnUpdate, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_btnUpdate, 'Relever les messages');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_northPanel, this.com_geek_afric_client_view_MailView_btnUpdate);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_panel, this.com_geek_afric_client_view_MailView_splitLayoutPanel);
+  com_google_gwt_user_client_ui_UIObject_$setSize__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_splitLayoutPanel, $intern_184, '440px');
+  com_google_gwt_user_client_ui_SplitLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_splitLayoutPanel, this.com_geek_afric_client_view_MailView_stackPanel, (com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V() , com_google_gwt_user_client_ui_DockLayoutPanel$Direction_WEST), 130, null);
+  com_google_gwt_user_client_ui_UIObject_$setSize__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_stackPanel, $intern_184, $intern_184);
+  com_google_gwt_user_client_ui_DockLayoutPanel_$addNorth__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DV(this.com_geek_afric_client_view_MailView_splitLayoutPanel, this.com_geek_afric_client_view_MailView_dockPanel, 135);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_dockPanel, $intern_184);
+  com_google_gwt_user_client_ui_DockLayoutPanel_$addNorth__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DV(this.com_geek_afric_client_view_MailView_dockPanel, this.com_geek_afric_client_view_MailView_header, 2);
+  com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_header.com_google_gwt_user_client_ui_HTMLTable_cellFormatter, 0, $intern_296);
+  com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_header.com_google_gwt_user_client_ui_HTMLTable_cellFormatter, 1, $intern_296);
+  com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_header, 0, 0, 'De');
+  com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_header, 0, 1, 'Objet');
+  com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_header, 0, 2, $intern_139);
+  tableScrollPanel = new com_google_gwt_user_client_ui_ScrollPanel_ScrollPanel__V;
+  com_google_gwt_user_client_ui_SimplePanel_$setWidget__Lcom_google_gwt_user_client_ui_SimplePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(tableScrollPanel, this.com_geek_afric_client_view_MailView_table);
+  this.com_geek_afric_client_view_MailView_dockPanel.insert__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(tableScrollPanel, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER, 0, null);
+  bodyScrollPanel = new com_google_gwt_user_client_ui_ScrollPanel_ScrollPanel__V;
+  com_google_gwt_user_client_ui_SplitLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_splitLayoutPanel, bodyScrollPanel, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER, 0, null);
+  bodyScrollPanel.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = $intern_184;
+  bodyPanel = new com_google_gwt_user_client_ui_VerticalPanel_VerticalPanel__V;
+  com_google_gwt_user_client_ui_SimplePanel_$setWidget__Lcom_google_gwt_user_client_ui_SimplePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(bodyScrollPanel, bodyPanel);
+  bodyPanel.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = $intern_184;
+  bodyPanel.com_google_gwt_user_client_ui_UIObject_element.style[$intern_179] = $intern_184;
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(bodyPanel, this.com_geek_afric_client_view_MailView_bodyInfoTable);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, $intern_184);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(bodyPanel, this.com_geek_afric_client_view_MailView_bodyHtml);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_table, 'maillist-table');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_header, 'maillist-header');
+  this.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_tableElem[$intern_176] = 0;
+  this.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_tableElem[$intern_231] = 0;
+  this.com_geek_afric_client_view_MailView_header.com_google_gwt_user_client_ui_HTMLTable_tableElem[$intern_176] = 0;
+  this.com_geek_afric_client_view_MailView_header.com_google_gwt_user_client_ui_HTMLTable_tableElem[$intern_231] = 0;
+  com_geek_afric_client_view_MailView_$addStyle__Lcom_geek_afric_client_view_MailView_2IV(this, 2);
+  com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_2ILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_columnFormatter, 0, $intern_296);
+  com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_2ILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_table.com_google_gwt_user_client_ui_HTMLTable_columnFormatter, 1, $intern_296);
+  this.com_geek_afric_client_view_MailView_labelFrom = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_from = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_labelSubject = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_subject = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_labelDate = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_date = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_labelTo = new com_google_gwt_user_client_ui_Label_Label__V;
+  this.com_geek_afric_client_view_MailView_to = new com_google_gwt_user_client_ui_Label_Label__V;
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 0, 0, this.com_geek_afric_client_view_MailView_labelFrom);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 0, 1, this.com_geek_afric_client_view_MailView_from);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 1, 0, this.com_geek_afric_client_view_MailView_labelSubject);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 1, 1, this.com_geek_afric_client_view_MailView_subject);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 2, 0, this.com_geek_afric_client_view_MailView_labelDate);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 2, 1, this.com_geek_afric_client_view_MailView_date);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 3, 0, this.com_geek_afric_client_view_MailView_labelTo);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 3, 1, this.com_geek_afric_client_view_MailView_to);
+  com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_2ILjava_lang_String_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable.com_google_gwt_user_client_ui_HTMLTable_columnFormatter, 0, '35px');
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelSubject, 'Objet: ');
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelDate, 'Date: ');
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelFrom, 'De: ');
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelTo, '\xC0: ');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelFrom, $intern_297);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelSubject, $intern_297);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelDate, $intern_297);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_labelTo, $intern_297);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_date, 'maildetail-date');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_bodyInfoTable, 'maildetail-header');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView_bodyHtml, 'maildetail-body');
+  this.com_geek_afric_client_view_MailView_mailHeader = com_geek_afric_client_view_MailView_$createHeaderWidget__Lcom_geek_afric_client_view_MailView_2Ljava_lang_String_2Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_Widget_2((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$mailgroupInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_mailgroup));
+  com_google_gwt_user_client_ui_StackLayoutPanel_$add__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2DV(this.com_geek_afric_client_view_MailView_stackPanel, this.com_geek_afric_client_view_MailView_mailboxes, this.com_geek_afric_client_view_MailView_mailHeader);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_btnSupprimer, new com_geek_afric_client_view_MailView$1_MailView$1__Lcom_geek_afric_client_view_MailView_2V(this), (com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_TYPE));
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_btnRpondre, new com_geek_afric_client_view_MailView$2_MailView$2__Lcom_geek_afric_client_view_MailView_2V(this), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_btnTransferer, new com_geek_afric_client_view_MailView$3_MailView$3__Lcom_geek_afric_client_view_MailView_2V(this), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_btnNouveauMessage, new com_geek_afric_client_view_MailView$4_MailView$4__Lcom_geek_afric_client_view_MailView_2V(this), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_btnUpdate, new com_geek_afric_client_view_MailView$5_MailView$5__Lcom_geek_afric_client_view_MailView_2V(this), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_table, new com_geek_afric_client_view_MailView$6_MailView$6__Lcom_geek_afric_client_view_MailView_2V(this), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this.com_geek_afric_client_view_MailView_header, new com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener_ListenerWrapper$WrappedTableListener__Lcom_google_gwt_user_client_ui_TableListener_2V(new com_geek_afric_client_view_MailView$7_MailView$7__Lcom_geek_afric_client_view_MailView_2V(this)), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+}
+
+function com_geek_afric_client_view_MailView(){
+}
+
+_ = com_geek_afric_client_view_MailView_MailView__Lcom_geek_afric_shared_User_2V.prototype = com_geek_afric_client_view_MailView.prototype = new com_google_gwt_user_client_ui_Composite;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsRenderable, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_geek_afric_client_view_MailView_date = null;
+_.com_geek_afric_client_view_MailView_from = null;
+_.com_geek_afric_client_view_MailView_labelDate = null;
+_.com_geek_afric_client_view_MailView_labelFrom = null;
+_.com_geek_afric_client_view_MailView_labelSubject = null;
+_.com_geek_afric_client_view_MailView_labelTo = null;
+_.com_geek_afric_client_view_MailView_listener = null;
+_.com_geek_afric_client_view_MailView_mail = null;
+_.com_geek_afric_client_view_MailView_mailHeader = null;
+_.com_geek_afric_client_view_MailView_selectedRow = -1;
+_.com_geek_afric_client_view_MailView_subject = null;
+_.com_geek_afric_client_view_MailView_to = null;
+_.com_geek_afric_client_view_MailView_user = null;
+function com_geek_afric_client_view_MailView$1_MailView$1__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$1_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$1(){
+}
+
+_ = com_geek_afric_client_view_MailView$1_MailView$1__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$1_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$1_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var b, msg;
+  if (this.com_geek_afric_client_view_MailView$1_this$0.com_geek_afric_client_view_MailView_selectedMails.java_util_ArrayList_size == 0) {
+    com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_298);
+    return;
+  }
+  msg = this.com_geek_afric_client_view_MailView$1_this$0.com_geek_afric_client_view_MailView_selectedMails.java_util_ArrayList_size == 1?'Voulez vous supprimer ce message ?':'Voulez vous supprimer ces ' + this.com_geek_afric_client_view_MailView$1_this$0.com_geek_afric_client_view_MailView_selectedMails.java_util_ArrayList_size + ' messages ?';
+  b = $wnd.confirm(msg);
+  if (b) {
+    com_geek_afric_client_presenter_MailPresenter$1_$onClickSupprimer__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_util_ArrayList_2V(this.com_geek_afric_client_view_MailView$1_this$0.com_geek_afric_client_view_MailView_listener, this.com_geek_afric_client_view_MailView$1_this$0.com_geek_afric_client_view_MailView_selectedMails);
+    java_util_ArrayList_$clear__Ljava_util_ArrayList_2V(this.com_geek_afric_client_view_MailView$1_this$0.com_geek_afric_client_view_MailView_selectedMails);
+  }
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$1_this$0 = null;
+function com_geek_afric_client_view_MailView$2_MailView$2__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$2_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$2(){
+}
+
+_ = com_geek_afric_client_view_MailView$2_MailView$2__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$2.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$2_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$2_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$2_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var ml, msg;
+  if (this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_selectedMails.java_util_ArrayList_size == 0) {
+    com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_298);
+    return;
+  }
+  ml = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_selectedMails, 0), Q$com_geek_afric_shared_Mail);
+  msg = com_geek_afric_shared_Mail_$toString__Lcom_geek_afric_shared_Mail_2Ljava_lang_String_2(ml);
+  this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_mail = new com_geek_afric_client_view_MailView$Message_MailView$Message__Lcom_geek_afric_client_view_MailView_2V(this.com_geek_afric_client_view_MailView$2_this$0);
+  com_geek_afric_client_view_editor_Editor_$setHTML__Lcom_geek_afric_client_view_editor_Editor_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_content, msg);
+  com_google_gwt_user_client_ui_SuggestBox_$setText__Lcom_google_gwt_user_client_ui_SuggestBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_emailTo, ml.com_geek_afric_shared_Mail_sender);
+  com_google_gwt_user_client_ui_ValueBoxBase_$setText__Lcom_google_gwt_user_client_ui_ValueBoxBase_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_objet, 'RE: ' + ml.com_geek_afric_shared_Mail_object);
+  com_google_gwt_user_client_ui_PopupPanel_$center__Lcom_google_gwt_user_client_ui_PopupPanel_2V(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_mail);
+  java_util_ArrayList_$clear__Ljava_util_ArrayList_2V(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_selectedMails);
+  com_geek_afric_client_presenter_MailPresenter$1_$setEmails__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this.com_geek_afric_client_view_MailView$2_this$0.com_geek_afric_client_view_MailView_listener);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$2_this$0 = null;
+function com_geek_afric_client_view_MailView$3_MailView$3__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$3_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$3(){
+}
+
+_ = com_geek_afric_client_view_MailView$3_MailView$3__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$3.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$3_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$3_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$3_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var ml, msg;
+  if (this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_selectedMails.java_util_ArrayList_size == 0) {
+    com_google_gwt_user_client_Window_alert__Ljava_lang_String_2V($intern_298);
+    return;
+  }
+  ml = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_selectedMails, 0), Q$com_geek_afric_shared_Mail);
+  msg = com_geek_afric_shared_Mail_$toString__Lcom_geek_afric_shared_Mail_2Ljava_lang_String_2(ml);
+  this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_mail = new com_geek_afric_client_view_MailView$Message_MailView$Message__Lcom_geek_afric_client_view_MailView_2V(this.com_geek_afric_client_view_MailView$3_this$0);
+  com_geek_afric_client_view_editor_Editor_$setHTML__Lcom_geek_afric_client_view_editor_Editor_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_content, msg);
+  com_google_gwt_user_client_ui_SuggestBox_$setText__Lcom_google_gwt_user_client_ui_SuggestBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_emailTo, $intern_0);
+  com_google_gwt_user_client_ui_ValueBoxBase_$setText__Lcom_google_gwt_user_client_ui_ValueBoxBase_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_mail.com_geek_afric_client_view_MailView$Message_objet, 'FW: ' + ml.com_geek_afric_shared_Mail_object);
+  com_google_gwt_user_client_ui_PopupPanel_$center__Lcom_google_gwt_user_client_ui_PopupPanel_2V(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_mail);
+  java_util_ArrayList_$clear__Ljava_util_ArrayList_2V(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_selectedMails);
+  com_geek_afric_client_presenter_MailPresenter$1_$setEmails__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this.com_geek_afric_client_view_MailView$3_this$0.com_geek_afric_client_view_MailView_listener);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$3_this$0 = null;
+function com_geek_afric_client_view_MailView$4_MailView$4__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$4_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$4(){
+}
+
+_ = com_geek_afric_client_view_MailView$4_MailView$4__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$4.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$4_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$4_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$4_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  com_geek_afric_client_view_MailView_$newMessage__Lcom_geek_afric_client_view_MailView_2V(this.com_geek_afric_client_view_MailView$4_this$0);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$4_this$0 = null;
+function com_geek_afric_client_view_MailView$5_MailView$5__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$5_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$5(){
+}
+
+_ = com_geek_afric_client_view_MailView$5_MailView$5__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$5.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$5_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$5_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$5_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  com_geek_afric_client_presenter_MailPresenter$1_$update__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this.com_geek_afric_client_view_MailView$5_this$0.com_geek_afric_client_view_MailView_listener);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$5_this$0 = null;
+function com_geek_afric_client_view_MailView$6_MailView$6__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$6_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$6(){
+}
+
+_ = com_geek_afric_client_view_MailView$6_MailView$6__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$6.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$6_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$6_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$6_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  com_geek_afric_client_view_MailView_$click__Lcom_geek_afric_client_view_MailView_2Lcom_google_gwt_event_dom_client_ClickEvent_2V(this.com_geek_afric_client_view_MailView$6_this$0, event);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$6_this$0 = null;
+function com_geek_afric_client_view_MailView$7_$onCellClicked__Lcom_geek_afric_client_view_MailView$7_2Lcom_google_gwt_user_client_ui_SourcesTableEvents_2IIV(this$static, row, cell){
+  if (row == 0 && cell == 0) {
+    com_geek_afric_client_view_MailView_$addStyle__Lcom_geek_afric_client_view_MailView_2IV(this$static.com_geek_afric_client_view_MailView$7_this$0, 0);
+    com_geek_afric_client_presenter_MailPresenter$1_$onClickHeader__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView$7_this$0.com_geek_afric_client_view_MailView_listener, (this$static.com_geek_afric_client_view_MailView$7_de = !this$static.com_geek_afric_client_view_MailView$7_de)?'senderName asc':'senderName desc');
+  }
+   else if (row == 0 && cell == 1) {
+    com_geek_afric_client_view_MailView_$addStyle__Lcom_geek_afric_client_view_MailView_2IV(this$static.com_geek_afric_client_view_MailView$7_this$0, 1);
+    com_geek_afric_client_presenter_MailPresenter$1_$onClickHeader__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView$7_this$0.com_geek_afric_client_view_MailView_listener, (this$static.com_geek_afric_client_view_MailView$7_object = !this$static.com_geek_afric_client_view_MailView$7_object)?'object asc':'object desc');
+  }
+   else if (row == 0 && cell == 2) {
+    com_geek_afric_client_view_MailView_$addStyle__Lcom_geek_afric_client_view_MailView_2IV(this$static.com_geek_afric_client_view_MailView$7_this$0, 2);
+    com_geek_afric_client_presenter_MailPresenter$1_$onClickHeader__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this$static.com_geek_afric_client_view_MailView$7_this$0.com_geek_afric_client_view_MailView_listener, (this$static.com_geek_afric_client_view_MailView$7_date = !this$static.com_geek_afric_client_view_MailView$7_date)?$intern_226:'dateCreation asc');
+  }
+   else {
+    com_geek_afric_client_view_MailView_$addStyle__Lcom_geek_afric_client_view_MailView_2IV(this$static.com_geek_afric_client_view_MailView$7_this$0, -1);
+  }
+}
+
+function com_geek_afric_client_view_MailView$7_MailView$7__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$7_this$0 = this$0;
+}
+
+function com_geek_afric_client_view_MailView$7(){
+}
+
+_ = com_geek_afric_client_view_MailView$7_MailView$7__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$7.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$7_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$7_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_ui_TableListener]);
+_.com_geek_afric_client_view_MailView$7_date = false;
+_.com_geek_afric_client_view_MailView$7_de = false;
+_.com_geek_afric_client_view_MailView$7_object = false;
+_.com_geek_afric_client_view_MailView$7_this$0 = null;
+function com_geek_afric_client_view_MailView$8_MailView$8__Lcom_geek_afric_client_view_MailView_2V(this$0, val$file){
+  this.com_geek_afric_client_view_MailView$8_this$0 = this$0;
+  this.com_geek_afric_client_view_MailView$8_val$file = val$file;
+}
+
+function com_geek_afric_client_view_MailView$8(){
+}
+
+_ = com_geek_afric_client_view_MailView$8_MailView$8__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$8.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$8_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$8_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$8_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  !!this.com_geek_afric_client_view_MailView$8_this$0.com_geek_afric_client_view_MailView_listener && com_geek_afric_client_presenter_MailPresenter$1_$onClickTitle__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_geek_afric_shared_Fichier_2V(this.com_geek_afric_client_view_MailView$8_this$0.com_geek_afric_client_view_MailView_listener, this.com_geek_afric_client_view_MailView$8_val$file);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$8_this$0 = null;
+_.com_geek_afric_client_view_MailView$8_val$file = null;
+function com_geek_afric_client_view_MailView$9_MailView$9__Lcom_geek_afric_client_view_MailView_2V(val$listener){
+  this.com_geek_afric_client_view_MailView$9_val$listener = val$listener;
+}
+
+function com_geek_afric_client_view_MailView$9(){
+}
+
+_ = com_geek_afric_client_view_MailView$9_MailView$9__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$9.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$9_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$9_12_1classLit;
+}
+;
+_.getRechercheSelectHandler__Lcom_google_gwt_event_logical_shared_SelectionHandler_2 = function com_geek_afric_client_view_MailView$9_getRechercheSelectHandler__Lcom_google_gwt_event_logical_shared_SelectionHandler_2(){
+  return com_geek_afric_client_presenter_MailPresenter$1_$getRechercheSelectHandler__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_google_gwt_event_logical_shared_SelectionHandler_2(this.com_geek_afric_client_view_MailView$9_val$listener);
+}
+;
+_.onClickAcceuil__V = function com_geek_afric_client_view_MailView$9_onClickAcceuil__V(){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this.com_geek_afric_client_view_MailView$9_val$listener.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_AcceuilEvent_AcceuilEvent__V);
+}
+;
+_.onClickDeconnexion__V = function com_geek_afric_client_view_MailView$9_onClickDeconnexion__V(){
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickDeconnexion__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this.com_geek_afric_client_view_MailView$9_val$listener);
+}
+;
+_.onClickFichiers__V = function com_geek_afric_client_view_MailView$9_onClickFichiers__V(){
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickFichiers__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this.com_geek_afric_client_view_MailView$9_val$listener);
+}
+;
+_.onClickPartages__V = function com_geek_afric_client_view_MailView$9_onClickPartages__V(){
+  com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(this.com_geek_afric_client_view_MailView$9_val$listener.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_eventBus, new com_geek_afric_client_event_FichierListEvent_FichierListEvent__Ljava_lang_String_2IV($intern_199, 0));
+}
+;
+_.onClickSearch__Ljava_lang_String_2V = function com_geek_afric_client_view_MailView$9_onClickSearch__Ljava_lang_String_2V(token){
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickSearch__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$9_val$listener, token);
+}
+;
+_.com_geek_afric_client_view_MailView$9_val$listener = null;
+function com_geek_afric_client_view_MailView$Mailboxes_$creatImageItem__Lcom_geek_afric_client_view_MailView$Mailboxes_2Lcom_google_gwt_user_client_ui_TreeItem_2Ljava_lang_String_2Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_TreeItem_2(title, imageProto){
+  var item;
+  item = new com_google_gwt_user_client_ui_TreeItem_TreeItem__Ljava_lang_String_2V(com_google_gwt_user_client_ui_impl_ClippedImagePrototype_$getSafeHtml__Lcom_google_gwt_user_client_ui_impl_ClippedImagePrototype_2Lcom_google_gwt_safehtml_shared_SafeHtml_2(new com_google_gwt_user_client_ui_impl_ClippedImagePrototype_ClippedImagePrototype__Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIV(imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_url, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_left, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_top, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_width, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_height)).com_google_gwt_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_html + $intern_68 + title);
+  return item;
+}
+
+function com_geek_afric_client_view_MailView$Mailboxes_$imageItemHTML__Lcom_geek_afric_client_view_MailView$Mailboxes_2Lcom_google_gwt_resources_client_ImageResource_2Ljava_lang_String_2Ljava_lang_String_2(imageProto){
+  return com_google_gwt_user_client_ui_impl_ClippedImagePrototype_$getSafeHtml__Lcom_google_gwt_user_client_ui_impl_ClippedImagePrototype_2Lcom_google_gwt_safehtml_shared_SafeHtml_2(new com_google_gwt_user_client_ui_impl_ClippedImagePrototype_ClippedImagePrototype__Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIV(imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_url, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_left, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_top, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_width, imageProto.com_google_gwt_resources_client_impl_ImageResourcePrototype_height)).com_google_gwt_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_html + ' mailboxes';
+}
+
+function com_geek_afric_client_view_MailView$Mailboxes_MailView$Mailboxes__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  this.com_geek_afric_client_view_MailView$Mailboxes_this$0 = this$0;
+  this.com_geek_afric_client_view_MailView$Mailboxes_tree = new com_google_gwt_user_client_ui_Tree_Tree__Lcom_google_gwt_user_client_ui_Tree$Resources_2V;
+  this.com_geek_afric_client_view_MailView$Mailboxes_root = new com_google_gwt_user_client_ui_TreeItem_TreeItem__Ljava_lang_String_2V(com_geek_afric_client_view_MailView$Mailboxes_$imageItemHTML__Lcom_geek_afric_client_view_MailView$Mailboxes_2Lcom_google_gwt_resources_client_ImageResource_2Ljava_lang_String_2Ljava_lang_String_2((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$homeInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_home)));
+  com_google_gwt_user_client_ui_Tree_$addItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this.com_geek_afric_client_view_MailView$Mailboxes_tree, this.com_geek_afric_client_view_MailView$Mailboxes_root);
+  this.com_geek_afric_client_view_MailView$Mailboxes_inbox = com_geek_afric_client_view_MailView$Mailboxes_$creatImageItem__Lcom_geek_afric_client_view_MailView$Mailboxes_2Lcom_google_gwt_user_client_ui_TreeItem_2Ljava_lang_String_2Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_TreeItem_2('R\xE9\xE7us', (com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$inboxInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_inbox));
+  this.com_geek_afric_client_view_MailView$Mailboxes_write = com_geek_afric_client_view_MailView$Mailboxes_$creatImageItem__Lcom_geek_afric_client_view_MailView$Mailboxes_2Lcom_google_gwt_user_client_ui_TreeItem_2Ljava_lang_String_2Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_TreeItem_2('\xC9crire', (com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$writeInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_write));
+  this.com_geek_afric_client_view_MailView$Mailboxes_sent = com_geek_afric_client_view_MailView$Mailboxes_$creatImageItem__Lcom_geek_afric_client_view_MailView$Mailboxes_2Lcom_google_gwt_user_client_ui_TreeItem_2Ljava_lang_String_2Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_TreeItem_2('Envoy\xE9s', (com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$sentInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_sent));
+  com_google_gwt_user_client_ui_TreeItem_$addItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this.com_geek_afric_client_view_MailView$Mailboxes_root, this.com_geek_afric_client_view_MailView$Mailboxes_inbox);
+  com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this.com_geek_afric_client_view_MailView$Mailboxes_tree, this.com_geek_afric_client_view_MailView$Mailboxes_inbox);
+  com_google_gwt_user_client_ui_TreeItem_$addItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this.com_geek_afric_client_view_MailView$Mailboxes_root, this.com_geek_afric_client_view_MailView$Mailboxes_write);
+  com_google_gwt_user_client_ui_TreeItem_$addItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this.com_geek_afric_client_view_MailView$Mailboxes_root, this.com_geek_afric_client_view_MailView$Mailboxes_sent);
+  com_google_gwt_user_client_ui_TreeItem_$setState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this.com_geek_afric_client_view_MailView$Mailboxes_root, true);
+  com_google_gwt_user_client_ui_Composite_$initWidget__Lcom_google_gwt_user_client_ui_Composite_2Lcom_google_gwt_user_client_ui_Widget_2V(this, this.com_geek_afric_client_view_MailView$Mailboxes_tree);
+  com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_add__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeListener_2V(this.com_geek_afric_client_view_MailView$Mailboxes_tree, new com_geek_afric_client_view_MailView$Mailboxes$1_MailView$Mailboxes$1__Lcom_geek_afric_client_view_MailView$Mailboxes_2V(this));
+}
+
+function com_geek_afric_client_view_MailView$Mailboxes(){
+}
+
+_ = com_geek_afric_client_view_MailView$Mailboxes_MailView$Mailboxes__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$Mailboxes.prototype = new com_google_gwt_user_client_ui_Composite;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Mailboxes_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Mailboxes_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsRenderable, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_geek_afric_client_view_MailView$Mailboxes_inbox = null;
+_.com_geek_afric_client_view_MailView$Mailboxes_root = null;
+_.com_geek_afric_client_view_MailView$Mailboxes_sent = null;
+_.com_geek_afric_client_view_MailView$Mailboxes_this$0 = null;
+_.com_geek_afric_client_view_MailView$Mailboxes_tree = null;
+_.com_geek_afric_client_view_MailView$Mailboxes_write = null;
+function com_geek_afric_client_view_MailView$Mailboxes$1_$onTreeItemSelected__Lcom_geek_afric_client_view_MailView$Mailboxes$1_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, item){
+  item == this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_inbox?com_geek_afric_client_presenter_MailPresenter$1_$onClickInbox__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_this$0.com_geek_afric_client_view_MailView_listener):item == this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_write?com_geek_afric_client_view_MailView_$newMessage__Lcom_geek_afric_client_view_MailView_2V(this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_this$0.com_geek_afric_client_view_MailView_listener.com_geek_afric_client_presenter_MailPresenter$1_this$0.com_geek_afric_client_presenter_MailPresenter_display):item == this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_sent?com_geek_afric_client_presenter_MailPresenter$1_$onClickSent__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_this$0.com_geek_afric_client_view_MailView_listener):item == this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_root && com_geek_afric_client_presenter_MailPresenter$1_$onClickRoot__Lcom_geek_afric_client_presenter_MailPresenter$1_2V(this$static.com_geek_afric_client_view_MailView$Mailboxes$1_this$1.com_geek_afric_client_view_MailView$Mailboxes_this$0.com_geek_afric_client_view_MailView_listener);
+}
+
+function com_geek_afric_client_view_MailView$Mailboxes$1_MailView$Mailboxes$1__Lcom_geek_afric_client_view_MailView$Mailboxes_2V(this$1){
+  this.com_geek_afric_client_view_MailView$Mailboxes$1_this$1 = this$1;
+}
+
+function com_geek_afric_client_view_MailView$Mailboxes$1(){
+}
+
+_ = com_geek_afric_client_view_MailView$Mailboxes$1_MailView$Mailboxes$1__Lcom_geek_afric_client_view_MailView$Mailboxes_2V.prototype = com_geek_afric_client_view_MailView$Mailboxes$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Mailboxes$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Mailboxes$1_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_ui_TreeListener]);
+_.com_geek_afric_client_view_MailView$Mailboxes$1_this$1 = null;
+function com_geek_afric_client_view_MailView$Message_$bind__Lcom_geek_afric_client_view_MailView$Message_2V(this$static){
+  var a, date, h, i, j, m, mn;
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this$static.com_geek_afric_client_view_MailView$Message_btnAnnuler, new com_geek_afric_client_view_MailView$Message$1_MailView$Message$1__Lcom_geek_afric_client_view_MailView$Message_2V(this$static), (com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_TYPE));
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this$static.com_geek_afric_client_view_MailView$Message_btnEnvoyer, new com_geek_afric_client_view_MailView$Message$2_MailView$Message$2__Lcom_geek_afric_client_view_MailView$Message_2V(this$static), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this$static.com_geek_afric_client_view_MailView$Message_emailTo.com_google_gwt_user_client_ui_SuggestBox_box, new com_geek_afric_client_view_MailView$Message$3_MailView$Message$3__Lcom_geek_afric_client_view_MailView$Message_2V(this$static), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(this$static.com_geek_afric_client_view_MailView$Message_btnEnvoiDiffr, new com_geek_afric_client_view_MailView$Message$4_MailView$Message$4__Lcom_geek_afric_client_view_MailView$Message_2V(this$static), com_google_gwt_event_dom_client_ClickEvent_TYPE);
+  com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_dayListBox, 'jours');
+  for (i = 1; i <= 31; ++i) {
+    com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_dayListBox, i < 10?$intern_72 + i:$intern_0 + i);
+  }
+  com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_monthListBox, 'mois');
+  for (i = 1; i <= 12; ++i) {
+    com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_monthListBox, i < 10?$intern_72 + i:$intern_0 + i);
+  }
+  com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_yearListBox, 'ann\xE9e');
+  for (i = 2012; i <= 2020; ++i) {
+    com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_yearListBox, $intern_0 + i);
+  }
+  com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_hourListBox, 'heures');
+  for (i = 0; i < 24; ++i) {
+    com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_hourListBox, i < 10?$intern_72 + i:$intern_0 + i);
+  }
+  com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_minListBox, 'mins');
+  for (i = 0; i < 60; i += 5) {
+    com_google_gwt_user_client_ui_ListBox_$insertItem__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2IV(this$static.com_geek_afric_client_view_MailView$Message_minListBox, i < 10?$intern_72 + i:$intern_0 + i);
+  }
+  date = new java_util_Date_Date__V;
+  j = date.getDate__I();
+  m = date.getMonth__I();
+  a = date.getYear__I() + 1900;
+  h = date.getHours__I();
+  mn = date.getMinutes__I();
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this$static.com_geek_afric_client_view_MailView$Message_minListBox, ~~(mn / 5) + 1);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this$static.com_geek_afric_client_view_MailView$Message_hourListBox, h + 1);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this$static.com_geek_afric_client_view_MailView$Message_yearListBox, a - 2012 + 1);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this$static.com_geek_afric_client_view_MailView$Message_monthListBox, m + 1);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this$static.com_geek_afric_client_view_MailView$Message_dayListBox, j);
+}
+
+function com_geek_afric_client_view_MailView$Message_$setEmails__Lcom_geek_afric_client_view_MailView$Message_2Ljava_util_Set_2V(this$static, mails){
+  com_google_gwt_user_client_ui_MultiWordSuggestOracle_$addAll__Lcom_google_gwt_user_client_ui_MultiWordSuggestOracle_2Ljava_util_Collection_2V(this$static.com_geek_afric_client_view_MailView$Message_oracle, mails);
+}
+
+function com_geek_afric_client_view_MailView$Message_$setMessage__Lcom_geek_afric_client_view_MailView$Message_2Ljava_lang_String_2V(this$static){
+  com_google_gwt_user_client_ui_DialogBox_$hide__Lcom_google_gwt_user_client_ui_DialogBox_2V(this$static);
+  this$static.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_mail = null;
+}
+
+function com_geek_afric_client_view_MailView$Message_MailView$Message__Lcom_geek_afric_client_view_MailView_2V(this$0){
+  com_google_gwt_user_client_ui_PopupPanel_$clinit__V();
+  var buttonPanel, flexTable, label, lblObject, scrollPanel;
+  this.com_geek_afric_client_view_MailView$Message_this$0 = this$0;
+  com_google_gwt_user_client_ui_DialogBox_DialogBox__ZV.call(this, false);
+  this.com_geek_afric_client_view_MailView$Message_verifier = new com_geek_afric_client_view_FieldVerifier_FieldVerifier__V;
+  this.com_geek_afric_client_view_MailView$Message_panel = new com_google_gwt_user_client_ui_VerticalPanel_VerticalPanel__V;
+  this.com_geek_afric_client_view_MailView$Message_btnEnvoyer = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V($intern_294);
+  this.com_geek_afric_client_view_MailView$Message_btnAnnuler = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V($intern_174);
+  this.com_geek_afric_client_view_MailView$Message_oracle = new com_google_gwt_user_client_ui_MultiWordSuggestOracle_MultiWordSuggestOracle__V;
+  this.com_geek_afric_client_view_MailView$Message_emailTo = new com_google_gwt_user_client_ui_SuggestBox_SuggestBox__Lcom_google_gwt_user_client_ui_SuggestOracle_2V(this.com_geek_afric_client_view_MailView$Message_oracle);
+  this.com_geek_afric_client_view_MailView$Message_objet = new com_google_gwt_user_client_ui_TextBox_TextBox__V;
+  this.com_geek_afric_client_view_MailView$Message_content = new com_geek_afric_client_view_editor_Editor_Editor__V;
+  this.com_geek_afric_client_view_MailView$Message_sendLoader = new com_google_gwt_user_client_ui_Image_Image__Lcom_google_gwt_resources_client_ImageResource_2V((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$defaultLoaderInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_defaultLoader));
+  this.com_geek_afric_client_view_MailView$Message_horizontalPanel = new com_google_gwt_user_client_ui_HorizontalPanel_HorizontalPanel__V;
+  this.com_geek_afric_client_view_MailView$Message_btnEnvoiDiffr = new com_google_gwt_user_client_ui_Button_Button__Ljava_lang_String_2V('Envoi diff\xE9r\xE9');
+  this.com_geek_afric_client_view_MailView$Message_timePanel = new com_google_gwt_user_client_ui_HorizontalPanel_HorizontalPanel__V;
+  this.com_geek_afric_client_view_MailView$Message_dayListBox = new com_google_gwt_user_client_ui_ListBox_ListBox__V;
+  this.com_geek_afric_client_view_MailView$Message_monthListBox = new com_google_gwt_user_client_ui_ListBox_ListBox__V;
+  this.com_geek_afric_client_view_MailView$Message_yearListBox = new com_google_gwt_user_client_ui_ListBox_ListBox__V;
+  this.com_geek_afric_client_view_MailView$Message_hourListBox = new com_google_gwt_user_client_ui_ListBox_ListBox__V;
+  this.com_geek_afric_client_view_MailView$Message_minListBox = new com_google_gwt_user_client_ui_ListBox_ListBox__V;
+  com_google_gwt_user_client_ui_HTML_$setHTML__Lcom_google_gwt_user_client_ui_HTML_2Ljava_lang_String_2V(this.com_google_gwt_user_client_ui_DialogBox_caption, (com_google_gwt_safehtml_shared_SafeHtmlUtils_$clinit__V() , (new com_google_gwt_safehtml_shared_SafeHtmlString_SafeHtmlString__Ljava_lang_String_2V("<center>Envoie d'email<\/center>")).com_google_gwt_safehtml_shared_SafeHtmlString_html));
+  com_google_gwt_user_client_ui_DecoratedPopupPanel_$setWidget__Lcom_google_gwt_user_client_ui_DecoratedPopupPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this, this.com_geek_afric_client_view_MailView$Message_panel);
+  com_google_gwt_user_client_ui_UIObject_$setSize__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_panel, $intern_161, '435px');
+  buttonPanel = new com_google_gwt_user_client_ui_HorizontalPanel_HorizontalPanel__V;
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_panel, buttonPanel);
+  com_google_gwt_user_client_ui_CellPanel_$setCellHorizontalAlignment__Lcom_google_gwt_user_client_ui_CellPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$HorizontalAlignmentConstant_2V(this.com_geek_afric_client_view_MailView$Message_panel, buttonPanel, (com_google_gwt_user_client_ui_HasHorizontalAlignment_$clinit__V() , com_google_gwt_user_client_ui_HasHorizontalAlignment_ALIGN_1RIGHT));
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_btnEnvoyer, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_btnEnvoyer, $intern_295);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(buttonPanel, this.com_geek_afric_client_view_MailView$Message_btnEnvoyer);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_btnAnnuler, $intern_186);
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_btnAnnuler, 'Fermer la fen\xEAtre');
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(buttonPanel, this.com_geek_afric_client_view_MailView$Message_btnAnnuler);
+  flexTable = new com_google_gwt_user_client_ui_FlexTable_FlexTable__V;
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_panel, flexTable);
+  flexTable.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = $intern_184;
+  label = new com_google_gwt_user_client_ui_Label_Label__Ljava_lang_String_2V('\xC0:');
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(flexTable, 0, 0, label);
+  com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(flexTable.com_google_gwt_user_client_ui_HTMLTable_cellFormatter, 0, $intern_185);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(flexTable, 0, 1, this.com_geek_afric_client_view_MailView$Message_emailTo);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_emailTo, $intern_240);
+  this.com_geek_afric_client_view_MailView$Message_emailTo.com_google_gwt_user_client_ui_SuggestBox_box.com_google_gwt_user_client_ui_UIObject_element[$intern_86] = $intern_180;
+  lblObject = new com_google_gwt_user_client_ui_Label_Label__Ljava_lang_String_2V('Objet:');
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(flexTable, 1, 0, lblObject);
+  com_google_gwt_user_client_ui_HTMLTable_$setWidget__Lcom_google_gwt_user_client_ui_HTMLTable_2IILcom_google_gwt_user_client_ui_Widget_2V(flexTable, 1, 1, this.com_geek_afric_client_view_MailView$Message_objet);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_objet, $intern_240);
+  com_google_gwt_user_client_ui_ValueBoxBase_$setName__Lcom_google_gwt_user_client_ui_ValueBoxBase_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_objet, 'Le champ object');
+  scrollPanel = new com_google_gwt_user_client_ui_ScrollPanel_ScrollPanel__V;
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_panel, scrollPanel);
+  scrollPanel.com_google_gwt_user_client_ui_UIObject_element.style[$intern_179] = '280px';
+  com_google_gwt_user_client_ui_SimplePanel_$setWidget__Lcom_google_gwt_user_client_ui_SimplePanel_2Lcom_google_gwt_user_client_ui_Widget_2V(scrollPanel, this.com_geek_afric_client_view_MailView$Message_content);
+  com_google_gwt_user_client_ui_UIObject_$setSize__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_content.com_geek_afric_client_view_editor_Editor_grid, $intern_184, $intern_184);
+  com_geek_afric_client_view_editor_Editor_$setAreaSize__Lcom_geek_afric_client_view_editor_Editor_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_content, '205px');
+  this.com_geek_afric_client_view_MailView$Message_labelError = com_geek_afric_client_view_FieldVerifier_$getLabel__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_Label_2(this.com_geek_afric_client_view_MailView$Message_verifier);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_labelError, $intern_171);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_panel, this.com_geek_afric_client_view_MailView$Message_labelError);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_labelError, $intern_184);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_minListBox, $intern_186);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this.com_geek_afric_client_view_MailView$Message_minListBox, 0);
+  com_google_gwt_user_client_ui_ListBox_$setName__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_minListBox, 'Le champ minutes');
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_minListBox, 'Les minutes');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_hourListBox, $intern_186);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this.com_geek_afric_client_view_MailView$Message_hourListBox, 0);
+  com_google_gwt_user_client_ui_ListBox_$setName__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_hourListBox, 'Le champ heures');
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_hourListBox, 'Les heures');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_yearListBox, $intern_186);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this.com_geek_afric_client_view_MailView$Message_yearListBox, 0);
+  com_google_gwt_user_client_ui_ListBox_$setName__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_yearListBox, 'Le champ ann\xE9es');
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_yearListBox, 'Les ann\xE9es');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_monthListBox, $intern_186);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this.com_geek_afric_client_view_MailView$Message_monthListBox, 0);
+  com_google_gwt_user_client_ui_ListBox_$setName__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_monthListBox, 'Le champ mois');
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_monthListBox, 'Les mois');
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_dayListBox, $intern_186);
+  com_google_gwt_user_client_ui_ListBox_$setSelectedIndex__Lcom_google_gwt_user_client_ui_ListBox_2IV(this.com_geek_afric_client_view_MailView$Message_dayListBox, 0);
+  com_google_gwt_user_client_ui_ListBox_$setName__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_dayListBox, 'Le champ jours');
+  com_google_gwt_user_client_ui_UIObject_$setTitle__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_dayListBox, 'Les jours');
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_panel, this.com_geek_afric_client_view_MailView$Message_horizontalPanel);
+  com_google_gwt_user_client_ui_UIObject_$setWidth__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_horizontalPanel, $intern_184);
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message_btnEnvoiDiffr, $intern_186);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_horizontalPanel, this.com_geek_afric_client_view_MailView$Message_btnEnvoiDiffr);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_horizontalPanel, this.com_geek_afric_client_view_MailView$Message_timePanel);
+  com_google_gwt_user_client_ui_CellPanel_$setCellHorizontalAlignment__Lcom_google_gwt_user_client_ui_CellPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$HorizontalAlignmentConstant_2V(this.com_geek_afric_client_view_MailView$Message_horizontalPanel, this.com_geek_afric_client_view_MailView$Message_timePanel, com_google_gwt_user_client_ui_HasHorizontalAlignment_ALIGN_1RIGHT);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_timePanel, this.com_geek_afric_client_view_MailView$Message_dayListBox);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_timePanel, this.com_geek_afric_client_view_MailView$Message_monthListBox);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_timePanel, this.com_geek_afric_client_view_MailView$Message_yearListBox);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_timePanel, this.com_geek_afric_client_view_MailView$Message_hourListBox);
+  com_google_gwt_user_client_ui_HorizontalPanel_$add__Lcom_google_gwt_user_client_ui_HorizontalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_timePanel, this.com_geek_afric_client_view_MailView$Message_minListBox);
+  com_google_gwt_user_client_ui_UIObject_$setVisible__Lcom_google_gwt_user_client_ui_UIObject_2ZV(this.com_geek_afric_client_view_MailView$Message_sendLoader, false);
+  com_google_gwt_user_client_ui_VerticalPanel_$add__Lcom_google_gwt_user_client_ui_VerticalPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_geek_afric_client_view_MailView$Message_panel, this.com_geek_afric_client_view_MailView$Message_sendLoader);
+  com_geek_afric_client_view_MailView$Message_$bind__Lcom_geek_afric_client_view_MailView$Message_2V(this);
+}
+
+function com_geek_afric_client_view_MailView$Message(){
+}
+
+_ = com_geek_afric_client_view_MailView$Message_MailView$Message__Lcom_geek_afric_client_view_MailView_2V.prototype = com_geek_afric_client_view_MailView$Message.prototype = new com_google_gwt_user_client_ui_DialogBox;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Message_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_HasWidgets, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_PopupPanel, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_geek_afric_client_view_MailView$Message_labelError = null;
+_.com_geek_afric_client_view_MailView$Message_this$0 = null;
+function com_geek_afric_client_view_MailView$Message$1_MailView$Message$1__Lcom_geek_afric_client_view_MailView$Message_2V(this$1){
+  this.com_geek_afric_client_view_MailView$Message$1_this$1 = this$1;
+}
+
+function com_geek_afric_client_view_MailView$Message$1(){
+}
+
+_ = com_geek_afric_client_view_MailView$Message$1_MailView$Message$1__Lcom_geek_afric_client_view_MailView$Message_2V.prototype = com_geek_afric_client_view_MailView$Message$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Message$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$1_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$Message$1_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  com_google_gwt_user_client_ui_DialogBox_$hide__Lcom_google_gwt_user_client_ui_DialogBox_2V(this.com_geek_afric_client_view_MailView$Message$1_this$1);
+  com_google_gwt_user_client_ui_SuggestBox_$setText__Lcom_google_gwt_user_client_ui_SuggestBox_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message$1_this$1.com_geek_afric_client_view_MailView$Message_emailTo, $intern_0);
+  com_google_gwt_user_client_ui_ValueBoxBase_$setText__Lcom_google_gwt_user_client_ui_ValueBoxBase_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message$1_this$1.com_geek_afric_client_view_MailView$Message_objet, $intern_0);
+  com_google_gwt_user_client_ui_impl_RichTextAreaImplStandard_$setText__Lcom_google_gwt_user_client_ui_impl_RichTextAreaImplStandard_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message$1_this$1.com_geek_afric_client_view_MailView$Message_content.com_geek_afric_client_view_editor_Editor_area.com_google_gwt_user_client_ui_RichTextArea_impl);
+  this.com_geek_afric_client_view_MailView$Message$1_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_mail = null;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$Message$1_this$1 = null;
+function com_geek_afric_client_view_MailView$Message$2_MailView$Message$2__Lcom_geek_afric_client_view_MailView$Message_2V(this$1){
+  this.com_geek_afric_client_view_MailView$Message$2_this$1 = this$1;
+}
+
+function com_geek_afric_client_view_MailView$Message$2(){
+}
+
+_ = com_geek_afric_client_view_MailView$Message$2_MailView$Message$2__Lcom_geek_afric_client_view_MailView$Message_2V.prototype = com_geek_afric_client_view_MailView$Message$2.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Message$2_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$2_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$Message$2_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var email, mail, message, obj, r;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidEmail__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_SuggestBox_2Z(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_emailTo);
+  if (!r)
+    return;
+  email = com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_emailTo.com_google_gwt_user_client_ui_SuggestBox_box.com_google_gwt_user_client_ui_UIObject_element, $intern_90);
+  obj = !com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_objet.com_google_gwt_user_client_ui_UIObject_element, $intern_90).length?$intern_299:com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_objet.com_google_gwt_user_client_ui_UIObject_element, $intern_90);
+  message = com_google_gwt_user_client_ui_impl_RichTextAreaImplStandard_$getHTML__Lcom_google_gwt_user_client_ui_impl_RichTextAreaImplStandard_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_content.com_geek_afric_client_view_editor_Editor_area.com_google_gwt_user_client_ui_RichTextArea_impl);
+  mail = new com_geek_afric_shared_Mail_Mail__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_user.com_geek_afric_shared_User_email, email, obj, message);
+  mail.com_geek_afric_shared_Mail_read = false;
+  com_geek_afric_shared_Mail_$setSenderName__Lcom_geek_afric_shared_Mail_2Ljava_lang_String_2V(mail, com_geek_afric_shared_User_$getDisplayname__Lcom_geek_afric_shared_User_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_user));
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickEnvoyer__Lcom_geek_afric_client_presenter_MailPresenter$1_2Lcom_geek_afric_shared_Mail_2V(this.com_geek_afric_client_view_MailView$Message$2_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_listener, mail);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$Message$2_this$1 = null;
+function com_geek_afric_client_view_MailView$Message$3_MailView$Message$3__Lcom_geek_afric_client_view_MailView$Message_2V(this$1){
+  this.com_geek_afric_client_view_MailView$Message$3_this$1 = this$1;
+}
+
+function com_geek_afric_client_view_MailView$Message$3(){
+}
+
+_ = com_geek_afric_client_view_MailView$Message$3_MailView$Message$3__Lcom_geek_afric_client_view_MailView$Message_2V.prototype = com_geek_afric_client_view_MailView$Message$3.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Message$3_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$3_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$Message$3_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  com_google_gwt_user_client_ui_Label_$setText__Lcom_google_gwt_user_client_ui_Label_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message$3_this$1.com_geek_afric_client_view_MailView$Message_labelError, $intern_0);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$Message$3_this$1 = null;
+function com_geek_afric_client_view_MailView$Message$4_MailView$Message$4__Lcom_geek_afric_client_view_MailView$Message_2V(this$1){
+  this.com_geek_afric_client_view_MailView$Message$4_this$1 = this$1;
+}
+
+function com_geek_afric_client_view_MailView$Message$4(){
+}
+
+_ = com_geek_afric_client_view_MailView$Message$4_MailView$Message$4__Lcom_geek_afric_client_view_MailView$Message_2V.prototype = com_geek_afric_client_view_MailView$Message$4.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_geek_afric_client_view_MailView$Message$4_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$4_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_geek_afric_client_view_MailView$Message$4_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var annee, email, heure, jour, message, min, ml, mois, obj, r;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidEmail__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_SuggestBox_2Z(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_emailTo);
+  if (!r)
+    return;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidListBox__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_ListBox_2Z(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_dayListBox);
+  if (!r)
+    return;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidListBox__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_ListBox_2Z(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_monthListBox);
+  if (!r)
+    return;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidListBox__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_ListBox_2Z(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_yearListBox);
+  if (!r)
+    return;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidListBox__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_ListBox_2Z(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_hourListBox);
+  if (!r)
+    return;
+  r = com_geek_afric_client_view_FieldVerifier_$isValidListBox__Lcom_geek_afric_client_view_FieldVerifier_2Lcom_google_gwt_user_client_ui_ListBox_2Z(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_verifier, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_minListBox);
+  if (!r)
+    return;
+  email = com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_emailTo.com_google_gwt_user_client_ui_SuggestBox_box.com_google_gwt_user_client_ui_UIObject_element, $intern_90);
+  obj = !com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_objet.com_google_gwt_user_client_ui_UIObject_element, $intern_90).length?$intern_299:com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_objet.com_google_gwt_user_client_ui_UIObject_element, $intern_90);
+  message = com_google_gwt_user_client_ui_impl_RichTextAreaImplStandard_$getHTML__Lcom_google_gwt_user_client_ui_impl_RichTextAreaImplStandard_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_content.com_geek_afric_client_view_editor_Editor_area.com_google_gwt_user_client_ui_RichTextArea_impl);
+  ml = new com_geek_afric_shared_Mail_Mail__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_user.com_geek_afric_shared_User_email, email, obj, message);
+  ml.com_geek_afric_shared_Mail_read = false;
+  com_geek_afric_shared_Mail_$setSenderName__Lcom_geek_afric_shared_Mail_2Ljava_lang_String_2V(ml, com_geek_afric_shared_User_$getDisplayname__Lcom_geek_afric_shared_User_2Ljava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_user));
+  jour = new java_lang_Integer_Integer__Ljava_lang_String_2V(com_google_gwt_user_client_ui_ListBox_$getItemText__Lcom_google_gwt_user_client_ui_ListBox_2ILjava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_dayListBox, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_dayListBox.com_google_gwt_user_client_ui_UIObject_element.selectedIndex));
+  mois = new java_lang_Integer_Integer__Ljava_lang_String_2V(com_google_gwt_user_client_ui_ListBox_$getItemText__Lcom_google_gwt_user_client_ui_ListBox_2ILjava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_monthListBox, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_monthListBox.com_google_gwt_user_client_ui_UIObject_element.selectedIndex));
+  annee = new java_lang_Integer_Integer__Ljava_lang_String_2V(com_google_gwt_user_client_ui_ListBox_$getItemText__Lcom_google_gwt_user_client_ui_ListBox_2ILjava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_yearListBox, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_yearListBox.com_google_gwt_user_client_ui_UIObject_element.selectedIndex));
+  heure = new java_lang_Integer_Integer__Ljava_lang_String_2V(com_google_gwt_user_client_ui_ListBox_$getItemText__Lcom_google_gwt_user_client_ui_ListBox_2ILjava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_hourListBox, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_hourListBox.com_google_gwt_user_client_ui_UIObject_element.selectedIndex));
+  min = new java_lang_Integer_Integer__Ljava_lang_String_2V(com_google_gwt_user_client_ui_ListBox_$getItemText__Lcom_google_gwt_user_client_ui_ListBox_2ILjava_lang_String_2(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_minListBox, this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_minListBox.com_google_gwt_user_client_ui_UIObject_element.selectedIndex));
+  com_geek_afric_client_presenter_MailPresenter$1_$onClickEnvoiDiff__Lcom_geek_afric_client_presenter_MailPresenter$1_2Ljava_lang_Integer_2Ljava_lang_Integer_2Ljava_lang_Integer_2Ljava_lang_Integer_2Ljava_lang_Integer_2Lcom_geek_afric_shared_Mail_2V(this.com_geek_afric_client_view_MailView$Message$4_this$1.com_geek_afric_client_view_MailView$Message_this$0.com_geek_afric_client_view_MailView_listener, jour, mois, annee, heure, min, ml);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_geek_afric_client_view_MailView$Message$4_this$1 = null;
+function com_geek_afric_shared_User_$isReceiver__Lcom_geek_afric_shared_User_2Lcom_geek_afric_shared_Mail_2Z(this$static, mail){
+  return java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(this$static.com_geek_afric_shared_User_email, mail.com_geek_afric_shared_Mail_receiver);
+}
+
+function com_geek_afric_shared_User_$isSender__Lcom_geek_afric_shared_User_2Lcom_geek_afric_shared_Mail_2Z(this$static, mail){
+  return java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(this$static.com_geek_afric_shared_User_email, mail.com_geek_afric_shared_Mail_sender);
+}
+
+function com_google_gwt_animation_client_Animation_$run__Lcom_google_gwt_animation_client_Animation_2ILcom_google_gwt_dom_client_Element_2V(this$static, duration, element){
+  com_google_gwt_animation_client_Animation_$run__Lcom_google_gwt_animation_client_Animation_2IDLcom_google_gwt_dom_client_Element_2V(this$static, duration, com_google_gwt_core_client_Duration_currentTimeMillis__D(), element);
+}
+
+function com_google_gwt_core_client_JsDate_$setDate__Lcom_google_gwt_core_client_JsDate_2ID(this$static, dayOfMonth){
+  return this$static.setDate(dayOfMonth);
+}
+
+function com_google_gwt_core_client_JsDate_$setFullYear__Lcom_google_gwt_core_client_JsDate_2IIID(this$static, year, month, day){
+  return this$static.setFullYear(year, month, day);
+}
+
+function com_google_gwt_core_client_JsDate_$setHours__Lcom_google_gwt_core_client_JsDate_2IIIID(this$static, hours, mins, secs, ms){
+  return this$static.setHours(hours, mins, secs, ms);
+}
+
+function com_google_gwt_core_client_JsDate_create__IIIIIIILcom_google_gwt_core_client_JsDate_2(year, month, dayOfMonth, hours, minutes, seconds, millis){
+  return new Date(year, month, dayOfMonth, hours, minutes, seconds, millis);
+}
+
+function com_google_gwt_dom_client_Node_$getChild__Lcom_google_gwt_dom_client_Node_2ILcom_google_gwt_dom_client_Node_2(this$static, index){
+  return this$static.childNodes[index];
+}
+
+function com_google_gwt_dom_client_Node_$insertBefore__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(this$static, newChild, refChild){
+  return this$static.insertBefore(newChild, refChild);
+}
+
+function com_google_gwt_dom_client_Node_$removeFromParent__Lcom_google_gwt_dom_client_Node_2V(this$static){
+  var parent;
+  parent = com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(this$static);
+  !!parent && parent.removeChild(this$static);
+}
+
+function com_google_gwt_dom_client_DOMImpl_$scrollIntoView__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2V(elem){
+  var left = elem.offsetLeft, top = elem.offsetTop;
+  var width = elem.offsetWidth, height = elem.offsetHeight;
+  if (elem.parentNode != elem.offsetParent) {
+    left -= elem.parentNode.offsetLeft;
+    top -= elem.parentNode.offsetTop;
+  }
+  var cur = elem.parentNode;
+  while (cur && cur.nodeType == 1) {
+    left < cur.scrollLeft && (cur.scrollLeft = left);
+    left + width > cur.scrollLeft + cur.clientWidth && (cur.scrollLeft = left + width - cur.clientWidth);
+    top < cur.scrollTop && (cur.scrollTop = top);
+    top + height > cur.scrollTop + cur.clientHeight && (cur.scrollTop = top + height - cur.clientHeight);
+    var offsetLeft = cur.offsetLeft, offsetTop = cur.offsetTop;
+    if (cur.parentNode != cur.offsetParent) {
+      offsetLeft -= cur.parentNode.offsetLeft;
+      offsetTop -= cur.parentNode.offsetTop;
+    }
+    left += offsetLeft - cur.scrollLeft;
+    top += offsetTop - cur.scrollTop;
+    cur = cur.parentNode;
+  }
+}
+
+function com_google_gwt_dom_client_SelectElement_$setName__Lcom_google_gwt_dom_client_SelectElement_2Ljava_lang_String_2V(this$static, name){
+  this$static.name = name;
+}
+
+_ = com_google_gwt_dom_client_Style$Unit$1.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$1_getType__Ljava_lang_String_2(){
+  return $intern_189;
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$2.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$2_getType__Ljava_lang_String_2(){
+  return '%';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$3.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$3_getType__Ljava_lang_String_2(){
+  return 'em';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$4.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$4_getType__Ljava_lang_String_2(){
+  return 'ex';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$5.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$5_getType__Ljava_lang_String_2(){
+  return 'pt';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$6.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$6_getType__Ljava_lang_String_2(){
+  return 'pc';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$7.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$7_getType__Ljava_lang_String_2(){
+  return 'in';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$8.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$8_getType__Ljava_lang_String_2(){
+  return 'cm';
+}
+;
+_ = com_google_gwt_dom_client_Style$Unit$9.prototype;
+_.getType__Ljava_lang_String_2 = function com_google_gwt_dom_client_Style$Unit$9_getType__Ljava_lang_String_2(){
+  return 'mm';
+}
+;
+function com_google_gwt_event_logical_shared_BeforeSelectionEvent_fire__Lcom_google_gwt_event_logical_shared_HasBeforeSelectionHandlers_2Ljava_lang_Object_2Lcom_google_gwt_event_logical_shared_BeforeSelectionEvent_2(){
+  return null;
+}
+
+function com_google_gwt_event_logical_shared_OpenEvent_OpenEvent__Ljava_lang_Object_2V(){
+}
+
+function com_google_gwt_event_logical_shared_OpenEvent_fire__Lcom_google_gwt_event_logical_shared_HasOpenHandlers_2Ljava_lang_Object_2V(source){
+  var event;
+  if (com_google_gwt_event_logical_shared_OpenEvent_TYPE) {
+    event = new com_google_gwt_event_logical_shared_OpenEvent_OpenEvent__Ljava_lang_Object_2V;
+    !!source.com_google_gwt_user_client_ui_Widget_handlerManager && com_google_gwt_event_shared_HandlerManager_$fireEvent__Lcom_google_gwt_event_shared_HandlerManager_2Lcom_google_gwt_event_shared_GwtEvent_2V(source.com_google_gwt_user_client_ui_Widget_handlerManager, event);
+  }
+}
+
+function com_google_gwt_event_logical_shared_OpenEvent(){
+}
+
+_ = com_google_gwt_event_logical_shared_OpenEvent_OpenEvent__Ljava_lang_Object_2V.prototype = com_google_gwt_event_logical_shared_OpenEvent.prototype = new com_google_gwt_event_shared_GwtEvent;
+_.dispatch__Lcom_google_gwt_event_shared_EventHandler_2V = function com_google_gwt_event_logical_shared_OpenEvent_dispatch__Lcom_google_gwt_event_shared_EventHandler_2V(handler){
+  com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(handler, Q$com_google_gwt_event_logical_shared_OpenHandler), Q$com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener).com_google_gwt_user_client_BaseListenerWrapper_listener, Q$com_google_gwt_user_client_ui_TreeListener);
+}
+;
+_.getAssociatedType__Lcom_google_gwt_event_shared_GwtEvent$Type_2 = function com_google_gwt_event_logical_shared_OpenEvent_getAssociatedType__Lcom_google_gwt_event_shared_GwtEvent$Type_2(){
+  return com_google_gwt_event_logical_shared_OpenEvent_TYPE;
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_event_logical_shared_OpenEvent_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1event_1logical_1shared_1OpenEvent_12_1classLit;
+}
+;
+var com_google_gwt_event_logical_shared_OpenEvent_TYPE = null;
+function java_util_Date_$after__Ljava_util_Date_2Ljava_util_Date_2Z(this$static, when){
+  return com_google_gwt_lang_LongLib_gt__Lcom_google_gwt_lang_LongLibBase$LongEmul_2Lcom_google_gwt_lang_LongLibBase$LongEmul_2Z(this$static.getTime__J(), when.getTime__J());
+}
+
+function java_util_Date_$fixDaylightSavings__Ljava_util_Date_2IV(this$static, hours){
+  var badHours, copy, day, newTime, timeDiff, timeDiffHours, timeDiffMinutes;
+  if (this$static.java_util_Date_jsdate.getHours() % 24 != hours % 24) {
+    copy = com_google_gwt_core_client_JsDate_create__DLcom_google_gwt_core_client_JsDate_2(this$static.java_util_Date_jsdate.getTime());
+    com_google_gwt_core_client_JsDate_$setDate__Lcom_google_gwt_core_client_JsDate_2ID(copy, copy.getDate() + 1);
+    timeDiff = this$static.java_util_Date_jsdate.getTimezoneOffset() - copy.getTimezoneOffset();
+    if (timeDiff > 0) {
+      timeDiffHours = ~~(timeDiff / 60);
+      timeDiffMinutes = timeDiff % 60;
+      day = this$static.java_util_Date_jsdate.getDate();
+      badHours = this$static.java_util_Date_jsdate.getHours();
+      badHours + timeDiffHours >= 24 && ++day;
+      newTime = com_google_gwt_core_client_JsDate_create__IIIIIIILcom_google_gwt_core_client_JsDate_2(this$static.java_util_Date_jsdate.getFullYear(), this$static.java_util_Date_jsdate.getMonth(), day, hours + timeDiffHours, this$static.java_util_Date_jsdate.getMinutes() + timeDiffMinutes, this$static.java_util_Date_jsdate.getSeconds(), this$static.java_util_Date_jsdate.getMilliseconds());
+      com_google_gwt_core_client_JsDate_$setTime__Lcom_google_gwt_core_client_JsDate_2DD(this$static.java_util_Date_jsdate, newTime.getTime());
+    }
+  }
+}
+
+function java_util_Date_Date__IIIIIV(year, month, date, hrs, min){
+  this.java_util_Date_jsdate = new Date;
+  com_google_gwt_core_client_JsDate_$setFullYear__Lcom_google_gwt_core_client_JsDate_2IIID(this.java_util_Date_jsdate, year + 1900, month, date);
+  com_google_gwt_core_client_JsDate_$setHours__Lcom_google_gwt_core_client_JsDate_2IIIID(this.java_util_Date_jsdate, hrs, min, 0, 0);
+  java_util_Date_$fixDaylightSavings__Ljava_util_Date_2IV(this, hrs);
+}
+
+_ = java_util_Date_Date__IIIIIV.prototype = java_util_Date.prototype;
+_.getDate__I = function java_util_Date_getDate__I(){
+  return this.java_util_Date_jsdate.getDate();
+}
+;
+_.getHours__I = function java_util_Date_getHours__I(){
+  return this.java_util_Date_jsdate.getHours();
+}
+;
+_.getMinutes__I = function java_util_Date_getMinutes__I(){
+  return this.java_util_Date_jsdate.getMinutes();
+}
+;
+_.getMonth__I = function java_util_Date_getMonth__I(){
+  return this.java_util_Date_jsdate.getMonth();
+}
+;
+_.getYear__I = function java_util_Date_getYear__I(){
+  return this.java_util_Date_jsdate.getFullYear() - 1900;
+}
+;
+function com_google_gwt_layout_client_Layout_$adjustHorizontalConstraints__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$Layer_2V(this$static, parentWidth, l){
+  var leftPx, rightPx, widthPx;
+  leftPx = l.com_google_gwt_layout_client_Layout$Layer_left * com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_leftUnit, false);
+  rightPx = l.com_google_gwt_layout_client_Layout$Layer_right * com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_rightUnit, false);
+  widthPx = l.com_google_gwt_layout_client_Layout$Layer_width * com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_widthUnit, false);
+  if (l.com_google_gwt_layout_client_Layout$Layer_setLeft && !l.com_google_gwt_layout_client_Layout$Layer_setTargetLeft) {
+    l.com_google_gwt_layout_client_Layout$Layer_setLeft = false;
+    if (l.com_google_gwt_layout_client_Layout$Layer_setWidth) {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetRight = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceRight = (parentWidth - (leftPx + widthPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetRightUnit, false);
+    }
+     else {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetWidth = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceWidth = (parentWidth - (leftPx + rightPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit, false);
+    }
+  }
+   else if (l.com_google_gwt_layout_client_Layout$Layer_setWidth && !l.com_google_gwt_layout_client_Layout$Layer_setTargetWidth) {
+    l.com_google_gwt_layout_client_Layout$Layer_setWidth = false;
+    if (l.com_google_gwt_layout_client_Layout$Layer_setLeft) {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetRight = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceRight = (parentWidth - (leftPx + widthPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetRightUnit, false);
+    }
+     else {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetLeft = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceLeft = (parentWidth - (rightPx + widthPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit, false);
+    }
+  }
+   else if (l.com_google_gwt_layout_client_Layout$Layer_setRight && !l.com_google_gwt_layout_client_Layout$Layer_setTargetRight) {
+    l.com_google_gwt_layout_client_Layout$Layer_setRight = false;
+    if (l.com_google_gwt_layout_client_Layout$Layer_setWidth) {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetLeft = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceLeft = (parentWidth - (rightPx + widthPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit, false);
+    }
+     else {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetWidth = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceWidth = (parentWidth - (leftPx + rightPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit, false);
+    }
+  }
+  l.com_google_gwt_layout_client_Layout$Layer_setLeft = l.com_google_gwt_layout_client_Layout$Layer_setTargetLeft;
+  l.com_google_gwt_layout_client_Layout$Layer_setRight = l.com_google_gwt_layout_client_Layout$Layer_setTargetRight;
+  l.com_google_gwt_layout_client_Layout$Layer_setWidth = l.com_google_gwt_layout_client_Layout$Layer_setTargetWidth;
+  l.com_google_gwt_layout_client_Layout$Layer_leftUnit = l.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit;
+  l.com_google_gwt_layout_client_Layout$Layer_rightUnit = l.com_google_gwt_layout_client_Layout$Layer_targetRightUnit;
+  l.com_google_gwt_layout_client_Layout$Layer_widthUnit = l.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit;
+}
+
+function com_google_gwt_layout_client_Layout_$adjustVerticalConstraints__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$Layer_2V(this$static, parentHeight, l){
+  var bottomPx, heightPx, topPx;
+  topPx = l.com_google_gwt_layout_client_Layout$Layer_top * com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_topUnit, true);
+  bottomPx = l.com_google_gwt_layout_client_Layout$Layer_bottom * com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_bottomUnit, true);
+  heightPx = l.com_google_gwt_layout_client_Layout$Layer_height * com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_heightUnit, true);
+  if (l.com_google_gwt_layout_client_Layout$Layer_setTop && !l.com_google_gwt_layout_client_Layout$Layer_setTargetTop) {
+    l.com_google_gwt_layout_client_Layout$Layer_setTop = false;
+    if (l.com_google_gwt_layout_client_Layout$Layer_setHeight) {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetBottom = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceBottom = (parentHeight - (topPx + heightPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit, true);
+    }
+     else {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetHeight = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceHeight = (parentHeight - (topPx + bottomPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit, true);
+    }
+  }
+   else if (l.com_google_gwt_layout_client_Layout$Layer_setHeight && !l.com_google_gwt_layout_client_Layout$Layer_setTargetHeight) {
+    l.com_google_gwt_layout_client_Layout$Layer_setHeight = false;
+    if (l.com_google_gwt_layout_client_Layout$Layer_setTop) {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetBottom = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceBottom = (parentHeight - (topPx + heightPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit, true);
+    }
+     else {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetTop = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceTop = (parentHeight - (bottomPx + heightPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetTopUnit, true);
+    }
+  }
+   else if (l.com_google_gwt_layout_client_Layout$Layer_setBottom && !l.com_google_gwt_layout_client_Layout$Layer_setTargetBottom) {
+    l.com_google_gwt_layout_client_Layout$Layer_setBottom = false;
+    if (l.com_google_gwt_layout_client_Layout$Layer_setHeight) {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetTop = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceTop = (parentHeight - (bottomPx + heightPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetTopUnit, true);
+    }
+     else {
+      l.com_google_gwt_layout_client_Layout$Layer_setTargetHeight = true;
+      l.com_google_gwt_layout_client_Layout$Layer_sourceHeight = (parentHeight - (topPx + bottomPx)) / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, l.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit, true);
+    }
+  }
+  l.com_google_gwt_layout_client_Layout$Layer_setTop = l.com_google_gwt_layout_client_Layout$Layer_setTargetTop;
+  l.com_google_gwt_layout_client_Layout$Layer_setBottom = l.com_google_gwt_layout_client_Layout$Layer_setTargetBottom;
+  l.com_google_gwt_layout_client_Layout$Layer_setHeight = l.com_google_gwt_layout_client_Layout$Layer_setTargetHeight;
+  l.com_google_gwt_layout_client_Layout$Layer_topUnit = l.com_google_gwt_layout_client_Layout$Layer_targetTopUnit;
+  l.com_google_gwt_layout_client_Layout$Layer_bottomUnit = l.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit;
+  l.com_google_gwt_layout_client_Layout$Layer_heightUnit = l.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit;
+}
+
+function com_google_gwt_layout_client_Layout_$attachChild__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_Object_2Lcom_google_gwt_layout_client_Layout$Layer_2(this$static, child, userObject){
+  var container, layer;
+  container = com_google_gwt_layout_client_LayoutImpl_$attachChild__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(this$static.com_google_gwt_layout_client_Layout_parentElem, child);
+  layer = new com_google_gwt_layout_client_Layout$Layer_Layout$Layer__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_Object_2V(container, child, userObject);
+  java_util_ArrayList_$add__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(this$static.com_google_gwt_layout_client_Layout_layers, layer);
+  return layer;
+}
+
+function com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, unit, vertical){
+  return com_google_gwt_layout_client_LayoutImpl_$getUnitSizeInPixels__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static.com_google_gwt_layout_client_Layout_impl, this$static.com_google_gwt_layout_client_Layout_parentElem, unit, vertical);
+}
+
+function com_google_gwt_layout_client_Layout_$layout__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, duration, callback){
+  var l, l$iterator, parentHeight, parentWidth;
+  !!this$static.com_google_gwt_layout_client_Layout_animation && com_google_gwt_animation_client_Animation_$cancel__Lcom_google_gwt_animation_client_Animation_2V(this$static.com_google_gwt_layout_client_Layout_animation);
+  if (duration == 0) {
+    for (l$iterator = new java_util_AbstractList$IteratorImpl_AbstractList$IteratorImpl__Ljava_util_AbstractList_2V(this$static.com_google_gwt_layout_client_Layout_layers); l$iterator.java_util_AbstractList$IteratorImpl_i < l$iterator.java_util_AbstractList$IteratorImpl_this$0.size__I();) {
+      l = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_AbstractList$IteratorImpl_$next__Ljava_util_AbstractList$IteratorImpl_2Ljava_lang_Object_2(l$iterator), Q$com_google_gwt_layout_client_Layout$Layer);
+      l.com_google_gwt_layout_client_Layout$Layer_left = l.com_google_gwt_layout_client_Layout$Layer_sourceLeft = l.com_google_gwt_layout_client_Layout$Layer_targetLeft;
+      l.com_google_gwt_layout_client_Layout$Layer_top = l.com_google_gwt_layout_client_Layout$Layer_sourceTop = l.com_google_gwt_layout_client_Layout$Layer_targetTop;
+      l.com_google_gwt_layout_client_Layout$Layer_right = l.com_google_gwt_layout_client_Layout$Layer_sourceRight = l.com_google_gwt_layout_client_Layout$Layer_targetRight;
+      l.com_google_gwt_layout_client_Layout$Layer_bottom = l.com_google_gwt_layout_client_Layout$Layer_sourceBottom = l.com_google_gwt_layout_client_Layout$Layer_targetBottom;
+      l.com_google_gwt_layout_client_Layout$Layer_width = l.com_google_gwt_layout_client_Layout$Layer_sourceWidth = l.com_google_gwt_layout_client_Layout$Layer_targetWidth;
+      l.com_google_gwt_layout_client_Layout$Layer_height = l.com_google_gwt_layout_client_Layout$Layer_sourceHeight = l.com_google_gwt_layout_client_Layout$Layer_targetHeight;
+      l.com_google_gwt_layout_client_Layout$Layer_setLeft = l.com_google_gwt_layout_client_Layout$Layer_setTargetLeft;
+      l.com_google_gwt_layout_client_Layout$Layer_setTop = l.com_google_gwt_layout_client_Layout$Layer_setTargetTop;
+      l.com_google_gwt_layout_client_Layout$Layer_setRight = l.com_google_gwt_layout_client_Layout$Layer_setTargetRight;
+      l.com_google_gwt_layout_client_Layout$Layer_setBottom = l.com_google_gwt_layout_client_Layout$Layer_setTargetBottom;
+      l.com_google_gwt_layout_client_Layout$Layer_setWidth = l.com_google_gwt_layout_client_Layout$Layer_setTargetWidth;
+      l.com_google_gwt_layout_client_Layout$Layer_setHeight = l.com_google_gwt_layout_client_Layout$Layer_setTargetHeight;
+      l.com_google_gwt_layout_client_Layout$Layer_leftUnit = l.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit;
+      l.com_google_gwt_layout_client_Layout$Layer_topUnit = l.com_google_gwt_layout_client_Layout$Layer_targetTopUnit;
+      l.com_google_gwt_layout_client_Layout$Layer_rightUnit = l.com_google_gwt_layout_client_Layout$Layer_targetRightUnit;
+      l.com_google_gwt_layout_client_Layout$Layer_bottomUnit = l.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit;
+      l.com_google_gwt_layout_client_Layout$Layer_widthUnit = l.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit;
+      l.com_google_gwt_layout_client_Layout$Layer_heightUnit = l.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit;
+      com_google_gwt_layout_client_LayoutImpl_$layout__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_layout_client_Layout$Layer_2V(l);
+    }
+    return;
+  }
+  parentWidth = this$static.com_google_gwt_layout_client_Layout_parentElem.clientWidth;
+  parentHeight = this$static.com_google_gwt_layout_client_Layout_parentElem.clientHeight;
+  for (l$iterator = new java_util_AbstractList$IteratorImpl_AbstractList$IteratorImpl__Ljava_util_AbstractList_2V(this$static.com_google_gwt_layout_client_Layout_layers); l$iterator.java_util_AbstractList$IteratorImpl_i < l$iterator.java_util_AbstractList$IteratorImpl_this$0.size__I();) {
+    l = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_AbstractList$IteratorImpl_$next__Ljava_util_AbstractList$IteratorImpl_2Ljava_lang_Object_2(l$iterator), Q$com_google_gwt_layout_client_Layout$Layer);
+    com_google_gwt_layout_client_Layout_$adjustHorizontalConstraints__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$Layer_2V(this$static, parentWidth, l);
+    com_google_gwt_layout_client_Layout_$adjustVerticalConstraints__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$Layer_2V(this$static, parentHeight, l);
+  }
+  this$static.com_google_gwt_layout_client_Layout_animation = new com_google_gwt_layout_client_Layout$1_Layout$1__Lcom_google_gwt_layout_client_Layout_2V(this$static, callback);
+  com_google_gwt_animation_client_Animation_$run__Lcom_google_gwt_animation_client_Animation_2ILcom_google_gwt_dom_client_Element_2V(this$static.com_google_gwt_layout_client_Layout_animation, duration, this$static.com_google_gwt_layout_client_Layout_parentElem);
+}
+
+function com_google_gwt_layout_client_Layout_$removeChild__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_layout_client_Layout$Layer_2V(this$static, layer){
+  com_google_gwt_layout_client_LayoutImpl_$removeChild__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2V(layer.com_google_gwt_layout_client_Layout$Layer_container, layer.com_google_gwt_layout_client_Layout$Layer_child);
+  java_util_ArrayList_$remove__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(this$static.com_google_gwt_layout_client_Layout_layers, layer);
+}
+
+function com_google_gwt_layout_client_Layout_Layout__Lcom_google_gwt_dom_client_Element_2V(parent){
+  this.com_google_gwt_layout_client_Layout_impl = new com_google_gwt_layout_client_LayoutImpl_LayoutImpl__V;
+  this.com_google_gwt_layout_client_Layout_layers = new java_util_ArrayList_ArrayList__V;
+  this.com_google_gwt_layout_client_Layout_parentElem = parent;
+  com_google_gwt_layout_client_LayoutImpl_$initParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V(this.com_google_gwt_layout_client_Layout_impl, parent);
+}
+
+function com_google_gwt_layout_client_Layout(){
+}
+
+_ = com_google_gwt_layout_client_Layout_Layout__Lcom_google_gwt_dom_client_Element_2V.prototype = com_google_gwt_layout_client_Layout.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_layout_client_Layout_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1Layout_12_1classLit;
+}
+;
+_.com_google_gwt_layout_client_Layout_animation = null;
+_.com_google_gwt_layout_client_Layout_parentElem = null;
+function com_google_gwt_layout_client_Layout$1_Layout$1__Lcom_google_gwt_layout_client_Layout_2V(this$0, val$callback){
+  this.com_google_gwt_layout_client_Layout$1_this$0 = this$0;
+  this.com_google_gwt_layout_client_Layout$1_val$callback = val$callback;
+  com_google_gwt_animation_client_Animation_Animation__V.call(this);
+}
+
+function com_google_gwt_layout_client_Layout$1(){
+}
+
+_ = com_google_gwt_layout_client_Layout$1_Layout$1__Lcom_google_gwt_layout_client_Layout_2V.prototype = com_google_gwt_layout_client_Layout$1.prototype = new com_google_gwt_animation_client_Animation;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_layout_client_Layout$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1Layout$1_12_1classLit;
+}
+;
+_.onCancel__V = function com_google_gwt_layout_client_Layout$1_onCancel__V(){
+  this.com_google_gwt_layout_client_Layout$1_this$0.com_google_gwt_layout_client_Layout_animation = null;
+  com_google_gwt_layout_client_Layout_$layout__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this.com_google_gwt_layout_client_Layout$1_this$0, 0, null);
+}
+;
+_.onComplete__V = function com_google_gwt_layout_client_Layout$1_onComplete__V(){
+  this.com_google_gwt_layout_client_Layout$1_this$0.com_google_gwt_layout_client_Layout_animation = null;
+  com_google_gwt_layout_client_Layout_$layout__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this.com_google_gwt_layout_client_Layout$1_this$0, 0, null);
+}
+;
+_.onUpdate__DV = function com_google_gwt_layout_client_Layout$1_onUpdate__DV(progress){
+  var l, l$iterator, com_google_gwt_user_client_ui_LayoutCommand$1_$onLayout__Lcom_google_gwt_user_client_ui_LayoutCommand$1_2Lcom_google_gwt_layout_client_Layout$Layer_2DV_child_0;
+  for (l$iterator = new java_util_AbstractList$IteratorImpl_AbstractList$IteratorImpl__Ljava_util_AbstractList_2V(this.com_google_gwt_layout_client_Layout$1_this$0.com_google_gwt_layout_client_Layout_layers); l$iterator.java_util_AbstractList$IteratorImpl_i < l$iterator.java_util_AbstractList$IteratorImpl_this$0.size__I();) {
+    l = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_AbstractList$IteratorImpl_$next__Ljava_util_AbstractList$IteratorImpl_2Ljava_lang_Object_2(l$iterator), Q$com_google_gwt_layout_client_Layout$Layer);
+    l.com_google_gwt_layout_client_Layout$Layer_setTargetLeft && (l.com_google_gwt_layout_client_Layout$Layer_left = l.com_google_gwt_layout_client_Layout$Layer_sourceLeft + (l.com_google_gwt_layout_client_Layout$Layer_targetLeft - l.com_google_gwt_layout_client_Layout$Layer_sourceLeft) * progress);
+    l.com_google_gwt_layout_client_Layout$Layer_setTargetRight && (l.com_google_gwt_layout_client_Layout$Layer_right = l.com_google_gwt_layout_client_Layout$Layer_sourceRight + (l.com_google_gwt_layout_client_Layout$Layer_targetRight - l.com_google_gwt_layout_client_Layout$Layer_sourceRight) * progress);
+    l.com_google_gwt_layout_client_Layout$Layer_setTargetTop && (l.com_google_gwt_layout_client_Layout$Layer_top = l.com_google_gwt_layout_client_Layout$Layer_sourceTop + (l.com_google_gwt_layout_client_Layout$Layer_targetTop - l.com_google_gwt_layout_client_Layout$Layer_sourceTop) * progress);
+    l.com_google_gwt_layout_client_Layout$Layer_setTargetBottom && (l.com_google_gwt_layout_client_Layout$Layer_bottom = l.com_google_gwt_layout_client_Layout$Layer_sourceBottom + (l.com_google_gwt_layout_client_Layout$Layer_targetBottom - l.com_google_gwt_layout_client_Layout$Layer_sourceBottom) * progress);
+    l.com_google_gwt_layout_client_Layout$Layer_setTargetWidth && (l.com_google_gwt_layout_client_Layout$Layer_width = l.com_google_gwt_layout_client_Layout$Layer_sourceWidth + (l.com_google_gwt_layout_client_Layout$Layer_targetWidth - l.com_google_gwt_layout_client_Layout$Layer_sourceWidth) * progress);
+    l.com_google_gwt_layout_client_Layout$Layer_setTargetHeight && (l.com_google_gwt_layout_client_Layout$Layer_height = l.com_google_gwt_layout_client_Layout$Layer_sourceHeight + (l.com_google_gwt_layout_client_Layout$Layer_targetHeight - l.com_google_gwt_layout_client_Layout$Layer_sourceHeight) * progress);
+    com_google_gwt_layout_client_LayoutImpl_$layout__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_layout_client_Layout$Layer_2V(l);
+    !!this.com_google_gwt_layout_client_Layout$1_val$callback && (com_google_gwt_user_client_ui_LayoutCommand$1_$onLayout__Lcom_google_gwt_user_client_ui_LayoutCommand$1_2Lcom_google_gwt_layout_client_Layout$Layer_2DV_child_0 = l.com_google_gwt_layout_client_Layout$Layer_userObject , com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(com_google_gwt_user_client_ui_LayoutCommand$1_$onLayout__Lcom_google_gwt_user_client_ui_LayoutCommand$1_2Lcom_google_gwt_layout_client_Layout$Layer_2DV_child_0, Q$com_google_gwt_user_client_ui_RequiresResize) && com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(com_google_gwt_user_client_ui_LayoutCommand$1_$onLayout__Lcom_google_gwt_user_client_ui_LayoutCommand$1_2Lcom_google_gwt_layout_client_Layout$Layer_2DV_child_0, Q$com_google_gwt_user_client_ui_RequiresResize).onResize__V() , undefined);
+  }
+}
+;
+_.com_google_gwt_layout_client_Layout$1_this$0 = null;
+_.com_google_gwt_layout_client_Layout$1_val$callback = null;
+function com_google_gwt_layout_client_Layout$Layer_$setBottomHeight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, bottom, bottomUnit, height, heightUnit){
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetBottom = this$static.com_google_gwt_layout_client_Layout$Layer_setTargetHeight = true;
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetTop = false;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetBottom = bottom;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetHeight = height;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit = bottomUnit;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit = heightUnit;
+}
+
+function com_google_gwt_layout_client_Layout$Layer_$setLeftRight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, left, leftUnit, right, rightUnit){
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetLeft = this$static.com_google_gwt_layout_client_Layout$Layer_setTargetRight = true;
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetWidth = false;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetLeft = left;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetRight = right;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit = leftUnit;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetRightUnit = rightUnit;
+}
+
+function com_google_gwt_layout_client_Layout$Layer_$setLeftWidth__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, left, leftUnit, width, widthUnit){
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetLeft = this$static.com_google_gwt_layout_client_Layout$Layer_setTargetWidth = true;
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetRight = false;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetLeft = left;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetWidth = width;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit = leftUnit;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit = widthUnit;
+}
+
+function com_google_gwt_layout_client_Layout$Layer_$setRightWidth__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, right, rightUnit, width, widthUnit){
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetRight = this$static.com_google_gwt_layout_client_Layout$Layer_setTargetWidth = true;
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetLeft = false;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetRight = right;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetWidth = width;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetRightUnit = rightUnit;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit = widthUnit;
+}
+
+function com_google_gwt_layout_client_Layout$Layer_$setTopBottom__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, top, topUnit, bottom, bottomUnit){
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetTop = this$static.com_google_gwt_layout_client_Layout$Layer_setTargetBottom = true;
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetHeight = false;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetTop = top;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetBottom = bottom;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetTopUnit = topUnit;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit = bottomUnit;
+}
+
+function com_google_gwt_layout_client_Layout$Layer_$setTopHeight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, top, topUnit, height, heightUnit){
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetTop = this$static.com_google_gwt_layout_client_Layout$Layer_setTargetHeight = true;
+  this$static.com_google_gwt_layout_client_Layout$Layer_setTargetBottom = false;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetTop = top;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetHeight = height;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetTopUnit = topUnit;
+  this$static.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit = heightUnit;
+}
+
+function com_google_gwt_layout_client_Layout$Layer_Layout$Layer__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_Object_2V(container, child, userObject){
+  this.com_google_gwt_layout_client_Layout$Layer_targetLeftUnit = (com_google_gwt_dom_client_Style$Unit_$clinit__V() , com_google_gwt_dom_client_Style$Unit_PX);
+  this.com_google_gwt_layout_client_Layout$Layer_targetTopUnit = com_google_gwt_dom_client_Style$Unit_PX;
+  this.com_google_gwt_layout_client_Layout$Layer_targetRightUnit = com_google_gwt_dom_client_Style$Unit_PX;
+  this.com_google_gwt_layout_client_Layout$Layer_targetBottomUnit = com_google_gwt_dom_client_Style$Unit_PX;
+  this.com_google_gwt_layout_client_Layout$Layer_container = container;
+  this.com_google_gwt_layout_client_Layout$Layer_child = child;
+  this.com_google_gwt_layout_client_Layout$Layer_userObject = userObject;
+}
+
+function com_google_gwt_layout_client_Layout$Layer(){
+}
+
+_ = com_google_gwt_layout_client_Layout$Layer_Layout$Layer__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_Object_2V.prototype = com_google_gwt_layout_client_Layout$Layer.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_layout_client_Layout$Layer_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1Layout$Layer_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_layout_client_Layout$Layer]);
+_.com_google_gwt_layout_client_Layout$Layer_bottom = 0;
+_.com_google_gwt_layout_client_Layout$Layer_bottomUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_child = null;
+_.com_google_gwt_layout_client_Layout$Layer_container = null;
+_.com_google_gwt_layout_client_Layout$Layer_height = 0;
+_.com_google_gwt_layout_client_Layout$Layer_heightUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_left = 0;
+_.com_google_gwt_layout_client_Layout$Layer_leftUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_right = 0;
+_.com_google_gwt_layout_client_Layout$Layer_rightUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_setBottom = false;
+_.com_google_gwt_layout_client_Layout$Layer_setHeight = false;
+_.com_google_gwt_layout_client_Layout$Layer_setLeft = false;
+_.com_google_gwt_layout_client_Layout$Layer_setRight = false;
+_.com_google_gwt_layout_client_Layout$Layer_setTargetBottom = true;
+_.com_google_gwt_layout_client_Layout$Layer_setTargetHeight = false;
+_.com_google_gwt_layout_client_Layout$Layer_setTargetLeft = true;
+_.com_google_gwt_layout_client_Layout$Layer_setTargetRight = true;
+_.com_google_gwt_layout_client_Layout$Layer_setTargetTop = true;
+_.com_google_gwt_layout_client_Layout$Layer_setTargetWidth = false;
+_.com_google_gwt_layout_client_Layout$Layer_setTop = false;
+_.com_google_gwt_layout_client_Layout$Layer_setWidth = false;
+_.com_google_gwt_layout_client_Layout$Layer_sourceBottom = 0;
+_.com_google_gwt_layout_client_Layout$Layer_sourceHeight = 0;
+_.com_google_gwt_layout_client_Layout$Layer_sourceLeft = 0;
+_.com_google_gwt_layout_client_Layout$Layer_sourceRight = 0;
+_.com_google_gwt_layout_client_Layout$Layer_sourceTop = 0;
+_.com_google_gwt_layout_client_Layout$Layer_sourceWidth = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetBottom = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetHeight = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetHeightUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_targetLeft = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetRight = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetTop = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetWidth = 0;
+_.com_google_gwt_layout_client_Layout$Layer_targetWidthUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_top = 0;
+_.com_google_gwt_layout_client_Layout$Layer_topUnit = null;
+_.com_google_gwt_layout_client_Layout$Layer_userObject = null;
+_.com_google_gwt_layout_client_Layout$Layer_width = 0;
+_.com_google_gwt_layout_client_Layout$Layer_widthUnit = null;
+function com_google_gwt_layout_client_LayoutImpl_$clinit__V(){
+  com_google_gwt_layout_client_LayoutImpl_$clinit__V = nullMethod;
+  com_google_gwt_layout_client_LayoutImpl_fixedRuler = com_google_gwt_layout_client_LayoutImpl_createRuler__Lcom_google_gwt_dom_client_Style$Unit_2Lcom_google_gwt_dom_client_Style$Unit_2Lcom_google_gwt_dom_client_DivElement_2((com_google_gwt_dom_client_Style$Unit_$clinit__V() , com_google_gwt_dom_client_Style$Unit_CM), com_google_gwt_dom_client_Style$Unit_CM);
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2($doc.body, com_google_gwt_layout_client_LayoutImpl_fixedRuler);
+}
+
+function com_google_gwt_layout_client_LayoutImpl_$attachChild__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(parent, child){
+  var container, com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0;
+  container = $doc.createElement($intern_190);
+  container.appendChild(child);
+  container.style[$intern_125] = (com_google_gwt_dom_client_Style$Position_$clinit__V() , $intern_188);
+  container.style[$intern_192] = (com_google_gwt_dom_client_Style$Overflow_$clinit__V() , $intern_193);
+  com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0 = child.style;
+  com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0[$intern_125] = $intern_188;
+  com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0[$intern_9] = 0 + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+  com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0[$intern_8] = $intern_300;
+  com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0[$intern_278] = $intern_300;
+  com_google_gwt_layout_client_LayoutImpl_$fillParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V_style_0[$intern_301] = $intern_300;
+  parent.insertBefore(container, null);
+  return container;
+}
+
+function com_google_gwt_layout_client_LayoutImpl_$getUnitSizeInPixels__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static, parent, unit, vertical){
+  if (!unit) {
+    return 1;
+  }
+  switch (unit.java_lang_Enum_ordinal) {
+    case 1:
+      return (vertical?parent.clientHeight:parent.clientWidth) / 100;
+    case 2:
+      return (this$static.com_google_gwt_layout_client_LayoutImpl_relativeRuler.offsetWidth || 0) / 10;
+    case 3:
+      return (this$static.com_google_gwt_layout_client_LayoutImpl_relativeRuler.offsetHeight || 0) / 10;
+    case 7:
+      return (com_google_gwt_layout_client_LayoutImpl_fixedRuler.offsetWidth || 0) * 0.1;
+    case 8:
+      return (com_google_gwt_layout_client_LayoutImpl_fixedRuler.offsetWidth || 0) * 0.01;
+    case 6:
+      return (com_google_gwt_layout_client_LayoutImpl_fixedRuler.offsetWidth || 0) * 0.254;
+    case 4:
+      return (com_google_gwt_layout_client_LayoutImpl_fixedRuler.offsetWidth || 0) * 0.00353;
+    case 5:
+      return (com_google_gwt_layout_client_LayoutImpl_fixedRuler.offsetWidth || 0) * 0.0423;
+    default:case 0:
+      return 1;
+  }
+}
+
+function com_google_gwt_layout_client_LayoutImpl_$initParent__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2V(this$static, parent){
+  parent.style[$intern_125] = (com_google_gwt_dom_client_Style$Position_$clinit__V() , $intern_191);
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(parent, this$static.com_google_gwt_layout_client_LayoutImpl_relativeRuler = com_google_gwt_layout_client_LayoutImpl_createRuler__Lcom_google_gwt_dom_client_Style$Unit_2Lcom_google_gwt_dom_client_Style$Unit_2Lcom_google_gwt_dom_client_DivElement_2((com_google_gwt_dom_client_Style$Unit_$clinit__V() , com_google_gwt_dom_client_Style$Unit_EM), com_google_gwt_dom_client_Style$Unit_EX));
+}
+
+function com_google_gwt_layout_client_LayoutImpl_$layout__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_layout_client_Layout$Layer_2V(layer){
+  var style;
+  style = layer.com_google_gwt_layout_client_Layout$Layer_container.style;
+  style[$intern_302] = $intern_0;
+  style[$intern_9] = layer.com_google_gwt_layout_client_Layout$Layer_setLeft?layer.com_google_gwt_layout_client_Layout$Layer_left + layer.com_google_gwt_layout_client_Layout$Layer_leftUnit.getType__Ljava_lang_String_2():$intern_0;
+  style[$intern_8] = layer.com_google_gwt_layout_client_Layout$Layer_setTop?layer.com_google_gwt_layout_client_Layout$Layer_top + layer.com_google_gwt_layout_client_Layout$Layer_topUnit.getType__Ljava_lang_String_2():$intern_0;
+  style[$intern_278] = layer.com_google_gwt_layout_client_Layout$Layer_setRight?layer.com_google_gwt_layout_client_Layout$Layer_right + layer.com_google_gwt_layout_client_Layout$Layer_rightUnit.getType__Ljava_lang_String_2():$intern_0;
+  style[$intern_301] = layer.com_google_gwt_layout_client_Layout$Layer_setBottom?layer.com_google_gwt_layout_client_Layout$Layer_bottom + layer.com_google_gwt_layout_client_Layout$Layer_bottomUnit.getType__Ljava_lang_String_2():$intern_0;
+  style[$intern_177] = layer.com_google_gwt_layout_client_Layout$Layer_setWidth?layer.com_google_gwt_layout_client_Layout$Layer_width + layer.com_google_gwt_layout_client_Layout$Layer_widthUnit.getType__Ljava_lang_String_2():$intern_0;
+  style[$intern_179] = layer.com_google_gwt_layout_client_Layout$Layer_setHeight?layer.com_google_gwt_layout_client_Layout$Layer_height + layer.com_google_gwt_layout_client_Layout$Layer_heightUnit.getType__Ljava_lang_String_2():$intern_0;
+  style = layer.com_google_gwt_layout_client_Layout$Layer_child.style;
+  switch (2) {
+    case 0:
+    case 1:
+    case 2:
+      style[$intern_9] = 0 + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+      style[$intern_278] = $intern_300;
+  }
+  switch (2) {
+    case 0:
+    case 1:
+    case 2:
+      style[$intern_8] = 0 + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+      style[$intern_301] = $intern_300;
+  }
+}
+
+function com_google_gwt_layout_client_LayoutImpl_$removeChild__Lcom_google_gwt_layout_client_LayoutImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2V(container, child){
+  var style;
+  com_google_gwt_dom_client_Node_$removeFromParent__Lcom_google_gwt_dom_client_Node_2V(container);
+  com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(child) == container && com_google_gwt_dom_client_Node_$removeFromParent__Lcom_google_gwt_dom_client_Node_2V(child);
+  style = child.style;
+  style[$intern_125] = $intern_0;
+  style[$intern_9] = $intern_0;
+  style[$intern_8] = $intern_0;
+  style[$intern_177] = $intern_0;
+  style[$intern_179] = $intern_0;
+}
+
+function com_google_gwt_layout_client_LayoutImpl_LayoutImpl__V(){
+  com_google_gwt_layout_client_LayoutImpl_$clinit__V();
+}
+
+function com_google_gwt_layout_client_LayoutImpl_createRuler__Lcom_google_gwt_dom_client_Style$Unit_2Lcom_google_gwt_dom_client_Style$Unit_2Lcom_google_gwt_dom_client_DivElement_2(widthUnit, heightUnit){
+  var ruler, style;
+  ruler = $doc.createElement($intern_190);
+  com_google_gwt_dom_client_Element_$setInnerHTML__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2V(ruler, $intern_303);
+  style = ruler.style;
+  style[$intern_125] = (com_google_gwt_dom_client_Style$Position_$clinit__V() , $intern_188);
+  style[$intern_304] = '-32767';
+  style[$intern_8] = -20 + heightUnit.getType__Ljava_lang_String_2();
+  style[$intern_177] = 10 + widthUnit.getType__Ljava_lang_String_2();
+  style[$intern_179] = 10 + heightUnit.getType__Ljava_lang_String_2();
+  return ruler;
+}
+
+function com_google_gwt_layout_client_LayoutImpl(){
+}
+
+_ = com_google_gwt_layout_client_LayoutImpl_LayoutImpl__V.prototype = com_google_gwt_layout_client_LayoutImpl.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_layout_client_LayoutImpl_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1LayoutImpl_12_1classLit;
+}
+;
+_.com_google_gwt_layout_client_LayoutImpl_relativeRuler = null;
+var com_google_gwt_layout_client_LayoutImpl_fixedRuler = null;
+function com_google_gwt_user_client_DOM_setIntStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2IV(elem, attr, value){
+  elem.style[attr] = $intern_0 + value;
+}
+
+function com_google_gwt_user_client_ui_ComplexPanel_$getWidgetIndex__Lcom_google_gwt_user_client_ui_ComplexPanel_2Lcom_google_gwt_user_client_ui_Widget_2I(this$static, child){
+  return com_google_gwt_user_client_ui_WidgetCollection_$indexOf__Lcom_google_gwt_user_client_ui_WidgetCollection_2Lcom_google_gwt_user_client_ui_Widget_2I(this$static.com_google_gwt_user_client_ui_ComplexPanel_children, child);
+}
+
+function com_google_gwt_user_client_ui_HTML_HTML__Ljava_lang_String_2ZV(){
+  com_google_gwt_user_client_ui_HTML_HTML__Ljava_lang_String_2V.call(this, $intern_0);
+  this.com_google_gwt_user_client_ui_UIObject_element.style[$intern_305] = 'normal';
+}
+
+_ = com_google_gwt_user_client_ui_HTML_HTML__Ljava_lang_String_2ZV.prototype = com_google_gwt_user_client_ui_HTML.prototype;
+function com_google_gwt_user_client_ui_DockLayoutPanel_$addNorth__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DV(this$static, widget, size){
+  this$static.insert__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(widget, (com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V() , com_google_gwt_user_client_ui_DockLayoutPanel$Direction_NORTH), size, null);
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$doLayout__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this$static){
+  var bottom, child, child$iterator, data, layer, left, right, top;
+  left = 0;
+  top = 0;
+  right = 0;
+  bottom = 0;
+  for (child$iterator = new com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_WidgetCollection$WidgetIterator__Lcom_google_gwt_user_client_ui_WidgetCollection_2V(this$static.com_google_gwt_user_client_ui_ComplexPanel_children); child$iterator.com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_index < child$iterator.com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_this$0.com_google_gwt_user_client_ui_WidgetCollection_size - 1;) {
+    child = com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_$next__Lcom_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_2Lcom_google_gwt_user_client_ui_Widget_2(child$iterator);
+    data = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData);
+    layer = data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_layer;
+    switch (com_google_gwt_user_client_ui_DockLayoutPanel_$getResolvedDirection__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2(data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_direction).java_lang_Enum_ordinal) {
+      case 0:
+        com_google_gwt_layout_client_Layout$Layer_$setLeftRight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, left, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, right, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        com_google_gwt_layout_client_Layout$Layer_$setTopHeight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, top, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        top += data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size;
+        break;
+      case 2:
+        com_google_gwt_layout_client_Layout$Layer_$setLeftRight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, left, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, right, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        com_google_gwt_layout_client_Layout$Layer_$setBottomHeight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, bottom, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        bottom += data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size;
+        break;
+      case 3:
+        com_google_gwt_layout_client_Layout$Layer_$setTopBottom__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, top, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, bottom, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        com_google_gwt_layout_client_Layout$Layer_$setLeftWidth__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, left, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        left += data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size;
+        break;
+      case 1:
+        com_google_gwt_layout_client_Layout$Layer_$setTopBottom__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, top, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, bottom, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        com_google_gwt_layout_client_Layout$Layer_$setRightWidth__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, right, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        right += data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size;
+        break;
+      case 4:
+        com_google_gwt_layout_client_Layout$Layer_$setLeftRight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, left, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, right, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+        com_google_gwt_layout_client_Layout$Layer_$setTopBottom__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(layer, top, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, bottom, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit);
+    }
+  }
+  this$static.com_google_gwt_user_client_ui_DockLayoutPanel_filledWidth = left + right;
+  this$static.com_google_gwt_user_client_ui_DockLayoutPanel_filledHeight = top + bottom;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$forceLayout__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this$static){
+  this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layoutCmd.com_google_gwt_user_client_ui_LayoutCommand_canceled = true;
+  com_google_gwt_user_client_ui_DockLayoutPanel_$doLayout__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this$static);
+  com_google_gwt_layout_client_Layout_$layout__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layout, 0, null);
+  com_google_gwt_user_client_ui_DockLayoutPanel_$onResize__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this$static);
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$getCenterHeight__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2D(this$static){
+  return this$static.com_google_gwt_user_client_ui_UIObject_element.clientHeight / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layout, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, true) - this$static.com_google_gwt_user_client_ui_DockLayoutPanel_filledHeight;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$getCenterWidth__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2D(this$static){
+  return this$static.com_google_gwt_user_client_ui_UIObject_element.clientWidth / com_google_gwt_layout_client_Layout_$getUnitSize__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Style$Unit_2ZD(this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layout, this$static.com_google_gwt_user_client_ui_DockLayoutPanel_unit, false) - this$static.com_google_gwt_user_client_ui_DockLayoutPanel_filledWidth;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$getResolvedDirection__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2(direction){
+  if (direction == (com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V() , com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1START)) {
+    return com_google_gwt_user_client_ui_DockLayoutPanel$Direction_WEST;
+  }
+   else if (direction == com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1END) {
+    return com_google_gwt_user_client_ui_DockLayoutPanel$Direction_EAST;
+  }
+  return direction;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this$static, widget, direction, size){
+  var children, data, layer;
+  com_google_gwt_user_client_ui_Widget_$removeFromParent__Lcom_google_gwt_user_client_ui_Widget_2V(widget);
+  children = this$static.com_google_gwt_user_client_ui_ComplexPanel_children;
+  com_google_gwt_user_client_ui_WidgetCollection_$insert__Lcom_google_gwt_user_client_ui_WidgetCollection_2Lcom_google_gwt_user_client_ui_Widget_2IV(children, widget, children.com_google_gwt_user_client_ui_WidgetCollection_size);
+  direction == (com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V() , com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER) && (this$static.com_google_gwt_user_client_ui_DockLayoutPanel_center = widget);
+  layer = com_google_gwt_layout_client_Layout_$attachChild__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_Object_2Lcom_google_gwt_layout_client_Layout$Layer_2(this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layout, widget.com_google_gwt_user_client_ui_UIObject_element, widget);
+  data = new com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_DockLayoutPanel$LayoutData__Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_layout_client_Layout$Layer_2V(direction, size, layer);
+  widget.com_google_gwt_user_client_ui_Widget_layoutData = data;
+  com_google_gwt_user_client_ui_Widget_$setParent__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2V(widget, this$static);
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layoutCmd, 0);
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$onResize__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this$static){
+  var child, child$iterator;
+  for (child$iterator = new com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_WidgetCollection$WidgetIterator__Lcom_google_gwt_user_client_ui_WidgetCollection_2V(this$static.com_google_gwt_user_client_ui_ComplexPanel_children); child$iterator.com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_index < child$iterator.com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_this$0.com_google_gwt_user_client_ui_WidgetCollection_size - 1;) {
+    child = com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_$next__Lcom_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_2Lcom_google_gwt_user_client_ui_Widget_2(child$iterator);
+    com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(child, Q$com_google_gwt_user_client_ui_RequiresResize) && com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child, Q$com_google_gwt_user_client_ui_RequiresResize).onResize__V();
+  }
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, w){
+  var data, removed;
+  removed = com_google_gwt_user_client_ui_ComplexPanel_$remove__Lcom_google_gwt_user_client_ui_ComplexPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, w);
+  if (removed) {
+    w == this$static.com_google_gwt_user_client_ui_DockLayoutPanel_center && (this$static.com_google_gwt_user_client_ui_DockLayoutPanel_center = null);
+    data = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(w.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData);
+    com_google_gwt_layout_client_Layout_$removeChild__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_layout_client_Layout$Layer_2V(this$static.com_google_gwt_user_client_ui_DockLayoutPanel_layout, data.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_layer);
+  }
+  return removed;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel_DockLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V(unit){
+  com_google_gwt_user_client_ui_ComplexPanel_ComplexPanel__V.call(this);
+  this.com_google_gwt_user_client_ui_DockLayoutPanel_unit = unit;
+  com_google_gwt_user_client_ui_UIObject_$setElement__Lcom_google_gwt_user_client_ui_UIObject_2Lcom_google_gwt_user_client_Element_2V(this, $doc.createElement($intern_190));
+  this.com_google_gwt_user_client_ui_DockLayoutPanel_layout = new com_google_gwt_layout_client_Layout_Layout__Lcom_google_gwt_dom_client_Element_2V(this.com_google_gwt_user_client_ui_UIObject_element);
+  this.com_google_gwt_user_client_ui_DockLayoutPanel_layoutCmd = new com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_DockLayoutPanel$DockAnimateCommand__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_layout_client_Layout_2V(this, this.com_google_gwt_user_client_ui_DockLayoutPanel_layout);
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel(){
+}
+
+_ = com_google_gwt_user_client_ui_DockLayoutPanel_DockLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V.prototype = com_google_gwt_user_client_ui_DockLayoutPanel.prototype = new com_google_gwt_user_client_ui_ComplexPanel;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_DockLayoutPanel_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel_12_1classLit;
+}
+;
+_.insert__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V = function com_google_gwt_user_client_ui_DockLayoutPanel_insert__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(widget, direction, size, before){
+  com_google_gwt_user_client_ui_DockLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this, widget, direction, size);
+}
+;
+_.onLoad__V = function com_google_gwt_user_client_ui_DockLayoutPanel_onLoad__V(){
+}
+;
+_.onResize__V = function com_google_gwt_user_client_ui_DockLayoutPanel_onResize__V(){
+  com_google_gwt_user_client_ui_DockLayoutPanel_$onResize__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this);
+}
+;
+_.onUnload__V = function com_google_gwt_user_client_ui_DockLayoutPanel_onUnload__V(){
+}
+;
+_.remove__Lcom_google_gwt_user_client_ui_Widget_2Z = function com_google_gwt_user_client_ui_DockLayoutPanel_remove__Lcom_google_gwt_user_client_ui_Widget_2Z(w){
+  return com_google_gwt_user_client_ui_DockLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this, w);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_HasWidgets, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_RequiresResize, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_DockLayoutPanel_center = null;
+_.com_google_gwt_user_client_ui_DockLayoutPanel_filledHeight = 0;
+_.com_google_gwt_user_client_ui_DockLayoutPanel_filledWidth = 0;
+_.com_google_gwt_user_client_ui_DockLayoutPanel_layout = null;
+_.com_google_gwt_user_client_ui_DockLayoutPanel_layoutCmd = null;
+_.com_google_gwt_user_client_ui_DockLayoutPanel_unit = null;
+function com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V(){
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V = nullMethod;
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_NORTH = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV('NORTH', 0);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_EAST = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV('EAST', 1);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_SOUTH = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV('SOUTH', 2);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_WEST = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV('WEST', 3);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV($intern_306, 4);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1START = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV('LINE_START', 5);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1END = new com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV('LINE_END', 6);
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$VALUES = com_google_gwt_lang_Array_initValues__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2ILcom_google_gwt_lang_Array_2Lcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$Direction_12_1classLit, makeCastMap([Q$java_io_Serializable, Q$java_lang_Object_$1]), Q$com_google_gwt_user_client_ui_DockLayoutPanel$Direction, [com_google_gwt_user_client_ui_DockLayoutPanel$Direction_NORTH, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_EAST, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_SOUTH, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_WEST, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1START, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1END]);
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV(enum$name, enum$ordinal){
+  java_lang_Enum_Enum__Ljava_lang_String_2IV.call(this, enum$name, enum$ordinal);
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel$Direction_values___3Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2(){
+  com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V();
+  return com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$VALUES;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel$Direction(){
+}
+
+_ = com_google_gwt_user_client_ui_DockLayoutPanel$Direction_DockLayoutPanel$Direction__Ljava_lang_String_2IV.prototype = com_google_gwt_user_client_ui_DockLayoutPanel$Direction.prototype = new java_lang_Enum;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_DockLayoutPanel$Direction_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$Direction_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_ui_DockLayoutPanel$Direction, Q$java_io_Serializable, Q$java_lang_Comparable, Q$java_lang_Enum]);
+var com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$VALUES, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_EAST, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1END, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_LINE_1START, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_NORTH, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_SOUTH, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_WEST;
+function com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, duration){
+  this$static.com_google_gwt_user_client_ui_LayoutCommand_duration = duration;
+  this$static.com_google_gwt_user_client_ui_LayoutCommand_canceled = false;
+  if (!this$static.com_google_gwt_user_client_ui_LayoutCommand_scheduled) {
+    this$static.com_google_gwt_user_client_ui_LayoutCommand_scheduled = true;
+    com_google_gwt_core_client_impl_SchedulerImpl_$scheduleFinally__Lcom_google_gwt_core_client_impl_SchedulerImpl_2Lcom_google_gwt_core_client_Scheduler$ScheduledCommand_2V((com_google_gwt_core_client_impl_SchedulerImpl_$clinit__V() , com_google_gwt_core_client_impl_SchedulerImpl_INSTANCE), this$static);
+  }
+}
+
+function com_google_gwt_user_client_ui_LayoutCommand_LayoutCommand__Lcom_google_gwt_layout_client_Layout_2V(layout){
+  this.com_google_gwt_user_client_ui_LayoutCommand_layout = layout;
+}
+
+function com_google_gwt_user_client_ui_LayoutCommand(){
+}
+
+_ = com_google_gwt_user_client_ui_LayoutCommand_LayoutCommand__Lcom_google_gwt_layout_client_Layout_2V.prototype = com_google_gwt_user_client_ui_LayoutCommand.prototype = new java_lang_Object;
+_.doBeforeLayout__V = function com_google_gwt_user_client_ui_LayoutCommand_doBeforeLayout__V(){
+}
+;
+_.execute__V = function com_google_gwt_user_client_ui_LayoutCommand_execute__V(){
+  this.com_google_gwt_user_client_ui_LayoutCommand_scheduled = false;
+  if (this.com_google_gwt_user_client_ui_LayoutCommand_canceled) {
+    return;
+  }
+  this.doBeforeLayout__V();
+  com_google_gwt_layout_client_Layout_$layout__Lcom_google_gwt_layout_client_Layout_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this.com_google_gwt_user_client_ui_LayoutCommand_layout, this.com_google_gwt_user_client_ui_LayoutCommand_duration, new com_google_gwt_user_client_ui_LayoutCommand$1_LayoutCommand$1__Lcom_google_gwt_user_client_ui_LayoutCommand_2V);
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_LayoutCommand_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1LayoutCommand_12_1classLit;
+}
+;
+_.com_google_gwt_user_client_ui_LayoutCommand_canceled = false;
+_.com_google_gwt_user_client_ui_LayoutCommand_duration = 0;
+_.com_google_gwt_user_client_ui_LayoutCommand_layout = null;
+_.com_google_gwt_user_client_ui_LayoutCommand_scheduled = false;
+function com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_DockLayoutPanel$DockAnimateCommand__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_layout_client_Layout_2V(this$0, layout){
+  this.com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_this$0 = this$0;
+  this.com_google_gwt_user_client_ui_LayoutCommand_layout = layout;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand(){
+}
+
+_ = com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_DockLayoutPanel$DockAnimateCommand__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_layout_client_Layout_2V.prototype = com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand.prototype = new com_google_gwt_user_client_ui_LayoutCommand;
+_.doBeforeLayout__V = function com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_doBeforeLayout__V(){
+  com_google_gwt_user_client_ui_DockLayoutPanel_$doLayout__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this.com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_this$0);
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$DockAnimateCommand_12_1classLit;
+}
+;
+_.com_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_this$0 = null;
+function com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_DockLayoutPanel$LayoutData__Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_layout_client_Layout$Layer_2V(direction, size, layer){
+  this.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_direction = direction;
+  this.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size = size;
+  this.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_layer = layer;
+}
+
+function com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData(){
+}
+
+_ = com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_DockLayoutPanel$LayoutData__Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_layout_client_Layout$Layer_2V.prototype = com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$LayoutData_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData]);
+_.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_direction = null;
+_.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_layer = null;
+_.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size = 0;
+function com_google_gwt_user_client_ui_HTMLTable_$getCellForEvent__Lcom_google_gwt_user_client_ui_HTMLTable_2Lcom_google_gwt_event_dom_client_ClickEvent_2Lcom_google_gwt_user_client_ui_HTMLTable$Cell_2(this$static, event){
+  var column, row, td;
+  td = com_google_gwt_user_client_ui_HTMLTable_$getEventTargetCell__Lcom_google_gwt_user_client_ui_HTMLTable_2Lcom_google_gwt_user_client_Event_2Lcom_google_gwt_user_client_Element_2(this$static, event.com_google_gwt_event_dom_client_DomEvent_nativeEvent);
+  if (!td) {
+    return null;
+  }
+  row = com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(td).sectionRowIndex;
+  column = td.cellIndex;
+  return new com_google_gwt_user_client_ui_HTMLTable$Cell_HTMLTable$Cell__Lcom_google_gwt_user_client_ui_HTMLTable_2IIV(row, column);
+}
+
+function com_google_gwt_user_client_ui_HTMLTable_$getEventTargetCell__Lcom_google_gwt_user_client_ui_HTMLTable_2Lcom_google_gwt_user_client_Event_2Lcom_google_gwt_user_client_Element_2(this$static, event){
+  var body, td, tr;
+  td = event.target;
+  for (; td; td = com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(td)) {
+    if (java_lang_String_$equalsIgnoreCase__Ljava_lang_String_2Ljava_lang_String_2Z(com_google_gwt_dom_client_Element_$getPropertyString__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2(td, 'tagName'), $intern_307)) {
+      tr = com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(td);
+      body = com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(tr);
+      if (body == this$static.com_google_gwt_user_client_ui_HTMLTable_bodyElem) {
+        return td;
+      }
+    }
+    if (td == this$static.com_google_gwt_user_client_ui_HTMLTable_bodyElem) {
+      return null;
+    }
+  }
+  return null;
+}
+
+function com_google_gwt_user_client_ui_HTMLTable_$prepareColumn__Lcom_google_gwt_user_client_ui_HTMLTable_2IV(column){
+  if (column < 0) {
+    throw new java_lang_IndexOutOfBoundsException_IndexOutOfBoundsException__Ljava_lang_String_2V($intern_308 + column);
+  }
+}
+
+function com_google_gwt_user_client_ui_HTMLTable_$setText__Lcom_google_gwt_user_client_ui_HTMLTable_2IILjava_lang_String_2V(this$static, row, column, text){
+  var td;
+  com_google_gwt_user_client_ui_FlexTable_$prepareCell__Lcom_google_gwt_user_client_ui_FlexTable_2IIV(this$static, row, column);
+  td = com_google_gwt_user_client_ui_HTMLTable_$cleanCell__Lcom_google_gwt_user_client_ui_HTMLTable_2IIZLcom_google_gwt_user_client_Element_2(this$static, row, column, text == null);
+  text != null && com_google_gwt_dom_client_DOMImplStandard_$setInnerText__Lcom_google_gwt_dom_client_DOMImplStandard_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2V(td, text);
+}
+
+_ = com_google_gwt_user_client_ui_HTMLTable.prototype;
+_.prepareColumn__IV = function com_google_gwt_user_client_ui_HTMLTable_prepareColumn__IV(column){
+  com_google_gwt_user_client_ui_HTMLTable_$prepareColumn__Lcom_google_gwt_user_client_ui_HTMLTable_2IV(column);
+}
+;
+_ = com_google_gwt_user_client_ui_FlexTable.prototype;
+_.prepareRow__IV = function com_google_gwt_user_client_ui_FlexTable_prepareRow__IV(row){
+  com_google_gwt_user_client_ui_FlexTable_$prepareRow__Lcom_google_gwt_user_client_ui_FlexTable_2IV(this, row);
+}
+;
+function com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this$static, row, column, styleName){
+  var td;
+  this$static.com_google_gwt_user_client_ui_HTMLTable$CellFormatter_this$0.prepareCell__IIV(row, column);
+  td = com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$getCellElement__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2Lcom_google_gwt_user_client_Element_2IILcom_google_gwt_user_client_Element_2(this$static.com_google_gwt_user_client_ui_HTMLTable$CellFormatter_this$0.com_google_gwt_user_client_ui_HTMLTable_bodyElem, row, column);
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV(td, styleName, true);
+}
+
+function com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$removeStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this$static, column){
+  var td;
+  com_google_gwt_user_client_ui_HTMLTable_$checkCellBounds__Lcom_google_gwt_user_client_ui_HTMLTable_2IIV(this$static.com_google_gwt_user_client_ui_HTMLTable$CellFormatter_this$0, 0, column);
+  td = com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$getCellElement__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2Lcom_google_gwt_user_client_Element_2IILcom_google_gwt_user_client_Element_2(this$static.com_google_gwt_user_client_ui_HTMLTable$CellFormatter_this$0.com_google_gwt_user_client_ui_HTMLTable_bodyElem, 0, column);
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV(td, $intern_291, false);
+}
+
+function com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2IILjava_lang_String_2V(this$static, column, width){
+  this$static.com_google_gwt_user_client_ui_HTMLTable$CellFormatter_this$0.prepareCell__IIV(0, column);
+  com_google_gwt_user_client_ui_HTMLTable$CellFormatter_$getCellElement__Lcom_google_gwt_user_client_ui_HTMLTable$CellFormatter_2Lcom_google_gwt_user_client_Element_2IILcom_google_gwt_user_client_Element_2(this$static.com_google_gwt_user_client_ui_HTMLTable$CellFormatter_this$0.com_google_gwt_user_client_ui_HTMLTable_bodyElem, 0, column)[$intern_177] = width;
+}
+
+_ = com_google_gwt_user_client_ui_Grid.prototype;
+_.prepareColumn__IV = function com_google_gwt_user_client_ui_Grid_prepareColumn__IV(column){
+  com_google_gwt_user_client_ui_HTMLTable_$prepareColumn__Lcom_google_gwt_user_client_ui_HTMLTable_2IV(column);
+  if (column >= this.com_google_gwt_user_client_ui_Grid_numColumns) {
+    throw new java_lang_IndexOutOfBoundsException_IndexOutOfBoundsException__Ljava_lang_String_2V($intern_309 + column + $intern_310 + this.com_google_gwt_user_client_ui_Grid_numColumns);
+  }
+}
+;
+_.prepareRow__IV = function com_google_gwt_user_client_ui_Grid_prepareRow__IV(row){
+  com_google_gwt_user_client_ui_Grid_$prepareRow__Lcom_google_gwt_user_client_ui_Grid_2IV(this, row);
+}
+;
+function com_google_gwt_user_client_ui_HTMLTable$Cell_HTMLTable$Cell__Lcom_google_gwt_user_client_ui_HTMLTable_2IIV(rowIndex, cellIndex){
+  this.com_google_gwt_user_client_ui_HTMLTable$Cell_cellIndex = cellIndex;
+  this.com_google_gwt_user_client_ui_HTMLTable$Cell_rowIndex = rowIndex;
+}
+
+function com_google_gwt_user_client_ui_HTMLTable$Cell(){
+}
+
+_ = com_google_gwt_user_client_ui_HTMLTable$Cell_HTMLTable$Cell__Lcom_google_gwt_user_client_ui_HTMLTable_2IIV.prototype = com_google_gwt_user_client_ui_HTMLTable$Cell.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_HTMLTable$Cell_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1HTMLTable$Cell_12_1classLit;
+}
+;
+_.com_google_gwt_user_client_ui_HTMLTable$Cell_cellIndex = 0;
+_.com_google_gwt_user_client_ui_HTMLTable$Cell_rowIndex = 0;
+function com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_$setWidth__Lcom_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_2ILjava_lang_String_2V(this$static, column, width){
+  (this$static.com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_this$0.prepareColumn__IV(column) , com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_$prepareColumnGroup__Lcom_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_2V(this$static) , com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_$resizeColumnGroup__Lcom_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_2IZV(this$static, column + 1, true) , com_google_gwt_dom_client_Node_$getChild__Lcom_google_gwt_dom_client_Node_2ILcom_google_gwt_dom_client_Node_2(this$static.com_google_gwt_user_client_ui_HTMLTable$ColumnFormatter_columnGroup, column))[$intern_177] = width;
+}
+
+function com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$addStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static, row, styleName){
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV((this$static.com_google_gwt_user_client_ui_HTMLTable$RowFormatter_this$0.prepareRow__IV(row) , com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$getRow__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2Lcom_google_gwt_user_client_Element_2ILcom_google_gwt_user_client_Element_2(this$static.com_google_gwt_user_client_ui_HTMLTable$RowFormatter_this$0.com_google_gwt_user_client_ui_HTMLTable_bodyElem, row)), styleName, true);
+}
+
+function com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$removeStyleName__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2ILjava_lang_String_2V(this$static, row, styleName){
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV((this$static.com_google_gwt_user_client_ui_HTMLTable$RowFormatter_this$0.prepareRow__IV(row) , com_google_gwt_user_client_ui_HTMLTable$RowFormatter_$getRow__Lcom_google_gwt_user_client_ui_HTMLTable$RowFormatter_2Lcom_google_gwt_user_client_Element_2ILcom_google_gwt_user_client_Element_2(this$static.com_google_gwt_user_client_ui_HTMLTable$RowFormatter_this$0.com_google_gwt_user_client_ui_HTMLTable_bodyElem, row)), styleName, false);
+}
+
+function com_google_gwt_user_client_ui_LayoutCommand$1_LayoutCommand$1__Lcom_google_gwt_user_client_ui_LayoutCommand_2V(){
+}
+
+function com_google_gwt_user_client_ui_LayoutCommand$1(){
+}
+
+_ = com_google_gwt_user_client_ui_LayoutCommand$1_LayoutCommand$1__Lcom_google_gwt_user_client_ui_LayoutCommand_2V.prototype = com_google_gwt_user_client_ui_LayoutCommand$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_LayoutCommand$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1LayoutCommand$1_12_1classLit;
+}
+;
+function com_google_gwt_user_client_ui_LayoutPanel_$animate__Lcom_google_gwt_user_client_ui_LayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, duration){
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd, duration);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$insert__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2IV(this$static, widget, beforeIndex){
+  var layer;
+  com_google_gwt_user_client_ui_Widget_$removeFromParent__Lcom_google_gwt_user_client_ui_Widget_2V(widget);
+  com_google_gwt_user_client_ui_WidgetCollection_$insert__Lcom_google_gwt_user_client_ui_WidgetCollection_2Lcom_google_gwt_user_client_ui_Widget_2IV(this$static.com_google_gwt_user_client_ui_ComplexPanel_children, widget, beforeIndex);
+  layer = com_google_gwt_layout_client_Layout_$attachChild__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2Ljava_lang_Object_2Lcom_google_gwt_layout_client_Layout$Layer_2(this$static.com_google_gwt_user_client_ui_LayoutPanel_layout, widget.com_google_gwt_user_client_ui_UIObject_element, widget);
+  widget.com_google_gwt_user_client_ui_Widget_layoutData = layer;
+  com_google_gwt_user_client_ui_Widget_$setParent__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2V(widget, this$static);
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd, 0);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$onResize__Lcom_google_gwt_user_client_ui_LayoutPanel_2V(this$static){
+  var child, child$iterator;
+  for (child$iterator = new com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_WidgetCollection$WidgetIterator__Lcom_google_gwt_user_client_ui_WidgetCollection_2V(this$static.com_google_gwt_user_client_ui_ComplexPanel_children); child$iterator.com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_index < child$iterator.com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_this$0.com_google_gwt_user_client_ui_WidgetCollection_size - 1;) {
+    child = com_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_$next__Lcom_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_2Lcom_google_gwt_user_client_ui_Widget_2(child$iterator);
+    com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(child, Q$com_google_gwt_user_client_ui_RequiresResize) && com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child, Q$com_google_gwt_user_client_ui_RequiresResize).onResize__V();
+  }
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$remove__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, w){
+  var removed;
+  removed = com_google_gwt_user_client_ui_ComplexPanel_$remove__Lcom_google_gwt_user_client_ui_ComplexPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, w);
+  removed && com_google_gwt_layout_client_Layout_$removeChild__Lcom_google_gwt_layout_client_Layout_2Lcom_google_gwt_layout_client_Layout$Layer_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layout, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(w.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_layout_client_Layout$Layer));
+  return removed;
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$setWidgetBottomHeight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, child, bottom, bottomUnit, height, heightUnit){
+  com_google_gwt_layout_client_Layout$Layer_$setBottomHeight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_layout_client_Layout$Layer), bottom, bottomUnit, height, heightUnit);
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd, 0);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$setWidgetLeftRight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, child, leftUnit, rightUnit){
+  com_google_gwt_layout_client_Layout$Layer_$setLeftRight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_layout_client_Layout$Layer), 0, leftUnit, 0, rightUnit);
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd, 0);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$setWidgetTopBottom__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, child, top, topUnit, bottom, bottomUnit){
+  com_google_gwt_layout_client_Layout$Layer_$setTopBottom__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_layout_client_Layout$Layer), top, topUnit, bottom, bottomUnit);
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd, 0);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_$setWidgetTopHeight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static, child, top, topUnit, height, heightUnit){
+  com_google_gwt_layout_client_Layout$Layer_$setTopHeight__Lcom_google_gwt_layout_client_Layout$Layer_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_layout_client_Layout$Layer), top, topUnit, height, heightUnit);
+  com_google_gwt_user_client_ui_LayoutCommand_$schedule__Lcom_google_gwt_user_client_ui_LayoutCommand_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd, 0);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel_LayoutPanel__V(){
+  com_google_gwt_user_client_ui_ComplexPanel_ComplexPanel__V.call(this);
+  com_google_gwt_user_client_ui_UIObject_$setElement__Lcom_google_gwt_user_client_ui_UIObject_2Lcom_google_gwt_user_client_Element_2V(this, $doc.createElement($intern_190));
+  this.com_google_gwt_user_client_ui_LayoutPanel_layout = new com_google_gwt_layout_client_Layout_Layout__Lcom_google_gwt_dom_client_Element_2V(this.com_google_gwt_user_client_ui_UIObject_element);
+  this.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd = new com_google_gwt_user_client_ui_LayoutCommand_LayoutCommand__Lcom_google_gwt_layout_client_Layout_2V(this.com_google_gwt_user_client_ui_LayoutPanel_layout);
+}
+
+function com_google_gwt_user_client_ui_LayoutPanel(){
+}
+
+_ = com_google_gwt_user_client_ui_LayoutPanel_LayoutPanel__V.prototype = com_google_gwt_user_client_ui_LayoutPanel.prototype = new com_google_gwt_user_client_ui_ComplexPanel;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_LayoutPanel_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1LayoutPanel_12_1classLit;
+}
+;
+_.onLoad__V = function com_google_gwt_user_client_ui_LayoutPanel_onLoad__V(){
+}
+;
+_.onResize__V = function com_google_gwt_user_client_ui_LayoutPanel_onResize__V(){
+  com_google_gwt_user_client_ui_LayoutPanel_$onResize__Lcom_google_gwt_user_client_ui_LayoutPanel_2V(this);
+}
+;
+_.onUnload__V = function com_google_gwt_user_client_ui_LayoutPanel_onUnload__V(){
+}
+;
+_.remove__Lcom_google_gwt_user_client_ui_Widget_2Z = function com_google_gwt_user_client_ui_LayoutPanel_remove__Lcom_google_gwt_user_client_ui_Widget_2Z(w){
+  return com_google_gwt_user_client_ui_LayoutPanel_$remove__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this, w);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_HasWidgets, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_RequiresResize, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_LayoutPanel_layout = null;
+_.com_google_gwt_user_client_ui_LayoutPanel_layoutCmd = null;
+function com_google_gwt_user_client_ui_ListBox_$setName__Lcom_google_gwt_user_client_ui_ListBox_2Ljava_lang_String_2V(this$static, name){
+  com_google_gwt_dom_client_SelectElement_$setName__Lcom_google_gwt_dom_client_SelectElement_2Ljava_lang_String_2V(this$static.com_google_gwt_user_client_ui_UIObject_element, name);
+}
+
+function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener_ListenerWrapper$WrappedTableListener__Lcom_google_gwt_user_client_ui_TableListener_2V(listener){
+  this.com_google_gwt_user_client_BaseListenerWrapper_listener = listener;
+}
+
+function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener(){
+}
+
+_ = com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener_ListenerWrapper$WrappedTableListener__Lcom_google_gwt_user_client_ui_TableListener_2V.prototype = com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener.prototype = new com_google_gwt_user_client_ui_ListenerWrapper;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1ListenerWrapper$WrappedTableListener_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTableListener_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  var cell, table;
+  table = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(event.com_google_web_bindery_event_shared_Event_source, Q$com_google_gwt_user_client_ui_HTMLTable);
+  cell = com_google_gwt_user_client_ui_HTMLTable_$getCellForEvent__Lcom_google_gwt_user_client_ui_HTMLTable_2Lcom_google_gwt_event_dom_client_ClickEvent_2Lcom_google_gwt_user_client_ui_HTMLTable$Cell_2(table, event);
+  !!cell && com_geek_afric_client_view_MailView$7_$onCellClicked__Lcom_geek_afric_client_view_MailView$7_2Lcom_google_gwt_user_client_ui_SourcesTableEvents_2IIV(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this.com_google_gwt_user_client_BaseListenerWrapper_listener, Q$com_google_gwt_user_client_ui_TableListener), cell.com_google_gwt_user_client_ui_HTMLTable$Cell_rowIndex, cell.com_google_gwt_user_client_ui_HTMLTable$Cell_cellIndex);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_ListenerWrapper$WrappedTreeListener__Lcom_google_gwt_user_client_ui_TreeListener_2V(listener){
+  this.com_google_gwt_user_client_BaseListenerWrapper_listener = listener;
+}
+
+function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_add__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeListener_2V(tree, listener){
+  var t;
+  t = new com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_ListenerWrapper$WrappedTreeListener__Lcom_google_gwt_user_client_ui_TreeListener_2V(listener);
+  com_google_gwt_user_client_ui_Widget_$addHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_shared_GwtEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(tree, t, (!com_google_gwt_event_logical_shared_SelectionEvent_TYPE && (com_google_gwt_event_logical_shared_SelectionEvent_TYPE = new com_google_gwt_event_shared_GwtEvent$Type_GwtEvent$Type__V) , com_google_gwt_event_logical_shared_SelectionEvent_TYPE));
+  com_google_gwt_user_client_ui_Widget_$addHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_shared_GwtEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(tree, t, com_google_gwt_event_logical_shared_CloseEvent_TYPE?com_google_gwt_event_logical_shared_CloseEvent_TYPE:(com_google_gwt_event_logical_shared_CloseEvent_TYPE = new com_google_gwt_event_shared_GwtEvent$Type_GwtEvent$Type__V));
+  com_google_gwt_user_client_ui_Widget_$addHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_shared_GwtEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(tree, t, (!com_google_gwt_event_logical_shared_OpenEvent_TYPE && (com_google_gwt_event_logical_shared_OpenEvent_TYPE = new com_google_gwt_event_shared_GwtEvent$Type_GwtEvent$Type__V) , com_google_gwt_event_logical_shared_OpenEvent_TYPE));
+}
+
+function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener(){
+}
+
+_ = com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_ListenerWrapper$WrappedTreeListener__Lcom_google_gwt_user_client_ui_TreeListener_2V.prototype = com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener.prototype = new com_google_gwt_user_client_ui_ListenerWrapper;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1ListenerWrapper$WrappedTreeListener_12_1classLit;
+}
+;
+_.onClose__Lcom_google_gwt_event_logical_shared_CloseEvent_2V = function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_onClose__Lcom_google_gwt_event_logical_shared_CloseEvent_2V(event){
+  com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this.com_google_gwt_user_client_BaseListenerWrapper_listener, Q$com_google_gwt_user_client_ui_TreeListener);
+  com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(event.com_google_gwt_event_logical_shared_CloseEvent_target, Q$com_google_gwt_user_client_ui_TreeItem);
+}
+;
+_.onSelection__Lcom_google_gwt_event_logical_shared_SelectionEvent_2V = function com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener_onSelection__Lcom_google_gwt_event_logical_shared_SelectionEvent_2V(event){
+  com_geek_afric_client_view_MailView$Mailboxes$1_$onTreeItemSelected__Lcom_geek_afric_client_view_MailView$Mailboxes$1_2Lcom_google_gwt_user_client_ui_TreeItem_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this.com_google_gwt_user_client_BaseListenerWrapper_listener, Q$com_google_gwt_user_client_ui_TreeListener), com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(event.com_google_gwt_event_logical_shared_SelectionEvent_selectedItem, Q$com_google_gwt_user_client_ui_TreeItem));
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_CloseHandler, Q$com_google_gwt_event_logical_shared_OpenHandler, Q$com_google_gwt_event_logical_shared_SelectionHandler, Q$com_google_gwt_event_shared_EventHandler, Q$com_google_gwt_user_client_ui_ListenerWrapper$WrappedTreeListener]);
+function com_google_gwt_user_client_ui_ResizeComposite(){
+}
+
+_ = com_google_gwt_user_client_ui_ResizeComposite.prototype = new com_google_gwt_user_client_ui_Composite;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_ResizeComposite_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1ResizeComposite_12_1classLit;
+}
+;
+_.onResize__V = function com_google_gwt_user_client_ui_ResizeComposite_onResize__V(){
+  com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this.com_google_gwt_user_client_ui_Composite_widget, Q$com_google_gwt_user_client_ui_RequiresResize).onResize__V();
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsRenderable, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_RequiresResize, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_ = com_google_gwt_user_client_ui_ScrollPanel.prototype;
+_.onResize__V = function com_google_gwt_user_client_ui_ScrollPanel_onResize__V(){
+  var child;
+  child = this.com_google_gwt_user_client_ui_SimplePanel_widget;
+  !!child && com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(child, Q$com_google_gwt_user_client_ui_RequiresResize) && com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(child, Q$com_google_gwt_user_client_ui_RequiresResize).onResize__V();
+}
+;
+function com_google_gwt_user_client_ui_SplitLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this$static, child, direction, size, before){
+  com_google_gwt_user_client_ui_DockLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this$static, child, direction, size);
+  direction != (com_google_gwt_user_client_ui_DockLayoutPanel$Direction_$clinit__V() , com_google_gwt_user_client_ui_DockLayoutPanel$Direction_CENTER) && com_google_gwt_user_client_ui_SplitLayoutPanel_$insertSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2V(this$static, child, before);
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel_$insertSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2V(this$static, widget, before){
+  var layout, splitter;
+  layout = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(widget.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData);
+  splitter = null;
+  switch (com_google_gwt_user_client_ui_DockLayoutPanel_$getResolvedDirection__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2(layout.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_direction).java_lang_Enum_ordinal) {
+    case 3:
+      splitter = new com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_SplitLayoutPanel$HSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$static, widget, false);
+      break;
+    case 1:
+      splitter = new com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_SplitLayoutPanel$HSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$static, widget, true);
+      break;
+    case 0:
+      splitter = new com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_SplitLayoutPanel$VSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$static, widget, false);
+      break;
+    case 2:
+      splitter = new com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_SplitLayoutPanel$VSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$static, widget, true);
+  }
+  com_google_gwt_user_client_ui_DockLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this$static, splitter, layout.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_direction, this$static.com_google_gwt_user_client_ui_SplitLayoutPanel_splitterSize);
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel_SplitLayoutPanel__V(){
+  com_google_gwt_user_client_ui_SplitLayoutPanel_SplitLayoutPanel__IV.call(this);
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel_SplitLayoutPanel__IV(){
+  com_google_gwt_user_client_ui_DockLayoutPanel_DockLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V.call(this, (com_google_gwt_dom_client_Style$Unit_$clinit__V() , com_google_gwt_dom_client_Style$Unit_PX));
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel_splitterSize = 8;
+  this.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = 'gwt-SplitLayoutPanel';
+  if (!com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem) {
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem = $doc.createElement($intern_190);
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_125] = (com_google_gwt_dom_client_Style$Position_$clinit__V() , $intern_188);
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_8] = $intern_300;
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_9] = $intern_300;
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style['margin'] = $intern_300;
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_311] = $intern_300;
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style['borderWidth'] = $intern_300;
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_312] = $intern_313;
+    com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style.opacity = 0;
+  }
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel(){
+}
+
+_ = com_google_gwt_user_client_ui_SplitLayoutPanel_SplitLayoutPanel__V.prototype = com_google_gwt_user_client_ui_SplitLayoutPanel.prototype = new com_google_gwt_user_client_ui_DockLayoutPanel;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_SplitLayoutPanel_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel_12_1classLit;
+}
+;
+_.insert__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V = function com_google_gwt_user_client_ui_SplitLayoutPanel_insert__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(child, direction, size, before){
+  com_google_gwt_user_client_ui_SplitLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2DLcom_google_gwt_user_client_ui_Widget_2V(this, child, direction, size, before);
+}
+;
+_.remove__Lcom_google_gwt_user_client_ui_Widget_2Z = function com_google_gwt_user_client_ui_SplitLayoutPanel_remove__Lcom_google_gwt_user_client_ui_Widget_2Z(child){
+  var idx;
+  idx = com_google_gwt_user_client_ui_WidgetCollection_$indexOf__Lcom_google_gwt_user_client_ui_WidgetCollection_2Lcom_google_gwt_user_client_ui_Widget_2I(this.com_google_gwt_user_client_ui_ComplexPanel_children, child);
+  if (com_google_gwt_user_client_ui_DockLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this, child)) {
+    idx < this.com_google_gwt_user_client_ui_ComplexPanel_children.com_google_gwt_user_client_ui_WidgetCollection_size && com_google_gwt_user_client_ui_DockLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this, com_google_gwt_user_client_ui_WidgetCollection_$get__Lcom_google_gwt_user_client_ui_WidgetCollection_2ILcom_google_gwt_user_client_ui_Widget_2(this.com_google_gwt_user_client_ui_ComplexPanel_children, idx));
+    return true;
+  }
+  return false;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_HasWidgets, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_RequiresResize, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_SplitLayoutPanel_splitterSize = 0;
+var com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem = null;
+function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_$getMaxSize__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2D(this$static){
+  var newCenterSize;
+  newCenterSize = this$static.getCenterSize__D();
+  if (this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_syncedCenterSize != newCenterSize) {
+    this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_syncedCenterSize = newCenterSize;
+    this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_centerSize = newCenterSize;
+  }
+  return java_lang_Math_max__DDD(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData).com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size + this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_centerSize);
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_$setAssociatedWidgetSize__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2DV(this$static, size){
+  var layout, maxSize;
+  maxSize = com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_$getMaxSize__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2D(this$static);
+  size > maxSize && (size = maxSize);
+  size < this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_minSize && (size = this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_minSize);
+  layout = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target.com_google_gwt_user_client_ui_Widget_layoutData, Q$com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData);
+  if (size == layout.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size) {
+    return;
+  }
+  this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_centerSize += layout.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size - size;
+  layout.com_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_size = size;
+  if (!this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_layoutCommand) {
+    this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_layoutCommand = new com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_SplitLayoutPanel$Splitter$1__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2V(this$static);
+    com_google_gwt_core_client_impl_SchedulerImpl_$scheduleDeferred__Lcom_google_gwt_core_client_impl_SchedulerImpl_2Lcom_google_gwt_core_client_Scheduler$ScheduledCommand_2V((com_google_gwt_core_client_impl_SchedulerImpl_$clinit__V() , com_google_gwt_core_client_impl_SchedulerImpl_INSTANCE), this$static.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_layoutCommand);
+  }
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_SplitLayoutPanel$Splitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$0, target, reverse){
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_this$0 = this$0;
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target = target;
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_reverse = reverse;
+  com_google_gwt_user_client_ui_UIObject_$setElement__Lcom_google_gwt_user_client_ui_UIObject_2Lcom_google_gwt_user_client_Element_2V(this, $doc.createElement($intern_190));
+  this.com_google_gwt_user_client_ui_Widget_eventsToSink == -1?com_google_gwt_user_client_impl_DOMImplMozilla_$sinkEvents__Lcom_google_gwt_user_client_impl_DOMImplMozilla_2Lcom_google_gwt_user_client_Element_2IV(this.com_google_gwt_user_client_ui_UIObject_element, 78 | (this.com_google_gwt_user_client_ui_UIObject_element.__eventBits || 0)):(this.com_google_gwt_user_client_ui_Widget_eventsToSink |= 78);
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter(){
+}
+
+_ = com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter.prototype = new com_google_gwt_user_client_ui_Widget;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$Splitter_12_1classLit;
+}
+;
+_.onBrowserEvent__Lcom_google_gwt_user_client_Event_2V = function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_onBrowserEvent__Lcom_google_gwt_user_client_Event_2V(event){
+  var height, size, width;
+  switch (com_google_gwt_user_client_impl_DOMImpl_$eventGetTypeInt__Lcom_google_gwt_user_client_impl_DOMImpl_2Ljava_lang_String_2I(event.type)) {
+    case 4:
+      this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_mouseDown = true;
+      width = java_lang_Math_max__III(com_google_gwt_dom_client_Document_$getClientWidth__Lcom_google_gwt_dom_client_Document_2I($doc), com_google_gwt_dom_client_Document_$getScrollWidth__Lcom_google_gwt_dom_client_Document_2I($doc));
+      height = java_lang_Math_max__III(com_google_gwt_dom_client_Document_$getClientHeight__Lcom_google_gwt_dom_client_Document_2I($doc), com_google_gwt_dom_client_Document_$getScrollHeight__Lcom_google_gwt_dom_client_Document_2I($doc));
+      com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_179] = height + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+      com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem.style[$intern_177] = width + $intern_189;
+      com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2($doc.body, com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem);
+      this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_offset = this.getEventPosition__Lcom_google_gwt_user_client_Event_2I(event) - this.getAbsolutePosition__I();
+      com_google_gwt_user_client_DOM_setCapture__Lcom_google_gwt_user_client_Element_2V(this.com_google_gwt_user_client_ui_UIObject_element);
+      event.preventDefault();
+      break;
+    case 8:
+      this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_mouseDown = false;
+      com_google_gwt_dom_client_Node_$removeFromParent__Lcom_google_gwt_dom_client_Node_2V(com_google_gwt_user_client_ui_SplitLayoutPanel_glassElem);
+      com_google_gwt_user_client_DOM_releaseCapture__Lcom_google_gwt_user_client_Element_2V(this.com_google_gwt_user_client_ui_UIObject_element);
+      event.preventDefault();
+      break;
+    case 64:
+      if (this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_mouseDown) {
+        this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_reverse?(size = this.getTargetPosition__I() + this.getTargetSize__I() - this.getEventPosition__Lcom_google_gwt_user_client_Event_2I(event) - this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_offset):(size = this.getEventPosition__Lcom_google_gwt_user_client_Event_2I(event) - this.getTargetPosition__I() - this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_offset);
+        com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_$setAssociatedWidgetSize__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2DV(this, size);
+        event.preventDefault();
+      }
+
+  }
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_centerSize = 0;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_layoutCommand = null;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_minSize = 0;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_mouseDown = false;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_offset = 0;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_reverse = false;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_syncedCenterSize = 0;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target = null;
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_this$0 = null;
+function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_SplitLayoutPanel$HSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$0, target, reverse){
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_this$0 = this$0;
+  com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_SplitLayoutPanel$Splitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV.call(this, this$0, target, reverse);
+  this.com_google_gwt_user_client_ui_UIObject_element.style[$intern_177] = this$0.com_google_gwt_user_client_ui_SplitLayoutPanel_splitterSize + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+  this.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = 'gwt-SplitLayoutPanel-HDragger';
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter(){
+}
+
+_ = com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_SplitLayoutPanel$HSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV.prototype = com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter.prototype = new com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter;
+_.getAbsolutePosition__I = function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_getAbsolutePosition__I(){
+  return com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteLeft__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(this.com_google_gwt_user_client_ui_UIObject_element);
+}
+;
+_.getCenterSize__D = function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_getCenterSize__D(){
+  return com_google_gwt_user_client_ui_DockLayoutPanel_$getCenterWidth__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2D(this.com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_this$0);
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$HSplitter_12_1classLit;
+}
+;
+_.getEventPosition__Lcom_google_gwt_user_client_Event_2I = function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_getEventPosition__Lcom_google_gwt_user_client_Event_2I(event){
+  return event.clientX || 0;
+}
+;
+_.getTargetPosition__I = function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_getTargetPosition__I(){
+  return com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteLeft__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target.com_google_gwt_user_client_ui_UIObject_element);
+}
+;
+_.getTargetSize__I = function com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_getTargetSize__I(){
+  return this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target.getOffsetWidth__I();
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$HSplitter_this$0 = null;
+function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_SplitLayoutPanel$Splitter$1__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2V(this$1){
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_this$1 = this$1;
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1(){
+}
+
+_ = com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_SplitLayoutPanel$Splitter$1__Lcom_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_2V.prototype = com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1.prototype = new java_lang_Object;
+_.execute__V = function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_execute__V(){
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_this$1.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_layoutCommand = null;
+  com_google_gwt_user_client_ui_DockLayoutPanel_$forceLayout__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2V(this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_this$1.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_this$0);
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$Splitter$1_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_Command]);
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter$1_this$1 = null;
+function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_SplitLayoutPanel$VSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV(this$0, target, reverse){
+  this.com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_this$0 = this$0;
+  com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_SplitLayoutPanel$Splitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV.call(this, this$0, target, reverse);
+  this.com_google_gwt_user_client_ui_UIObject_element.style[$intern_179] = this$0.com_google_gwt_user_client_ui_SplitLayoutPanel_splitterSize + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+  this.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = 'gwt-SplitLayoutPanel-VDragger';
+}
+
+function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter(){
+}
+
+_ = com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_SplitLayoutPanel$VSplitter__Lcom_google_gwt_user_client_ui_SplitLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2ZV.prototype = com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter.prototype = new com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter;
+_.getAbsolutePosition__I = function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_getAbsolutePosition__I(){
+  return com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteTop__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(this.com_google_gwt_user_client_ui_UIObject_element);
+}
+;
+_.getCenterSize__D = function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_getCenterSize__D(){
+  return com_google_gwt_user_client_ui_DockLayoutPanel_$getCenterHeight__Lcom_google_gwt_user_client_ui_DockLayoutPanel_2D(this.com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_this$0);
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$VSplitter_12_1classLit;
+}
+;
+_.getEventPosition__Lcom_google_gwt_user_client_Event_2I = function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_getEventPosition__Lcom_google_gwt_user_client_Event_2I(event){
+  return event.clientY || 0;
+}
+;
+_.getTargetPosition__I = function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_getTargetPosition__I(){
+  return com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteTop__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target.com_google_gwt_user_client_ui_UIObject_element);
+}
+;
+_.getTargetSize__I = function com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_getTargetSize__I(){
+  return this.com_google_gwt_user_client_ui_SplitLayoutPanel$Splitter_target.getOffsetHeight__I();
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_SplitLayoutPanel$VSplitter_this$0 = null;
+function com_google_gwt_user_client_ui_StackLayoutPanel_$add__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2DV(this$static, widget, header){
+  com_google_gwt_user_client_ui_StackLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2DIV(this$static, widget, header, ~~(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel.com_google_gwt_user_client_ui_ComplexPanel_children.com_google_gwt_user_client_ui_WidgetCollection_size / 2));
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$animate__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, duration){
+  var bottom, data, i, j, top;
+  if (this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size == 0) {
+    return;
+  }
+  top = 0;
+  bottom = 0;
+  i = 0;
+  for (; i < this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size; ++i) {
+    data = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, i), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData);
+    com_google_gwt_user_client_ui_LayoutPanel_$setWidgetTopHeight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_header, top, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_headerSize, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit);
+    top += data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_headerSize;
+    com_google_gwt_user_client_ui_LayoutPanel_$setWidgetTopHeight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget, top, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit, 0, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit);
+    if (i == this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex) {
+      break;
+    }
+  }
+  for (j = this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size - 1; j > i; --j) {
+    data = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, j), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData);
+    com_google_gwt_user_client_ui_LayoutPanel_$setWidgetBottomHeight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_header, bottom, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_headerSize, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit);
+    com_google_gwt_user_client_ui_LayoutPanel_$setWidgetBottomHeight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget, bottom, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit, 0, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit);
+    bottom += data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_headerSize;
+  }
+  data = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData);
+  com_google_gwt_user_client_ui_LayoutPanel_$setWidgetTopBottom__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget, top, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit, bottom, this$static.com_google_gwt_user_client_ui_StackLayoutPanel_unit);
+  com_google_gwt_user_client_ui_LayoutPanel_$animate__Lcom_google_gwt_user_client_ui_LayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, duration);
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$getWidgetIndex__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2I(this$static, child){
+  var index;
+  index = com_google_gwt_user_client_ui_ComplexPanel_$getWidgetIndex__Lcom_google_gwt_user_client_ui_ComplexPanel_2Lcom_google_gwt_user_client_ui_Widget_2I(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, child);
+  if (index == -1) {
+    return -1;
+  }
+  return ~~((index - 1) / 2);
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_Widget_2DIV(this$static, child, header, beforeIndex){
+  com_google_gwt_user_client_ui_StackLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_StackLayoutPanel$Header_2DIV(this$static, child, new com_google_gwt_user_client_ui_StackLayoutPanel$Header_StackLayoutPanel$Header__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(header), beforeIndex);
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$insert__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_StackLayoutPanel$Header_2DIV(this$static, child, header, beforeIndex){
+  var data, idx, widgetIndex;
+  idx = com_google_gwt_user_client_ui_StackLayoutPanel_$getWidgetIndex__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2I(this$static, child);
+  if (idx != -1) {
+    com_google_gwt_user_client_ui_StackLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, child);
+    idx < beforeIndex && --beforeIndex;
+  }
+  widgetIndex = beforeIndex * 2;
+  com_google_gwt_user_client_ui_LayoutPanel_$insert__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2IV(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, child, widgetIndex);
+  com_google_gwt_user_client_ui_LayoutPanel_$insert__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2IV(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, header, widgetIndex);
+  com_google_gwt_user_client_ui_LayoutPanel_$setWidgetLeftRight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, header, (com_google_gwt_dom_client_Style$Unit_$clinit__V() , com_google_gwt_dom_client_Style$Unit_PX), com_google_gwt_dom_client_Style$Unit_PX);
+  com_google_gwt_user_client_ui_LayoutPanel_$setWidgetLeftRight__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2DLcom_google_gwt_dom_client_Style$Unit_2DLcom_google_gwt_dom_client_Style$Unit_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, child, com_google_gwt_dom_client_Style$Unit_PX, com_google_gwt_dom_client_Style$Unit_PX);
+  data = new com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_StackLayoutPanel$LayoutData__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_StackLayoutPanel$Header_2DV(child, header);
+  java_util_ArrayList_$add__Ljava_util_ArrayList_2ILjava_lang_Object_2V(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, beforeIndex, data);
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV(header.com_google_gwt_user_client_ui_UIObject_element, $intern_314, true);
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV(child.com_google_gwt_user_client_ui_UIObject_element, $intern_315, true);
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(header, new com_google_gwt_user_client_ui_StackLayoutPanel$2_StackLayoutPanel$2__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(this$static, child), (com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_$clinit__V() , com_google_gwt_event_dom_client_ClickEvent_TYPE));
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(header, new com_google_gwt_user_client_ui_StackLayoutPanel$3_StackLayoutPanel$3__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(header), (com_google_gwt_event_dom_client_MouseOutEvent_$clinit__V() , com_google_gwt_event_dom_client_MouseOutEvent_$clinit__V() , com_google_gwt_event_dom_client_MouseOutEvent_TYPE));
+  com_google_gwt_user_client_ui_Widget_$addDomHandler__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_event_shared_EventHandler_2Lcom_google_gwt_event_dom_client_DomEvent$Type_2Lcom_google_gwt_event_shared_HandlerRegistration_2(header, new com_google_gwt_user_client_ui_StackLayoutPanel$4_StackLayoutPanel$4__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(header), (com_google_gwt_event_dom_client_MouseOverEvent_$clinit__V() , com_google_gwt_event_dom_client_MouseOverEvent_$clinit__V() , com_google_gwt_event_dom_client_MouseOverEvent_TYPE));
+  this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex == -1?com_google_gwt_user_client_ui_StackLayoutPanel_$showWidget__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2IIZV(this$static, 0):beforeIndex <= this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex && ++this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex;
+  com_google_gwt_user_client_ui_Composite_$isAttached__Lcom_google_gwt_user_client_ui_Composite_2Z(this$static) && com_google_gwt_user_client_ui_StackLayoutPanel_$animate__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, 250);
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, child){
+  var data, i;
+  if (child.com_google_gwt_user_client_ui_Widget_parent != this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel) {
+    return false;
+  }
+  for (i = 0; i < this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size; ++i) {
+    data = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, i), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData);
+    if (data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget == child) {
+      com_google_gwt_user_client_ui_LayoutPanel_$remove__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_header);
+      com_google_gwt_user_client_ui_LayoutPanel_$remove__Lcom_google_gwt_user_client_ui_LayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel, data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget);
+      com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2ZV(data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_header, $intern_314, false);
+      com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2ZV(data.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget, $intern_315, false);
+      java_util_ArrayList_$remove__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, i);
+      if (this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex == i) {
+        this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex = -1;
+        this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size > 0 && com_google_gwt_user_client_ui_StackLayoutPanel_$showWidget__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this$static, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, 0), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData).com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget);
+      }
+       else {
+        i <= this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex && --this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex;
+        com_google_gwt_user_client_ui_StackLayoutPanel_$animate__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, 250);
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$showWidget__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this$static, child){
+  com_google_gwt_user_client_ui_StackLayoutPanel_$showWidget__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2IIZV(this$static, com_google_gwt_user_client_ui_StackLayoutPanel_$getWidgetIndex__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2I(this$static, child));
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_$showWidget__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2IIZV(this$static, index){
+  if (index == this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex) {
+    return;
+  }
+  com_google_gwt_event_logical_shared_BeforeSelectionEvent_fire__Lcom_google_gwt_event_logical_shared_HasBeforeSelectionHandlers_2Ljava_lang_Object_2Lcom_google_gwt_event_logical_shared_BeforeSelectionEvent_2(java_lang_Integer_valueOf__ILjava_lang_Integer_2(index));
+  this$static.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex = index;
+  com_google_gwt_user_client_ui_Composite_$isAttached__Lcom_google_gwt_user_client_ui_Composite_2Z(this$static) && com_google_gwt_user_client_ui_StackLayoutPanel_$animate__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this$static, 250);
+  com_google_gwt_event_logical_shared_SelectionEvent_fire__Lcom_google_gwt_event_logical_shared_HasSelectionHandlers_2Ljava_lang_Object_2V(this$static, java_lang_Integer_valueOf__ILjava_lang_Integer_2(index));
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel_StackLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V(unit){
+  this.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData = new java_util_ArrayList_ArrayList__V;
+  this.com_google_gwt_user_client_ui_StackLayoutPanel_unit = unit;
+  com_google_gwt_user_client_ui_Composite_$initWidget__Lcom_google_gwt_user_client_ui_Composite_2Lcom_google_gwt_user_client_ui_Widget_2V(this, this.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel = new com_google_gwt_user_client_ui_LayoutPanel_LayoutPanel__V);
+  this.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = 'gwt-StackLayoutPanel';
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel_StackLayoutPanel__Lcom_google_gwt_dom_client_Style$Unit_2V.prototype = com_google_gwt_user_client_ui_StackLayoutPanel.prototype = new com_google_gwt_user_client_ui_ResizeComposite;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel_12_1classLit;
+}
+;
+_.iterator__Ljava_util_Iterator_2 = function com_google_gwt_user_client_ui_StackLayoutPanel_iterator__Ljava_util_Iterator_2(){
+  return new com_google_gwt_user_client_ui_StackLayoutPanel$1_StackLayoutPanel$1__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(this);
+}
+;
+_.onLoad__V = function com_google_gwt_user_client_ui_StackLayoutPanel_onLoad__V(){
+  com_google_gwt_user_client_ui_StackLayoutPanel_$animate__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2ILcom_google_gwt_layout_client_Layout$AnimationCallback_2V(this, 0);
+}
+;
+_.onResize__V = function com_google_gwt_user_client_ui_StackLayoutPanel_onResize__V(){
+  com_google_gwt_user_client_ui_LayoutPanel_$onResize__Lcom_google_gwt_user_client_ui_LayoutPanel_2V(this.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel);
+}
+;
+_.remove__Lcom_google_gwt_user_client_ui_Widget_2Z = function com_google_gwt_user_client_ui_StackLayoutPanel_remove__Lcom_google_gwt_user_client_ui_Widget_2Z(child){
+  return com_google_gwt_user_client_ui_StackLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this, child);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_HasWidgets, Q$com_google_gwt_user_client_ui_IsRenderable, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_RequiresResize, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_StackLayoutPanel_layoutPanel = null;
+_.com_google_gwt_user_client_ui_StackLayoutPanel_selectedIndex = -1;
+_.com_google_gwt_user_client_ui_StackLayoutPanel_unit = null;
+function com_google_gwt_user_client_ui_StackLayoutPanel$1_$next__Lcom_google_gwt_user_client_ui_StackLayoutPanel$1_2Lcom_google_gwt_user_client_ui_Widget_2(this$static){
+  if (this$static.com_google_gwt_user_client_ui_StackLayoutPanel$1_i >= this$static.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size) {
+    throw new java_util_NoSuchElementException_NoSuchElementException__V;
+  }
+  return com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, this$static.com_google_gwt_user_client_ui_StackLayoutPanel$1_last = this$static.com_google_gwt_user_client_ui_StackLayoutPanel$1_i++), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData).com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$1_StackLayoutPanel$1__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(this$0){
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0 = this$0;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$1(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel$1_StackLayoutPanel$1__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V.prototype = com_google_gwt_user_client_ui_StackLayoutPanel$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$1_12_1classLit;
+}
+;
+_.hasNext__Z = function com_google_gwt_user_client_ui_StackLayoutPanel$1_hasNext__Z(){
+  return this.com_google_gwt_user_client_ui_StackLayoutPanel$1_i < this.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData.java_util_ArrayList_size;
+}
+;
+_.next__Ljava_lang_Object_2 = function com_google_gwt_user_client_ui_StackLayoutPanel$1_next__Ljava_lang_Object_2(){
+  return com_google_gwt_user_client_ui_StackLayoutPanel$1_$next__Lcom_google_gwt_user_client_ui_StackLayoutPanel$1_2Lcom_google_gwt_user_client_ui_Widget_2(this);
+}
+;
+_.remove__V = function com_google_gwt_user_client_ui_StackLayoutPanel$1_remove__V(){
+  if (this.com_google_gwt_user_client_ui_StackLayoutPanel$1_last < 0) {
+    throw new java_lang_IllegalStateException_IllegalStateException__V;
+  }
+  com_google_gwt_user_client_ui_StackLayoutPanel_$remove__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2Z(this.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0, com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0.com_google_gwt_user_client_ui_StackLayoutPanel_layoutData, this.com_google_gwt_user_client_ui_StackLayoutPanel$1_last), Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData).com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget);
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$1_i = this.com_google_gwt_user_client_ui_StackLayoutPanel$1_last;
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$1_last = -1;
+}
+;
+_.com_google_gwt_user_client_ui_StackLayoutPanel$1_i = 0;
+_.com_google_gwt_user_client_ui_StackLayoutPanel$1_last = -1;
+_.com_google_gwt_user_client_ui_StackLayoutPanel$1_this$0 = null;
+function com_google_gwt_user_client_ui_StackLayoutPanel$2_StackLayoutPanel$2__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(this$0, val$child){
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$2_this$0 = this$0;
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$2_val$child = val$child;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$2(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel$2_StackLayoutPanel$2__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V.prototype = com_google_gwt_user_client_ui_StackLayoutPanel$2.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel$2_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$2_12_1classLit;
+}
+;
+_.onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V = function com_google_gwt_user_client_ui_StackLayoutPanel$2_onClick__Lcom_google_gwt_event_dom_client_ClickEvent_2V(event){
+  com_google_gwt_user_client_ui_StackLayoutPanel_$showWidget__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(this.com_google_gwt_user_client_ui_StackLayoutPanel$2_this$0, this.com_google_gwt_user_client_ui_StackLayoutPanel$2_val$child);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_ClickHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_google_gwt_user_client_ui_StackLayoutPanel$2_this$0 = null;
+_.com_google_gwt_user_client_ui_StackLayoutPanel$2_val$child = null;
+function com_google_gwt_user_client_ui_StackLayoutPanel$3_StackLayoutPanel$3__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(val$header){
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$3_val$header = val$header;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$3(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel$3_StackLayoutPanel$3__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V.prototype = com_google_gwt_user_client_ui_StackLayoutPanel$3.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel$3_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$3_12_1classLit;
+}
+;
+_.onMouseOut__Lcom_google_gwt_event_dom_client_MouseOutEvent_2V = function com_google_gwt_user_client_ui_StackLayoutPanel$3_onMouseOut__Lcom_google_gwt_event_dom_client_MouseOutEvent_2V(event){
+  com_google_gwt_user_client_ui_UIObject_$setStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2ZV(this.com_google_gwt_user_client_ui_StackLayoutPanel$3_val$header, $intern_316, false);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_MouseOutHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_google_gwt_user_client_ui_StackLayoutPanel$3_val$header = null;
+function com_google_gwt_user_client_ui_StackLayoutPanel$4_StackLayoutPanel$4__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V(val$header){
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$4_val$header = val$header;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$4(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel$4_StackLayoutPanel$4__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2V.prototype = com_google_gwt_user_client_ui_StackLayoutPanel$4.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel$4_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$4_12_1classLit;
+}
+;
+_.onMouseOver__Lcom_google_gwt_event_dom_client_MouseOverEvent_2V = function com_google_gwt_user_client_ui_StackLayoutPanel$4_onMouseOver__Lcom_google_gwt_event_dom_client_MouseOverEvent_2V(event){
+  com_google_gwt_user_client_ui_UIObject_$addStyleName__Lcom_google_gwt_user_client_ui_UIObject_2Ljava_lang_String_2V(this.com_google_gwt_user_client_ui_StackLayoutPanel$4_val$header, $intern_316);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_dom_client_MouseOverHandler, Q$com_google_gwt_event_shared_EventHandler]);
+_.com_google_gwt_user_client_ui_StackLayoutPanel$4_val$header = null;
+function com_google_gwt_user_client_ui_StackLayoutPanel$Header_StackLayoutPanel$Header__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2V(child){
+  com_google_gwt_user_client_ui_Composite_$initWidget__Lcom_google_gwt_user_client_ui_Composite_2Lcom_google_gwt_user_client_ui_Widget_2V(this, child);
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$Header(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel$Header_StackLayoutPanel$Header__Lcom_google_gwt_user_client_ui_StackLayoutPanel_2Lcom_google_gwt_user_client_ui_Widget_2V.prototype = com_google_gwt_user_client_ui_StackLayoutPanel$Header.prototype = new com_google_gwt_user_client_ui_Composite;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel$Header_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$Header_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_IsRenderable, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+function com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_StackLayoutPanel$LayoutData__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_StackLayoutPanel$Header_2DV(widget, header){
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget = widget;
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_header = header;
+  this.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_headerSize = 3;
+}
+
+function com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData(){
+}
+
+_ = com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_StackLayoutPanel$LayoutData__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_ui_StackLayoutPanel$Header_2DV.prototype = com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$LayoutData_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData]);
+_.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_header = null;
+_.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_headerSize = 0;
+_.com_google_gwt_user_client_ui_StackLayoutPanel$LayoutData_widget = null;
+function com_google_gwt_user_client_ui_Tree_$addItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, item){
+  com_google_gwt_user_client_ui_TreeItem_$addItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static.com_google_gwt_user_client_ui_Tree_root, item);
+}
+
+function com_google_gwt_user_client_ui_Tree_$collectElementChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2Lcom_google_gwt_user_client_Element_2Lcom_google_gwt_user_client_Element_2V(this$static, chain, hRoot, hElem){
+  if (!hElem || hElem == hRoot) {
+    return;
+  }
+  com_google_gwt_user_client_ui_Tree_$collectElementChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2Lcom_google_gwt_user_client_Element_2Lcom_google_gwt_user_client_Element_2V(this$static, chain, hRoot, com_google_gwt_dom_client_DOMImpl_$getParentElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Element_2(hElem));
+  com_google_gwt_lang_Array_setCheck__Lcom_google_gwt_lang_Array_2ILjava_lang_Object_2Ljava_lang_Object_2(chain.java_util_ArrayList_array, chain.java_util_ArrayList_size++, hElem);
+}
+
+function com_google_gwt_user_client_ui_Tree_$elementClicked__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_Element_2Z(this$static, hElem){
+  var chain, item;
+  chain = new java_util_ArrayList_ArrayList__V;
+  com_google_gwt_user_client_ui_Tree_$collectElementChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2Lcom_google_gwt_user_client_Element_2Lcom_google_gwt_user_client_Element_2V(this$static, chain, this$static.com_google_gwt_user_client_ui_UIObject_element, hElem);
+  item = com_google_gwt_user_client_ui_Tree_$findItemByChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2ILcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, chain, 0, this$static.com_google_gwt_user_client_ui_Tree_root);
+  if (!!item && item != this$static.com_google_gwt_user_client_ui_Tree_root) {
+    if (com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(item) > 0 && com_google_gwt_user_client_DOM_isOrHasChild__Lcom_google_gwt_user_client_Element_2Lcom_google_gwt_user_client_Element_2Z(com_google_gwt_dom_client_DOMImpl_$getFirstChildElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2((!!item.com_google_gwt_user_client_ui_TreeItem_imageHolder || com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$convertToFullNode__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item) , item.com_google_gwt_user_client_ui_TreeItem_imageHolder)), hElem)) {
+      com_google_gwt_user_client_ui_TreeItem_$setState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(item, !item.com_google_gwt_user_client_ui_TreeItem_open);
+      return true;
+    }
+     else if (com_google_gwt_user_client_DOM_isOrHasChild__Lcom_google_gwt_user_client_Element_2Lcom_google_gwt_user_client_Element_2Z(item.com_google_gwt_user_client_ui_UIObject_element, hElem)) {
+      com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, item, !com_google_gwt_user_client_ui_Tree_shouldTreeDelegateFocusToElement__Lcom_google_gwt_user_client_Element_2Z(hElem));
+      return true;
+    }
+  }
+  return false;
+}
+
+function com_google_gwt_user_client_ui_Tree_$findDeepestOpenChild__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, item){
+  if (!item.com_google_gwt_user_client_ui_TreeItem_open) {
+    return item;
+  }
+  return com_google_gwt_user_client_ui_Tree_$findDeepestOpenChild__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(item, com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(item) - 1));
+}
+
+function com_google_gwt_user_client_ui_Tree_$findItemByChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2ILcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, chain, idx, root){
+  var child, hCurElem, i, n, retItem;
+  if (idx == chain.java_util_ArrayList_size) {
+    return root;
+  }
+  hCurElem = com_google_gwt_lang_Cast_dynamicCastJso__Ljava_lang_Object_2Ljava_lang_Object_2((java_util_AbstractList_checkIndex__IIV(idx, chain.java_util_ArrayList_size) , chain.java_util_ArrayList_array[idx]));
+  for (i = 0 , n = com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(root); i < n; ++i) {
+    child = com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(root, i);
+    if (child.com_google_gwt_user_client_ui_UIObject_element == hCurElem) {
+      retItem = com_google_gwt_user_client_ui_Tree_$findItemByChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2ILcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, chain, idx + 1, com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(root, i));
+      if (!retItem) {
+        return child;
+      }
+      return retItem;
+    }
+  }
+  return com_google_gwt_user_client_ui_Tree_$findItemByChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2ILcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, chain, idx + 1, root);
+}
+
+function com_google_gwt_user_client_ui_Tree_$fireStateChanged__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, item, open){
+  open?com_google_gwt_event_logical_shared_OpenEvent_fire__Lcom_google_gwt_event_logical_shared_HasOpenHandlers_2Ljava_lang_Object_2V(this$static):com_google_gwt_event_logical_shared_CloseEvent_fire__Lcom_google_gwt_event_logical_shared_HasCloseHandlers_2Ljava_lang_Object_2ZV(this$static, item, false);
+}
+
+function com_google_gwt_user_client_ui_Tree_$getTopClosedParent__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, item){
+  var parent, topClosedParent;
+  topClosedParent = null;
+  parent = item.com_google_gwt_user_client_ui_TreeItem_parent;
+  while (!!parent && parent != this$static.com_google_gwt_user_client_ui_Tree_root) {
+    parent.com_google_gwt_user_client_ui_TreeItem_open || (topClosedParent = parent);
+    parent = parent.com_google_gwt_user_client_ui_TreeItem_parent;
+  }
+  return topClosedParent;
+}
+
+function com_google_gwt_user_client_ui_Tree_$init__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Tree$ImageAdapter_2ZV(this$static, images){
+  com_google_gwt_user_client_ui_Tree_$setImages__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Tree$ImageAdapter_2ZV(this$static, images, false);
+  com_google_gwt_user_client_ui_UIObject_$setElement__Lcom_google_gwt_user_client_ui_UIObject_2Lcom_google_gwt_user_client_Element_2V(this$static, $doc.createElement($intern_190));
+  this$static.com_google_gwt_user_client_ui_UIObject_element.style[$intern_125] = $intern_191;
+  this$static.com_google_gwt_user_client_ui_UIObject_element.style[$intern_317] = $intern_71;
+  this$static.com_google_gwt_user_client_ui_Tree_focusable = com_google_gwt_user_client_ui_impl_FocusImplStandard_createFocusable0__Lcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_user_client_Element_2(com_google_gwt_user_client_ui_impl_FocusImplStandard_focusHandler?com_google_gwt_user_client_ui_impl_FocusImplStandard_focusHandler:(com_google_gwt_user_client_ui_impl_FocusImplStandard_focusHandler = com_google_gwt_user_client_ui_impl_FocusImplStandard_$createFocusHandler__Lcom_google_gwt_user_client_ui_impl_FocusImplStandard_2Lcom_google_gwt_core_client_JavaScriptObject_2()));
+  this$static.com_google_gwt_user_client_ui_Tree_focusable.style['fontSize'] = $intern_72;
+  this$static.com_google_gwt_user_client_ui_Tree_focusable.style[$intern_125] = $intern_188;
+  this$static.com_google_gwt_user_client_ui_Tree_focusable.style[$intern_318] = $intern_300;
+  this$static.com_google_gwt_user_client_ui_Tree_focusable.setAttribute($intern_319, $intern_127);
+  com_google_gwt_user_client_DOM_setIntStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2IV(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_304, -1);
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(this$static.com_google_gwt_user_client_ui_UIObject_element, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(this$static.com_google_gwt_user_client_ui_Tree_focusable));
+  this$static.com_google_gwt_user_client_ui_Widget_eventsToSink == -1?com_google_gwt_user_client_impl_DOMImplMozilla_$sinkEvents__Lcom_google_gwt_user_client_impl_DOMImplMozilla_2Lcom_google_gwt_user_client_Element_2IV(this$static.com_google_gwt_user_client_ui_UIObject_element, 901 | (this$static.com_google_gwt_user_client_ui_UIObject_element.__eventBits || 0)):(this$static.com_google_gwt_user_client_ui_Widget_eventsToSink |= 901);
+  com_google_gwt_user_client_impl_DOMImplMozilla_$sinkEvents__Lcom_google_gwt_user_client_impl_DOMImplMozilla_2Lcom_google_gwt_user_client_Element_2IV(this$static.com_google_gwt_user_client_ui_Tree_focusable, 6144);
+  this$static.com_google_gwt_user_client_ui_Tree_root = new com_google_gwt_user_client_ui_TreeItem_TreeItem__ZV(true);
+  com_google_gwt_user_client_ui_TreeItem_$setTree__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_Tree_2V(this$static.com_google_gwt_user_client_ui_Tree_root, this$static);
+  this$static.com_google_gwt_user_client_ui_UIObject_element[$intern_205] = 'gwt-Tree';
+  this$static.com_google_gwt_user_client_ui_UIObject_element.setAttribute($intern_320, 'tree');
+  this$static.com_google_gwt_user_client_ui_Tree_focusable.setAttribute($intern_320, $intern_321);
+}
+
+function com_google_gwt_user_client_ui_Tree_$keyboardNavigation__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_Event_2V(this$static, event){
+  var code, com_google_gwt_user_client_ui_Tree_$maybeExpandTreeItem__Lcom_google_gwt_user_client_ui_Tree_2V_topClosedParent_0;
+  code = event.keyCode || 0;
+  switch (com_google_gwt_user_client_ui_Tree_standardizeKeycode__II(code)) {
+    case 38:
+      {
+        com_google_gwt_user_client_ui_Tree_$moveSelectionUp__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, this$static.com_google_gwt_user_client_ui_Tree_curSelection);
+        break;
+      }
+
+    case 40:
+      {
+        com_google_gwt_user_client_ui_Tree_$moveSelectionDown__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, this$static.com_google_gwt_user_client_ui_Tree_curSelection, true);
+        break;
+      }
+
+    case 37:
+      {
+        com_google_gwt_user_client_ui_Tree_$maybeCollapseTreeItem__Lcom_google_gwt_user_client_ui_Tree_2V(this$static);
+        break;
+      }
+
+    case 39:
+      {
+        com_google_gwt_user_client_ui_Tree_$maybeExpandTreeItem__Lcom_google_gwt_user_client_ui_Tree_2V_topClosedParent_0 = com_google_gwt_user_client_ui_Tree_$getTopClosedParent__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, this$static.com_google_gwt_user_client_ui_Tree_curSelection);
+        com_google_gwt_user_client_ui_Tree_$maybeExpandTreeItem__Lcom_google_gwt_user_client_ui_Tree_2V_topClosedParent_0?com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, com_google_gwt_user_client_ui_Tree_$maybeExpandTreeItem__Lcom_google_gwt_user_client_ui_Tree_2V_topClosedParent_0):this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_open?com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static.com_google_gwt_user_client_ui_Tree_curSelection) > 0 && com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(this$static.com_google_gwt_user_client_ui_Tree_curSelection, 0)):com_google_gwt_user_client_ui_TreeItem_$setState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static.com_google_gwt_user_client_ui_Tree_curSelection, true);
+        break;
+      }
+
+    default:{
+        return;
+      }
+
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_$maybeCollapseTreeItem__Lcom_google_gwt_user_client_ui_Tree_2V(this$static){
+  var parent, topClosedParent;
+  topClosedParent = com_google_gwt_user_client_ui_Tree_$getTopClosedParent__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, this$static.com_google_gwt_user_client_ui_Tree_curSelection);
+  if (topClosedParent) {
+    com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, topClosedParent);
+  }
+   else if (this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_open) {
+    com_google_gwt_user_client_ui_TreeItem_$setState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static.com_google_gwt_user_client_ui_Tree_curSelection, false);
+  }
+   else {
+    parent = this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_parent;
+    !!parent && com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, parent);
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_$maybeUpdateSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, itemThatChangedState, isItemOpening){
+  var tempItem;
+  if (!isItemOpening) {
+    tempItem = this$static.com_google_gwt_user_client_ui_Tree_curSelection;
+    while (tempItem) {
+      if (tempItem == itemThatChangedState) {
+        com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, itemThatChangedState);
+        return;
+      }
+      tempItem = tempItem.com_google_gwt_user_client_ui_TreeItem_parent;
+    }
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_$moveFocus__Lcom_google_gwt_user_client_ui_Tree_2V(this$static){
+  var containerLeft, containerTop, height, left, selectedElem, top, width;
+  selectedElem = this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_contentElem;
+  containerLeft = com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteLeft__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(this$static.com_google_gwt_user_client_ui_UIObject_element);
+  containerTop = com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteTop__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(this$static.com_google_gwt_user_client_ui_UIObject_element);
+  left = com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteLeft__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(selectedElem) - containerLeft;
+  top = com_google_gwt_dom_client_DOMImplMozilla_$getAbsoluteTop__Lcom_google_gwt_dom_client_DOMImplMozilla_2Lcom_google_gwt_dom_client_Element_2I(selectedElem) - containerTop;
+  width = com_google_gwt_dom_client_Element_$getPropertyInt__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2I(selectedElem, $intern_289);
+  height = com_google_gwt_dom_client_Element_$getPropertyInt__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2I(selectedElem, $intern_288);
+  if (width == 0 || height == 0) {
+    com_google_gwt_user_client_DOM_setIntStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2IV(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_9, 0);
+    com_google_gwt_user_client_DOM_setIntStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2IV(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_8, 0);
+    return;
+  }
+  com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_9, left + $intern_189);
+  com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_8, top + $intern_189);
+  com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_177, width + $intern_189);
+  com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_179, height + $intern_189);
+  com_google_gwt_dom_client_DOMImpl_$scrollIntoView__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2V(this$static.com_google_gwt_user_client_ui_Tree_focusable);
+  com_google_gwt_user_client_ui_Tree_$updateAriaAttributes__Lcom_google_gwt_user_client_ui_Tree_2V(this$static);
+  this$static.com_google_gwt_user_client_ui_Tree_focusable.focus();
+}
+
+function com_google_gwt_user_client_ui_Tree_$moveSelectionDown__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, sel, dig){
+  var idx, parent, topClosedParent;
+  if (sel == this$static.com_google_gwt_user_client_ui_Tree_root) {
+    return;
+  }
+  topClosedParent = com_google_gwt_user_client_ui_Tree_$getTopClosedParent__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, sel);
+  if (topClosedParent) {
+    com_google_gwt_user_client_ui_Tree_$moveSelectionDown__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, topClosedParent, false);
+    return;
+  }
+  parent = sel.com_google_gwt_user_client_ui_TreeItem_parent;
+  !parent && (parent = this$static.com_google_gwt_user_client_ui_Tree_root);
+  idx = com_google_gwt_user_client_ui_TreeItem_$getChildIndex__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2I(parent, sel);
+  !dig || !sel.com_google_gwt_user_client_ui_TreeItem_open?idx < com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(parent) - 1?com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(parent, idx + 1), true):com_google_gwt_user_client_ui_Tree_$moveSelectionDown__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, parent, false):com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(sel) > 0 && com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(sel, 0), true);
+}
+
+function com_google_gwt_user_client_ui_Tree_$moveSelectionUp__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, sel){
+  var idx, parent, sibling, topClosedParent;
+  topClosedParent = com_google_gwt_user_client_ui_Tree_$getTopClosedParent__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, sel);
+  if (topClosedParent) {
+    com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, topClosedParent, true);
+    return;
+  }
+  parent = sel.com_google_gwt_user_client_ui_TreeItem_parent;
+  !parent && (parent = this$static.com_google_gwt_user_client_ui_Tree_root);
+  idx = com_google_gwt_user_client_ui_TreeItem_$getChildIndex__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2I(parent, sel);
+  if (idx > 0) {
+    sibling = com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(parent, idx - 1);
+    com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, com_google_gwt_user_client_ui_Tree_$findDeepestOpenChild__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this$static, sibling), true);
+  }
+   else {
+    com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, parent, true);
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, item, moveFocus){
+  if (item == this$static.com_google_gwt_user_client_ui_Tree_root) {
+    return;
+  }
+  !!this$static.com_google_gwt_user_client_ui_Tree_curSelection && com_google_gwt_user_client_ui_TreeItem_$setSelected__Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_Tree_curSelection, false);
+  this$static.com_google_gwt_user_client_ui_Tree_curSelection = item;
+  if (this$static.com_google_gwt_user_client_ui_Tree_curSelection) {
+    moveFocus && com_google_gwt_user_client_ui_Tree_$moveFocus__Lcom_google_gwt_user_client_ui_Tree_2V(this$static);
+    com_google_gwt_user_client_ui_TreeItem_$setSelected__Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_Tree_curSelection, true);
+    com_google_gwt_event_logical_shared_SelectionEvent_fire__Lcom_google_gwt_event_logical_shared_HasSelectionHandlers_2Ljava_lang_Object_2V(this$static, this$static.com_google_gwt_user_client_ui_Tree_curSelection);
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_$remove__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Widget_2Z(this$static, w){
+  var item;
+  item = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_Tree_childWidgets.get__Ljava_lang_Object_2Ljava_lang_Object_2(w), Q$com_google_gwt_user_client_ui_TreeItem);
+  if (!item) {
+    return false;
+  }
+  com_google_gwt_dom_client_Element_$setInnerHTML__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2V(item.com_google_gwt_user_client_ui_TreeItem_contentElem, $intern_0);
+  return true;
+}
+
+function com_google_gwt_user_client_ui_Tree_$removeItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, item){
+  com_google_gwt_user_client_ui_TreeItem_$removeItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static.com_google_gwt_user_client_ui_Tree_root, item);
+}
+
+function com_google_gwt_user_client_ui_Tree_$setImages__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Tree$ImageAdapter_2ZV(this$static, images, useLeafImages){
+  var image, size;
+  this$static.com_google_gwt_user_client_ui_Tree_images = images;
+  this$static.com_google_gwt_user_client_ui_Tree_useLeafImages = useLeafImages;
+  if (!useLeafImages) {
+    image = com_google_gwt_user_client_ui_impl_ClippedImagePrototype_$createImage__Lcom_google_gwt_user_client_ui_impl_ClippedImagePrototype_2Lcom_google_gwt_user_client_ui_Image_2(images.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeLeaf);
+    image.com_google_gwt_user_client_ui_UIObject_element.style[$intern_246] = $intern_193;
+    com_google_gwt_user_client_ui_AbsolutePanel_$add__Lcom_google_gwt_user_client_ui_AbsolutePanel_2Lcom_google_gwt_user_client_ui_Widget_2V((com_google_gwt_user_client_ui_RootPanel_$clinit__V() , com_google_gwt_user_client_ui_RootPanel_get__Ljava_lang_String_2Lcom_google_gwt_user_client_ui_RootPanel_2(null)), image);
+    size = image.com_google_gwt_user_client_ui_Image_state.com_google_gwt_user_client_ui_Image$ClippedState_width + 7;
+    com_google_gwt_user_client_ui_Widget_$removeFromParent__Lcom_google_gwt_user_client_ui_Widget_2V(image);
+    this$static.com_google_gwt_user_client_ui_Tree_indentValue = size + $intern_189;
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, item){
+  if (!item) {
+    if (!this$static.com_google_gwt_user_client_ui_Tree_curSelection) {
+      return;
+    }
+    com_google_gwt_user_client_ui_TreeItem_$setSelected__Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_Tree_curSelection, false);
+    this$static.com_google_gwt_user_client_ui_Tree_curSelection = null;
+    return;
+  }
+  com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, item, true);
+}
+
+function com_google_gwt_user_client_ui_Tree_$showClosedImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, treeItem){
+  com_google_gwt_user_client_ui_Tree_$showImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2V(treeItem, this$static.com_google_gwt_user_client_ui_Tree_images.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeClosed);
+}
+
+function com_google_gwt_user_client_ui_Tree_$showImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2V(treeItem, proto){
+  var child, holder;
+  holder = (!!treeItem.com_google_gwt_user_client_ui_TreeItem_imageHolder || com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$convertToFullNode__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2Lcom_google_gwt_user_client_ui_TreeItem_2V(treeItem) , treeItem.com_google_gwt_user_client_ui_TreeItem_imageHolder);
+  child = com_google_gwt_dom_client_DOMImpl_$getFirstChildElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(holder);
+  !child?com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(holder, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_impl_ClippedImageImpl_$createStructure__Lcom_google_gwt_user_client_ui_impl_ClippedImageImpl_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIILcom_google_gwt_dom_client_Element_2(proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_url, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_left, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_top, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_width, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_height))):(com_google_gwt_user_client_ui_impl_ClippedImageImpl_$adjust__Lcom_google_gwt_user_client_ui_impl_ClippedImageImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIV(child, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_url, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_left, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_top, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_width, proto.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_height) , undefined);
+}
+
+function com_google_gwt_user_client_ui_Tree_$showLeafImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, treeItem){
+  this$static.com_google_gwt_user_client_ui_Tree_useLeafImages || !!treeItem.com_google_gwt_user_client_ui_TreeItem_imageHolder?com_google_gwt_user_client_ui_Tree_$showImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2V(treeItem, this$static.com_google_gwt_user_client_ui_Tree_images.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeLeaf):com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(treeItem.com_google_gwt_user_client_ui_UIObject_element, 'paddingLeft', this$static.com_google_gwt_user_client_ui_Tree_indentValue);
+}
+
+function com_google_gwt_user_client_ui_Tree_$showOpenImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, treeItem){
+  com_google_gwt_user_client_ui_Tree_$showImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2V(treeItem, this$static.com_google_gwt_user_client_ui_Tree_images.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeOpen);
+}
+
+function com_google_gwt_user_client_ui_Tree_$updateAriaAttributes__Lcom_google_gwt_user_client_ui_Tree_2V(this$static){
+  var curSelectionContentElem, curSelectionIndex, curSelectionLevel, curSelectionParent, tempItem;
+  curSelectionContentElem = this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_contentElem;
+  curSelectionLevel = -1;
+  tempItem = this$static.com_google_gwt_user_client_ui_Tree_curSelection;
+  while (tempItem) {
+    tempItem = tempItem.com_google_gwt_user_client_ui_TreeItem_parent;
+    ++curSelectionLevel;
+  }
+  curSelectionContentElem.setAttribute('aria-level', $intern_0 + (curSelectionLevel + 1));
+  curSelectionParent = this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_parent;
+  !curSelectionParent && (curSelectionParent = this$static.com_google_gwt_user_client_ui_Tree_root);
+  com_google_gwt_dom_client_Element_$setAttribute__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(curSelectionContentElem, 'aria-setsize', $intern_0 + com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(curSelectionParent));
+  curSelectionIndex = com_google_gwt_user_client_ui_TreeItem_$getChildIndex__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2I(curSelectionParent, this$static.com_google_gwt_user_client_ui_Tree_curSelection);
+  curSelectionContentElem.setAttribute('aria-posinset', $intern_0 + (curSelectionIndex + 1));
+  com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static.com_google_gwt_user_client_ui_Tree_curSelection) == 0?(curSelectionContentElem.removeAttribute($intern_322) , undefined):this$static.com_google_gwt_user_client_ui_Tree_curSelection.com_google_gwt_user_client_ui_TreeItem_open?(curSelectionContentElem.setAttribute($intern_322, $intern_127) , undefined):(curSelectionContentElem.setAttribute($intern_322, $intern_128) , undefined);
+  curSelectionContentElem.setAttribute('aria-selected', $intern_127);
+  com_google_gwt_dom_client_Element_$setAttribute__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(this$static.com_google_gwt_user_client_ui_Tree_focusable, $intern_323, curSelectionContentElem.getAttribute($intern_324) || $intern_0);
+}
+
+function com_google_gwt_user_client_ui_Tree_Tree__Lcom_google_gwt_user_client_ui_Tree$Resources_2V(){
+  this.com_google_gwt_user_client_ui_Tree_childWidgets = new java_util_HashMap_HashMap__V;
+  com_google_gwt_user_client_ui_Tree_$init__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Tree$ImageAdapter_2ZV(this, new com_google_gwt_user_client_ui_Tree$ImageAdapter_Tree$ImageAdapter__Lcom_google_gwt_user_client_ui_Tree$Resources_2V);
+}
+
+function com_google_gwt_user_client_ui_Tree_isArrowKey__IZ(code){
+  switch (code) {
+    case 63233:
+    case 63235:
+    case 63232:
+    case 63234:
+    case 40:
+    case 39:
+    case 38:
+    case 37:
+      return true;
+    default:return false;
+  }
+}
+
+function com_google_gwt_user_client_ui_Tree_shouldTreeDelegateFocusToElement__Lcom_google_gwt_user_client_Element_2Z(elem){
+  var name = elem.nodeName;
+  return name == 'SELECT' || name == $intern_325 || name == 'TEXTAREA' || name == 'OPTION' || name == $intern_326 || name == 'LABEL';
+}
+
+function com_google_gwt_user_client_ui_Tree_standardizeKeycode__II(code){
+  switch (code) {
+    case 63233:
+      code = 40;
+      break;
+    case 63235:
+      code = 39;
+      break;
+    case 63232:
+      code = 38;
+      break;
+    case 63234:
+      code = 37;
+  }
+  return code;
+}
+
+function com_google_gwt_user_client_ui_Tree(){
+}
+
+_ = com_google_gwt_user_client_ui_Tree_Tree__Lcom_google_gwt_user_client_ui_Tree$Resources_2V.prototype = com_google_gwt_user_client_ui_Tree.prototype = new com_google_gwt_user_client_ui_Widget;
+_.doAttachChildren__V = function com_google_gwt_user_client_ui_Tree_doAttachChildren__V(){
+  try {
+    com_google_gwt_user_client_ui_AttachDetachException_tryCommand__Ljava_lang_Iterable_2Lcom_google_gwt_user_client_ui_AttachDetachException$Command_2V(this, (com_google_gwt_user_client_ui_AttachDetachException_$clinit__V() , com_google_gwt_user_client_ui_AttachDetachException_attachCommand));
+  }
+   finally {
+    this.com_google_gwt_user_client_ui_Tree_focusable.__listener = this;
+  }
+}
+;
+_.doDetachChildren__V = function com_google_gwt_user_client_ui_Tree_doDetachChildren__V(){
+  try {
+    com_google_gwt_user_client_ui_AttachDetachException_tryCommand__Ljava_lang_Iterable_2Lcom_google_gwt_user_client_ui_AttachDetachException$Command_2V(this, (com_google_gwt_user_client_ui_AttachDetachException_$clinit__V() , com_google_gwt_user_client_ui_AttachDetachException_detachCommand));
+  }
+   finally {
+    this.com_google_gwt_user_client_ui_Tree_focusable.__listener = null;
+  }
+}
+;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_Tree_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1Tree_12_1classLit;
+}
+;
+_.iterator__Ljava_util_Iterator_2 = function com_google_gwt_user_client_ui_Tree_iterator__Ljava_util_Iterator_2(){
+  var widgets;
+  widgets = com_google_gwt_lang_Array_initDim__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2IIILcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Lcom_1google_1gwt_1user_1client_1ui_1Widget_12_1classLit, makeCastMap([Q$java_io_Serializable, Q$java_lang_Object_$1]), Q$com_google_gwt_user_client_ui_Widget, this.com_google_gwt_user_client_ui_Tree_childWidgets.size__I(), 0);
+  java_util_AbstractMap_$keySet__Ljava_util_AbstractMap_2Ljava_util_Set_2(this.com_google_gwt_user_client_ui_Tree_childWidgets).toArray___3Ljava_lang_Object_2_3Ljava_lang_Object_2(widgets);
+  return new com_google_gwt_user_client_ui_WidgetIterators$1_WidgetIterators$1__V(widgets, this);
+}
+;
+_.onBrowserEvent__Lcom_google_gwt_user_client_Event_2V = function com_google_gwt_user_client_ui_Tree_onBrowserEvent__Lcom_google_gwt_user_client_Event_2V(event){
+  var chain, e, eventType, item;
+  eventType = com_google_gwt_user_client_impl_DOMImpl_$eventGetTypeInt__Lcom_google_gwt_user_client_impl_DOMImpl_2Ljava_lang_String_2I(event.type);
+  switch (eventType) {
+    case 128:
+      {
+        if (!this.com_google_gwt_user_client_ui_Tree_curSelection) {
+          com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this.com_google_gwt_user_client_ui_Tree_root) > 0 && com_google_gwt_user_client_ui_Tree_$onSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this, com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(this.com_google_gwt_user_client_ui_Tree_root, 0), true);
+          com_google_gwt_user_client_ui_Widget_$onBrowserEvent__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_Event_2V(this, event);
+          return;
+        }
+      }
+
+    case 256:
+    case 512:
+      if (!!event.altKey || !!event.metaKey) {
+        com_google_gwt_user_client_ui_Widget_$onBrowserEvent__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_Event_2V(this, event);
+        return;
+      }
+
+  }
+  switch (eventType) {
+    case 1:
+      {
+        e = event.target;
+        if (com_google_gwt_user_client_ui_Tree_shouldTreeDelegateFocusToElement__Lcom_google_gwt_user_client_Element_2Z(e))
+        ;
+        else 
+          !!this.com_google_gwt_user_client_ui_Tree_curSelection && (this.com_google_gwt_user_client_ui_Tree_focusable.focus() , undefined);
+        break;
+      }
+
+    case 4:
+      {
+        event.currentTarget == this.com_google_gwt_user_client_ui_UIObject_element && com_google_gwt_dom_client_DOMImplStandard_$eventGetButton__Lcom_google_gwt_dom_client_DOMImplStandard_2Lcom_google_gwt_dom_client_NativeEvent_2I(event) == 1 && com_google_gwt_user_client_ui_Tree_$elementClicked__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_Element_2Z(this, event.target);
+        break;
+      }
+
+    case 128:
+      {
+        com_google_gwt_user_client_ui_Tree_$keyboardNavigation__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_Event_2V(this, event);
+        this.com_google_gwt_user_client_ui_Tree_lastWasKeyDown = true;
+        break;
+      }
+
+    case 256:
+      {
+        this.com_google_gwt_user_client_ui_Tree_lastWasKeyDown || com_google_gwt_user_client_ui_Tree_$keyboardNavigation__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_Event_2V(this, event);
+        this.com_google_gwt_user_client_ui_Tree_lastWasKeyDown = false;
+        break;
+      }
+
+    case 512:
+      {
+        if ((event.keyCode || 0) == 9) {
+          chain = new java_util_ArrayList_ArrayList__V;
+          com_google_gwt_user_client_ui_Tree_$collectElementChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2Lcom_google_gwt_user_client_Element_2Lcom_google_gwt_user_client_Element_2V(this, chain, this.com_google_gwt_user_client_ui_UIObject_element, event.target);
+          item = com_google_gwt_user_client_ui_Tree_$findItemByChain__Lcom_google_gwt_user_client_ui_Tree_2Ljava_util_ArrayList_2ILcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2(this, chain, 0, this.com_google_gwt_user_client_ui_Tree_root);
+          item != this.com_google_gwt_user_client_ui_Tree_curSelection && com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this, item);
+        }
+        this.com_google_gwt_user_client_ui_Tree_lastWasKeyDown = false;
+        break;
+      }
+
+  }
+  switch (eventType) {
+    case 128:
+    case 512:
+      {
+        if (com_google_gwt_user_client_ui_Tree_isArrowKey__IZ(event.keyCode || 0)) {
+          event.cancelBubble = true;
+          event.preventDefault();
+          return;
+        }
+      }
+
+  }
+  com_google_gwt_user_client_ui_Widget_$onBrowserEvent__Lcom_google_gwt_user_client_ui_Widget_2Lcom_google_gwt_user_client_Event_2V(this, event);
+}
+;
+_.onLoad__V = function com_google_gwt_user_client_ui_Tree_onLoad__V(){
+  com_google_gwt_user_client_ui_TreeItem_$updateStateRecursive__Lcom_google_gwt_user_client_ui_TreeItem_2V(this.com_google_gwt_user_client_ui_Tree_root);
+}
+;
+_.remove__Lcom_google_gwt_user_client_ui_Widget_2Z = function com_google_gwt_user_client_ui_Tree_remove__Lcom_google_gwt_user_client_ui_Widget_2Z(w){
+  return com_google_gwt_user_client_ui_Tree_$remove__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Widget_2Z(this, w);
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_event_logical_shared_HasAttachHandlers, Q$com_google_gwt_event_shared_HasHandlers, Q$com_google_gwt_user_client_EventListener, Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_HasWidgets, Q$com_google_gwt_user_client_ui_IsWidget, Q$com_google_gwt_user_client_ui_UIObject, Q$com_google_gwt_user_client_ui_Widget]);
+_.com_google_gwt_user_client_ui_Tree_curSelection = null;
+_.com_google_gwt_user_client_ui_Tree_focusable = null;
+_.com_google_gwt_user_client_ui_Tree_images = null;
+_.com_google_gwt_user_client_ui_Tree_indentValue = null;
+_.com_google_gwt_user_client_ui_Tree_lastWasKeyDown = false;
+_.com_google_gwt_user_client_ui_Tree_root = null;
+_.com_google_gwt_user_client_ui_Tree_useLeafImages = false;
+function com_google_gwt_user_client_ui_Tree$ImageAdapter_Tree$ImageAdapter__Lcom_google_gwt_user_client_ui_Tree$Resources_2V(){
+  this.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeClosed = com_google_gwt_user_client_ui_AbstractImagePrototype_create__Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeClosedInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeClosed));
+  this.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeLeaf = com_google_gwt_user_client_ui_AbstractImagePrototype_create__Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeLeafInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeLeaf));
+  this.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeOpen = com_google_gwt_user_client_ui_AbstractImagePrototype_create__Lcom_google_gwt_resources_client_ImageResource_2Lcom_google_gwt_user_client_ui_AbstractImagePrototype_2((com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator$treeOpenInitializer_$clinit__V() , com_geek_afric_client_view_Images_1en_1InlineClientBundleGenerator_treeOpen));
+}
+
+function com_google_gwt_user_client_ui_Tree$ImageAdapter(){
+}
+
+_ = com_google_gwt_user_client_ui_Tree$ImageAdapter_Tree$ImageAdapter__Lcom_google_gwt_user_client_ui_Tree$Resources_2V.prototype = com_google_gwt_user_client_ui_Tree$ImageAdapter.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_Tree$ImageAdapter_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1Tree$ImageAdapter_12_1classLit;
+}
+;
+_.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeClosed = null;
+_.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeLeaf = null;
+_.com_google_gwt_user_client_ui_Tree$ImageAdapter_treeOpen = null;
+function com_google_gwt_user_client_ui_TreeItem_$clinit__V(){
+  com_google_gwt_user_client_ui_TreeItem_$clinit__V = nullMethod;
+  com_google_gwt_user_client_ui_TreeItem_itemAnimation = new com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_TreeItem$TreeItemAnimation__V;
+  new com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_TreeItem$TreeItemImpl__V;
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$addItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, item){
+  (!!item.com_google_gwt_user_client_ui_TreeItem_parent || !!item.com_google_gwt_user_client_ui_TreeItem_tree) && (item.com_google_gwt_user_client_ui_TreeItem_parent?com_google_gwt_user_client_ui_TreeItem_$removeItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item.com_google_gwt_user_client_ui_TreeItem_parent, item):!!item.com_google_gwt_user_client_ui_TreeItem_tree && com_google_gwt_user_client_ui_Tree_$removeItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item.com_google_gwt_user_client_ui_TreeItem_tree, item));
+  com_google_gwt_user_client_ui_TreeItem_$insertItem__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2V(this$static, com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static), item);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(this$static, index){
+  if (index < 0 || index >= com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static)) {
+    return null;
+  }
+  return com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_TreeItem_children, index), Q$com_google_gwt_user_client_ui_TreeItem);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static){
+  if (!this$static.com_google_gwt_user_client_ui_TreeItem_children) {
+    return 0;
+  }
+  return this$static.com_google_gwt_user_client_ui_TreeItem_children.java_util_ArrayList_size;
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$getChildIndex__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static, child){
+  if (!this$static.com_google_gwt_user_client_ui_TreeItem_children) {
+    return -1;
+  }
+  return java_util_ArrayList_$indexOf__Ljava_util_ArrayList_2Ljava_lang_Object_2II(this$static.com_google_gwt_user_client_ui_TreeItem_children, child, 0);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$initChildren__Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static){
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$convertToFullNode__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static);
+  this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem = $doc.createElement($intern_190);
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(this$static.com_google_gwt_user_client_ui_UIObject_element, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem));
+  this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem.style[$intern_305] = $intern_327;
+  this$static.com_google_gwt_user_client_ui_TreeItem_children = new java_util_ArrayList_ArrayList__V;
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$insertItem__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2V(this$static, beforeIndex, item){
+  var beforeElem, childContainer, childCount, margin;
+  (!!item.com_google_gwt_user_client_ui_TreeItem_parent || !!item.com_google_gwt_user_client_ui_TreeItem_tree) && (item.com_google_gwt_user_client_ui_TreeItem_parent?com_google_gwt_user_client_ui_TreeItem_$removeItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item.com_google_gwt_user_client_ui_TreeItem_parent, item):!!item.com_google_gwt_user_client_ui_TreeItem_tree && com_google_gwt_user_client_ui_Tree_$removeItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item.com_google_gwt_user_client_ui_TreeItem_tree, item));
+  childCount = com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static);
+  if (beforeIndex < 0 || beforeIndex > childCount) {
+    throw new java_lang_IndexOutOfBoundsException_IndexOutOfBoundsException__V;
+  }
+  !this$static.com_google_gwt_user_client_ui_TreeItem_children && com_google_gwt_user_client_ui_TreeItem_$initChildren__Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static);
+  margin = this$static.com_google_gwt_user_client_ui_TreeItem_isRoot?0:16;
+  item.com_google_gwt_user_client_ui_UIObject_element.style['marginLeft'] = margin + (com_google_gwt_dom_client_Style$Unit_$clinit__V() , $intern_189);
+  childContainer = this$static.com_google_gwt_user_client_ui_TreeItem_isRoot?this$static.com_google_gwt_user_client_ui_TreeItem_tree.com_google_gwt_user_client_ui_UIObject_element:this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem;
+  if (beforeIndex == childCount) {
+    com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(childContainer, item.com_google_gwt_user_client_ui_UIObject_element);
+  }
+   else {
+    beforeElem = com_google_gwt_user_client_ui_TreeItem_$getChild__Lcom_google_gwt_user_client_ui_TreeItem_2ILcom_google_gwt_user_client_ui_TreeItem_2(this$static, beforeIndex).com_google_gwt_user_client_ui_UIObject_element;
+    com_google_gwt_dom_client_Node_$insertBefore__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(childContainer, item.com_google_gwt_user_client_ui_UIObject_element, beforeElem);
+  }
+  com_google_gwt_user_client_ui_TreeItem_$setParentItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item, this$static.com_google_gwt_user_client_ui_TreeItem_isRoot?null:this$static);
+  java_util_ArrayList_$add__Ljava_util_ArrayList_2ILjava_lang_Object_2V(this$static.com_google_gwt_user_client_ui_TreeItem_children, beforeIndex, item);
+  com_google_gwt_user_client_ui_TreeItem_$setTree__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_Tree_2V(item, this$static.com_google_gwt_user_client_ui_TreeItem_tree);
+  !this$static.com_google_gwt_user_client_ui_TreeItem_isRoot && this$static.com_google_gwt_user_client_ui_TreeItem_children.java_util_ArrayList_size == 1 && com_google_gwt_user_client_ui_TreeItem_$updateState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, false, false);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$removeItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, item){
+  var oldTree;
+  if (!this$static.com_google_gwt_user_client_ui_TreeItem_children || java_util_ArrayList_$indexOf__Ljava_util_ArrayList_2Ljava_lang_Object_2II(this$static.com_google_gwt_user_client_ui_TreeItem_children, item, 0) == -1) {
+    return;
+  }
+  oldTree = this$static.com_google_gwt_user_client_ui_TreeItem_tree;
+  com_google_gwt_user_client_ui_TreeItem_$setTree__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_Tree_2V(item, null);
+  this$static.com_google_gwt_user_client_ui_TreeItem_isRoot?com_google_gwt_dom_client_Node_$removeChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(oldTree.com_google_gwt_user_client_ui_UIObject_element, item.com_google_gwt_user_client_ui_UIObject_element):com_google_gwt_dom_client_Node_$removeChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem, item.com_google_gwt_user_client_ui_UIObject_element);
+  item.com_google_gwt_user_client_ui_TreeItem_parent = null;
+  java_util_ArrayList_$remove__Ljava_util_ArrayList_2Ljava_lang_Object_2Z(this$static.com_google_gwt_user_client_ui_TreeItem_children, item);
+  !this$static.com_google_gwt_user_client_ui_TreeItem_isRoot && this$static.com_google_gwt_user_client_ui_TreeItem_children.java_util_ArrayList_size == 0 && com_google_gwt_user_client_ui_TreeItem_$updateState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, false, false);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$setParentItem__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static, parent){
+  this$static.com_google_gwt_user_client_ui_TreeItem_parent = parent;
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$setSelected__Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, selected){
+  if (this$static.com_google_gwt_user_client_ui_TreeItem_selected == selected) {
+    return;
+  }
+  this$static.com_google_gwt_user_client_ui_TreeItem_selected = selected;
+  com_google_gwt_user_client_ui_UIObject_setStyleName__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2ZV(this$static.com_google_gwt_user_client_ui_TreeItem_contentElem, 'gwt-TreeItem-selected', selected);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$setState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, open){
+  if (open && com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static) == 0) {
+    return;
+  }
+  if (this$static.com_google_gwt_user_client_ui_TreeItem_open != open) {
+    this$static.com_google_gwt_user_client_ui_TreeItem_open = open;
+    com_google_gwt_user_client_ui_TreeItem_$updateState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, true, true);
+    !!this$static.com_google_gwt_user_client_ui_TreeItem_tree && com_google_gwt_user_client_ui_Tree_$fireStateChanged__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_TreeItem_tree, this$static, open);
+  }
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$setTree__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_Tree_2V(this$static, newTree){
+  var i, n;
+  if (this$static.com_google_gwt_user_client_ui_TreeItem_tree == newTree) {
+    return;
+  }
+  !!this$static.com_google_gwt_user_client_ui_TreeItem_tree && this$static.com_google_gwt_user_client_ui_TreeItem_tree.com_google_gwt_user_client_ui_Tree_curSelection == this$static && com_google_gwt_user_client_ui_Tree_$setSelectedItem__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_TreeItem_tree, null);
+  this$static.com_google_gwt_user_client_ui_TreeItem_tree = newTree;
+  for (i = 0 , n = com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static); i < n; ++i) {
+    com_google_gwt_user_client_ui_TreeItem_$setTree__Lcom_google_gwt_user_client_ui_TreeItem_2Lcom_google_gwt_user_client_ui_Tree_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_TreeItem_children, i), Q$com_google_gwt_user_client_ui_TreeItem), newTree);
+  }
+  com_google_gwt_user_client_ui_TreeItem_$updateState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, false, true);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$updateState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, animate, updateTreeSelection){
+  if (!this$static.com_google_gwt_user_client_ui_TreeItem_tree || !this$static.com_google_gwt_user_client_ui_TreeItem_tree.com_google_gwt_user_client_ui_Widget_attached) {
+    return;
+  }
+  if (com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static) == 0) {
+    !!this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem && com_google_gwt_user_client_ui_UIObject_setVisible__Lcom_google_gwt_dom_client_Element_2ZV(this$static.com_google_gwt_user_client_ui_TreeItem_childSpanElem, false);
+    com_google_gwt_user_client_ui_Tree_$showLeafImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static.com_google_gwt_user_client_ui_TreeItem_tree, this$static);
+    return;
+  }
+  animate && !!this$static.com_google_gwt_user_client_ui_TreeItem_tree && this$static.com_google_gwt_user_client_ui_TreeItem_tree.com_google_gwt_user_client_ui_Widget_attached?com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_$setItemState__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(com_google_gwt_user_client_ui_TreeItem_itemAnimation, this$static):com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_$setItemState__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(com_google_gwt_user_client_ui_TreeItem_itemAnimation, this$static);
+  this$static.com_google_gwt_user_client_ui_TreeItem_open?com_google_gwt_user_client_ui_Tree_$showOpenImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static.com_google_gwt_user_client_ui_TreeItem_tree, this$static):com_google_gwt_user_client_ui_Tree_$showClosedImage__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static.com_google_gwt_user_client_ui_TreeItem_tree, this$static);
+  updateTreeSelection && com_google_gwt_user_client_ui_Tree_$maybeUpdateSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_TreeItem_tree, this$static, this$static.com_google_gwt_user_client_ui_TreeItem_open);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$updateStateRecursive__Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static){
+  com_google_gwt_user_client_ui_TreeItem_$updateStateRecursiveHelper__Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static);
+  com_google_gwt_user_client_ui_Tree_$maybeUpdateSelection__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static.com_google_gwt_user_client_ui_TreeItem_tree, this$static, this$static.com_google_gwt_user_client_ui_TreeItem_open);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_$updateStateRecursiveHelper__Lcom_google_gwt_user_client_ui_TreeItem_2V(this$static){
+  var i, n;
+  com_google_gwt_user_client_ui_TreeItem_$updateState__Lcom_google_gwt_user_client_ui_TreeItem_2ZZV(this$static, false, false);
+  for (i = 0 , n = com_google_gwt_user_client_ui_TreeItem_$getChildCount__Lcom_google_gwt_user_client_ui_TreeItem_2I(this$static); i < n; ++i) {
+    com_google_gwt_user_client_ui_TreeItem_$updateStateRecursiveHelper__Lcom_google_gwt_user_client_ui_TreeItem_2V(com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(java_util_ArrayList_$get__Ljava_util_ArrayList_2ILjava_lang_Object_2(this$static.com_google_gwt_user_client_ui_TreeItem_children, i), Q$com_google_gwt_user_client_ui_TreeItem));
+  }
+}
+
+function com_google_gwt_user_client_ui_TreeItem_TreeItem__Ljava_lang_String_2V(html){
+  com_google_gwt_user_client_ui_TreeItem_$clinit__V();
+  com_google_gwt_user_client_ui_TreeItem_TreeItem__ZV.call(this, false);
+  com_google_gwt_dom_client_Element_$setInnerHTML__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2V(this.com_google_gwt_user_client_ui_TreeItem_contentElem, $intern_0);
+  com_google_gwt_dom_client_Element_$setInnerHTML__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2V(this.com_google_gwt_user_client_ui_TreeItem_contentElem, html);
+}
+
+function com_google_gwt_user_client_ui_TreeItem_TreeItem__ZV(isRoot){
+  com_google_gwt_user_client_ui_TreeItem_$clinit__V();
+  var elem;
+  this.com_google_gwt_user_client_ui_TreeItem_isRoot = isRoot;
+  elem = com_google_gwt_user_client_ui_TreeItem_BASE_1BARE_1ELEM.cloneNode(true);
+  this.com_google_gwt_user_client_ui_UIObject_element = elem;
+  this.com_google_gwt_user_client_ui_TreeItem_contentElem = com_google_gwt_dom_client_DOMImpl_$getFirstChildElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(elem);
+  com_google_gwt_dom_client_Element_$setAttribute__Lcom_google_gwt_dom_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(this.com_google_gwt_user_client_ui_TreeItem_contentElem, $intern_324, com_google_gwt_dom_client_Document_$createUniqueId__Lcom_google_gwt_dom_client_Document_2Ljava_lang_String_2($doc));
+  isRoot && com_google_gwt_user_client_ui_TreeItem_$initChildren__Lcom_google_gwt_user_client_ui_TreeItem_2V(this);
+}
+
+function com_google_gwt_user_client_ui_TreeItem(){
+}
+
+_ = com_google_gwt_user_client_ui_TreeItem_TreeItem__ZV.prototype = com_google_gwt_user_client_ui_TreeItem_TreeItem__Ljava_lang_String_2V.prototype = com_google_gwt_user_client_ui_TreeItem.prototype = new com_google_gwt_user_client_ui_UIObject;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_TreeItem_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1TreeItem_12_1classLit;
+}
+;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$com_google_gwt_user_client_ui_HasVisibility, Q$com_google_gwt_user_client_ui_TreeItem, Q$com_google_gwt_user_client_ui_UIObject]);
+_.com_google_gwt_user_client_ui_TreeItem_childSpanElem = null;
+_.com_google_gwt_user_client_ui_TreeItem_children = null;
+_.com_google_gwt_user_client_ui_TreeItem_contentElem = null;
+_.com_google_gwt_user_client_ui_TreeItem_imageHolder = null;
+_.com_google_gwt_user_client_ui_TreeItem_isRoot = false;
+_.com_google_gwt_user_client_ui_TreeItem_open = false;
+_.com_google_gwt_user_client_ui_TreeItem_parent = null;
+_.com_google_gwt_user_client_ui_TreeItem_selected = false;
+_.com_google_gwt_user_client_ui_TreeItem_tree = null;
+var com_google_gwt_user_client_ui_TreeItem_BASE_1BARE_1ELEM = null, com_google_gwt_user_client_ui_TreeItem_BASE_1INTERNAL_1ELEM = null, com_google_gwt_user_client_ui_TreeItem_itemAnimation;
+function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_$onUpdate__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_2DV(this$static, progress){
+  var height, scrollWidth;
+  height = com_google_gwt_lang_Cast_round_1int__DI(progress * this$static.com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_scrollHeight);
+  height = height > 1?height:1;
+  com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(null.nullField, $intern_179, height + $intern_189);
+  scrollWidth = null.nullMethod();
+  com_google_gwt_user_client_DOM_setStyleAttribute__Lcom_google_gwt_user_client_Element_2Ljava_lang_String_2Ljava_lang_String_2V(null.nullField, $intern_177, scrollWidth + $intern_189);
+}
+
+function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_$setItemState__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_2Lcom_google_gwt_user_client_ui_TreeItem_2ZV(this$static, item){
+  com_google_gwt_animation_client_Animation_$cancel__Lcom_google_gwt_animation_client_Animation_2V(this$static);
+  com_google_gwt_user_client_ui_UIObject_setVisible__Lcom_google_gwt_dom_client_Element_2ZV(item.com_google_gwt_user_client_ui_TreeItem_childSpanElem, item.com_google_gwt_user_client_ui_TreeItem_open);
+}
+
+function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_TreeItem$TreeItemAnimation__V(){
+  com_google_gwt_animation_client_Animation_Animation__V.call(this);
+}
+
+function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation(){
+}
+
+_ = com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_TreeItem$TreeItemAnimation__V.prototype = com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation.prototype = new com_google_gwt_animation_client_Animation;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1TreeItem$TreeItemAnimation_12_1classLit;
+}
+;
+_.onComplete__V = function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_onComplete__V(){
+}
+;
+_.onStart__V = function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_onStart__V(){
+  this.com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_scrollHeight = 0;
+  null.nullField.style[$intern_192] = $intern_193;
+  com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_$onUpdate__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_2DV(this, (1 + Math.cos(3.141592653589793)) / 2);
+  com_google_gwt_user_client_ui_UIObject_setVisible__Lcom_google_gwt_dom_client_Element_2ZV(null.nullField, true);
+  this.com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_scrollHeight = null.nullMethod();
+}
+;
+_.onUpdate__DV = function com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_onUpdate__DV(progress){
+  com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_$onUpdate__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_2DV(this, progress);
+}
+;
+_.com_google_gwt_user_client_ui_TreeItem$TreeItemAnimation_scrollHeight = 0;
+function com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$convertToFullNode__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2Lcom_google_gwt_user_client_ui_TreeItem_2V(item){
+  var itemTable, tdContent, tdImg, tr;
+  if (!item.com_google_gwt_user_client_ui_TreeItem_imageHolder) {
+    itemTable = (com_google_gwt_user_client_ui_TreeItem_$clinit__V() , com_google_gwt_user_client_ui_TreeItem_BASE_1INTERNAL_1ELEM).cloneNode(true);
+    com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(item.com_google_gwt_user_client_ui_UIObject_element, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(itemTable));
+    tr = com_google_gwt_dom_client_DOMImpl_$getFirstChildElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_dom_client_DOMImpl_$getFirstChildElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(itemTable));
+    tdImg = com_google_gwt_dom_client_DOMImpl_$getFirstChildElement__Lcom_google_gwt_dom_client_DOMImpl_2Lcom_google_gwt_dom_client_Element_2Lcom_google_gwt_dom_client_Element_2(tr);
+    tdContent = tdImg.nextSibling;
+    item.com_google_gwt_user_client_ui_UIObject_element.style[$intern_311] = $intern_300;
+    com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(tdContent, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(item.com_google_gwt_user_client_ui_TreeItem_contentElem));
+    item.com_google_gwt_user_client_ui_TreeItem_imageHolder = tdImg;
+  }
+}
+
+function com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_TreeItem$TreeItemImpl__V(){
+  var com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0, com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tbody_0, com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdContent_0, com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdImg_0, com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tr_0;
+  com_google_gwt_user_client_ui_TreeItem_$clinit__V();
+  com_google_gwt_user_client_ui_TreeItem_BASE_1INTERNAL_1ELEM = $doc.createElement($intern_328);
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0 = $doc.createElement($intern_190);
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tbody_0 = $doc.createElement($intern_329);
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tr_0 = $doc.createElement($intern_330);
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdImg_0 = $doc.createElement($intern_307);
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdContent_0 = $doc.createElement($intern_307);
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(com_google_gwt_user_client_ui_TreeItem_BASE_1INTERNAL_1ELEM, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tbody_0));
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tbody_0, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tr_0));
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tr_0, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdImg_0));
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tr_0, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdContent_0));
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdImg_0.style[$intern_331] = $intern_332;
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdContent_0.style[$intern_331] = $intern_332;
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_tdContent_0, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0));
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0.style[$intern_302] = 'inline';
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0[$intern_205] = 'gwt-TreeItem';
+  com_google_gwt_user_client_ui_TreeItem_BASE_1INTERNAL_1ELEM.style[$intern_305] = $intern_327;
+  com_google_gwt_user_client_ui_TreeItem_BASE_1BARE_1ELEM = $doc.createElement($intern_190);
+  com_google_gwt_user_client_ui_TreeItem_BASE_1BARE_1ELEM.style[$intern_311] = '3px';
+  com_google_gwt_dom_client_Node_$appendChild__Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2Lcom_google_gwt_dom_client_Node_2(com_google_gwt_user_client_ui_TreeItem_BASE_1BARE_1ELEM, com_google_gwt_user_client_ui_PotentialElement_$resolve__Lcom_google_gwt_user_client_ui_PotentialElement_2Lcom_google_gwt_dom_client_Element_2(com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0));
+  com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_$initializeClonableElements__Lcom_google_gwt_user_client_ui_TreeItem$TreeItemImpl_2V_contentElem_0.setAttribute($intern_320, $intern_321);
+}
+
+function com_google_gwt_user_client_ui_TreeItem$TreeItemImpl(){
+}
+
+_ = com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_TreeItem$TreeItemImpl__V.prototype = com_google_gwt_user_client_ui_TreeItem$TreeItemImpl.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_TreeItem$TreeItemImpl_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1TreeItem$TreeItemImpl_12_1classLit;
+}
+;
+function com_google_gwt_user_client_ui_WidgetCollection_$get__Lcom_google_gwt_user_client_ui_WidgetCollection_2ILcom_google_gwt_user_client_ui_Widget_2(this$static, index){
+  if (index < 0 || index >= this$static.com_google_gwt_user_client_ui_WidgetCollection_size) {
+    throw new java_lang_IndexOutOfBoundsException_IndexOutOfBoundsException__V;
+  }
+  return this$static.com_google_gwt_user_client_ui_WidgetCollection_array[index];
+}
+
+function com_google_gwt_user_client_ui_WidgetIterators_copyWidgetArray___3Lcom_google_gwt_user_client_ui_Widget_2_3Lcom_google_gwt_user_client_ui_Widget_2(widgets){
+  var clone, i;
+  clone = com_google_gwt_lang_Array_initDim__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2IIILcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Lcom_1google_1gwt_1user_1client_1ui_1Widget_12_1classLit, makeCastMap([Q$java_io_Serializable, Q$java_lang_Object_$1]), Q$com_google_gwt_user_client_ui_Widget, widgets.length, 0);
+  for (i = 0; i < widgets.length; ++i) {
+    com_google_gwt_lang_Array_setCheck__Lcom_google_gwt_lang_Array_2ILjava_lang_Object_2Ljava_lang_Object_2(clone, i, widgets[i]);
+  }
+  return clone;
+}
+
+function com_google_gwt_user_client_ui_WidgetIterators$1_$gotoNextIndex__Lcom_google_gwt_user_client_ui_WidgetIterators$1_2V(this$static){
+  ++this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index;
+  while (this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index < this$static.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained.length) {
+    if (this$static.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained[this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index]) {
+      return;
+    }
+    ++this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index;
+  }
+}
+
+function com_google_gwt_user_client_ui_WidgetIterators$1_$next__Lcom_google_gwt_user_client_ui_WidgetIterators$1_2Lcom_google_gwt_user_client_ui_Widget_2(this$static){
+  var w;
+  if (this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index >= this$static.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained.length) {
+    throw new java_util_NoSuchElementException_NoSuchElementException__V;
+  }
+  this$static.com_google_gwt_user_client_ui_WidgetIterators$1_last = this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index;
+  w = this$static.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained[this$static.com_google_gwt_user_client_ui_WidgetIterators$1_index];
+  com_google_gwt_user_client_ui_WidgetIterators$1_$gotoNextIndex__Lcom_google_gwt_user_client_ui_WidgetIterators$1_2V(this$static);
+  return w;
+}
+
+function com_google_gwt_user_client_ui_WidgetIterators$1_WidgetIterators$1__V(val$contained, val$container){
+  this.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained = val$contained;
+  this.com_google_gwt_user_client_ui_WidgetIterators$1_val$container = val$container;
+  this.com_google_gwt_user_client_ui_WidgetIterators$1_widgets = this.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained;
+  com_google_gwt_user_client_ui_WidgetIterators$1_$gotoNextIndex__Lcom_google_gwt_user_client_ui_WidgetIterators$1_2V(this);
+}
+
+function com_google_gwt_user_client_ui_WidgetIterators$1(){
+}
+
+_ = com_google_gwt_user_client_ui_WidgetIterators$1_WidgetIterators$1__V.prototype = com_google_gwt_user_client_ui_WidgetIterators$1.prototype = new java_lang_Object;
+_.getClass__Ljava_lang_Class_2$ = function com_google_gwt_user_client_ui_WidgetIterators$1_getClass__Ljava_lang_Class_2(){
+  return com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1WidgetIterators$1_12_1classLit;
+}
+;
+_.hasNext__Z = function com_google_gwt_user_client_ui_WidgetIterators$1_hasNext__Z(){
+  return this.com_google_gwt_user_client_ui_WidgetIterators$1_index < this.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained.length;
+}
+;
+_.next__Ljava_lang_Object_2 = function com_google_gwt_user_client_ui_WidgetIterators$1_next__Ljava_lang_Object_2(){
+  return com_google_gwt_user_client_ui_WidgetIterators$1_$next__Lcom_google_gwt_user_client_ui_WidgetIterators$1_2Lcom_google_gwt_user_client_ui_Widget_2(this);
+}
+;
+_.remove__V = function com_google_gwt_user_client_ui_WidgetIterators$1_remove__V(){
+  if (this.com_google_gwt_user_client_ui_WidgetIterators$1_last < 0) {
+    throw new java_lang_IllegalStateException_IllegalStateException__V;
+  }
+  if (!this.com_google_gwt_user_client_ui_WidgetIterators$1_widgetsWasCopied) {
+    this.com_google_gwt_user_client_ui_WidgetIterators$1_widgets = com_google_gwt_user_client_ui_WidgetIterators_copyWidgetArray___3Lcom_google_gwt_user_client_ui_Widget_2_3Lcom_google_gwt_user_client_ui_Widget_2(this.com_google_gwt_user_client_ui_WidgetIterators$1_widgets);
+    this.com_google_gwt_user_client_ui_WidgetIterators$1_widgetsWasCopied = true;
+  }
+  com_google_gwt_user_client_ui_Tree_$remove__Lcom_google_gwt_user_client_ui_Tree_2Lcom_google_gwt_user_client_ui_Widget_2Z(this.com_google_gwt_user_client_ui_WidgetIterators$1_val$container, this.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained[this.com_google_gwt_user_client_ui_WidgetIterators$1_last]);
+  this.com_google_gwt_user_client_ui_WidgetIterators$1_last = -1;
+}
+;
+_.com_google_gwt_user_client_ui_WidgetIterators$1_index = -1;
+_.com_google_gwt_user_client_ui_WidgetIterators$1_last = -1;
+_.com_google_gwt_user_client_ui_WidgetIterators$1_val$contained = null;
+_.com_google_gwt_user_client_ui_WidgetIterators$1_val$container = null;
+_.com_google_gwt_user_client_ui_WidgetIterators$1_widgetsWasCopied = false;
+function com_google_gwt_user_client_ui_impl_ClippedImagePrototype_$createImage__Lcom_google_gwt_user_client_ui_impl_ClippedImagePrototype_2Lcom_google_gwt_user_client_ui_Image_2(this$static){
+  return new com_google_gwt_user_client_ui_Image_Image__Lcom_google_gwt_safehtml_shared_SafeUri_2IIIIV(this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_url, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_left, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_top, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_width, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_height);
+}
+
+function com_google_gwt_user_client_ui_impl_ClippedImagePrototype_$getSafeHtml__Lcom_google_gwt_user_client_ui_impl_ClippedImagePrototype_2Lcom_google_gwt_safehtml_shared_SafeHtml_2(this$static){
+  return com_google_gwt_user_client_ui_impl_ClippedImageImpl_$getSafeHtml__Lcom_google_gwt_user_client_ui_impl_ClippedImageImpl_2Lcom_google_gwt_safehtml_shared_SafeUri_2IIIILcom_google_gwt_safehtml_shared_SafeHtml_2(this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_url, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_left, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_top, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_width, this$static.com_google_gwt_user_client_ui_impl_ClippedImagePrototype_height);
+}
+
+function java_lang_Integer_Integer__Ljava_lang_String_2V(s){
+  this.java_lang_Integer_value = java_lang_Number__1_1parseAndValidateInt__Ljava_lang_String_2IIII(s);
+}
+
+_ = java_lang_Integer_Integer__Ljava_lang_String_2V.prototype = java_lang_Integer.prototype;
+function java_lang_Math_max__DDD(x){
+  return x > 0?x:0;
+}
+
+_ = java_sql_Date.prototype;
+_.getHours__I = function java_sql_Date_getHours__I(){
+  throw new java_lang_IllegalArgumentException_IllegalArgumentException__V;
+}
+;
+_.getMinutes__I = function java_sql_Date_getMinutes__I(){
+  throw new java_lang_IllegalArgumentException_IllegalArgumentException__V;
+}
+;
+_ = java_sql_Time.prototype;
+_.getDate__I = function java_sql_Time_getDate__I(){
+  throw new java_lang_IllegalArgumentException_IllegalArgumentException__V;
+}
+;
+_.getMonth__I = function java_sql_Time_getMonth__I(){
+  throw new java_lang_IllegalArgumentException_IllegalArgumentException__V;
+}
+;
+_.getYear__I = function java_sql_Time_getYear__I(){
+  throw new java_lang_IllegalArgumentException_IllegalArgumentException__V;
+}
+;
+var com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1AppManager$14_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_131, 'AppManager$14'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1AppManager$14$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_131, 'AppManager$14$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$2_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$2'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$3_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$3'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$4_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$4'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$4$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$4$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$4$2_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$4$2'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$5_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$5'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$6_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$6'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$1$7_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$1$7'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$2_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$2'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$3_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$3'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$4_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$4'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1presenter_1MailPresenter$5_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_194, 'MailPresenter$5'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1FieldVerifier$6_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'FieldVerifier$6'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$2_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$2'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$3_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$3'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$4_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$4'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$5_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$5'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$6_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$6'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$7_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$7'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$8_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$8'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$9_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$9'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Mailboxes_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Mailboxes'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Mailboxes$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Mailboxes$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Message'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Message$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$2_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Message$2'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$3_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Message$3'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1geek_1afric_1client_1view_1MailView$Message$4_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_195, 'MailView$Message$4'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1event_1logical_1shared_1OpenEvent_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_149, 'OpenEvent'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1Layout_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_333, 'Layout'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1Layout$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_333, 'Layout$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1Layout$Layer_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_333, 'Layout$Layer'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1layout_1client_1LayoutImpl_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_333, 'LayoutImpl'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'DockLayoutPanel'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$Direction_12_1classLit = java_lang_Class_createForEnum__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2Ljava_lang_Class_2($intern_145, 'DockLayoutPanel$Direction', com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1Enum_12_1classLit, com_google_gwt_user_client_ui_DockLayoutPanel$Direction_values___3Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2), com_google_gwt_lang_ClassLiteralHolder__13Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$Direction_12_1classLit = java_lang_Class_createForArray__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_153, 'DockLayoutPanel$Direction;'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1LayoutCommand_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'LayoutCommand'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$DockAnimateCommand_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'DockLayoutPanel$DockAnimateCommand'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1DockLayoutPanel$LayoutData_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'DockLayoutPanel$LayoutData'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1HTMLTable$Cell_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'HTMLTable$Cell'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1LayoutCommand$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'LayoutCommand$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1LayoutPanel_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'LayoutPanel'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1ListenerWrapper$WrappedTableListener_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'ListenerWrapper$WrappedTableListener'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1ListenerWrapper$WrappedTreeListener_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'ListenerWrapper$WrappedTreeListener'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1ResizeComposite_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'ResizeComposite'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'SplitLayoutPanel'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$Splitter_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'SplitLayoutPanel$Splitter'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$HSplitter_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'SplitLayoutPanel$HSplitter'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$Splitter$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'SplitLayoutPanel$Splitter$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1SplitLayoutPanel$VSplitter_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'SplitLayoutPanel$VSplitter'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel$1'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$2_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel$2'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$3_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel$3'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$4_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel$4'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$Header_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel$Header'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1StackLayoutPanel$LayoutData_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'StackLayoutPanel$LayoutData'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1Tree_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'Tree'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1Tree$ImageAdapter_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'Tree$ImageAdapter'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1TreeItem_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'TreeItem'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1TreeItem$TreeItemAnimation_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'TreeItem$TreeItemAnimation'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1TreeItem$TreeItemImpl_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'TreeItem$TreeItemImpl'), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1user_1client_1ui_1WidgetIterators$1_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_Class_2Ljava_lang_Class_2($intern_145, 'WidgetIterators$1');
+$entry(com_google_gwt_core_client_impl_AsyncFragmentLoader_onLoad__IV)(5);
